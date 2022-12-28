@@ -10,3 +10,6 @@ css: build/styles.css
 
 build/styles.css: src/styles.css
 	cp src/styles.css build/styles.css
+
+pages:
+	ghp-import -n -f -p build
