@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style> @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap'); </style>
+
+  <!-- Style -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="app">
+    <div id="app-header">
+      <button id="command-menu" class="default-button disabled">Меню</button>
+      <button id="command-clear" class="default-button severity-warning">Очистить</button>
+    </div>
+    <div id="mode-chooser">
+      <p class="caption">Задайте оригинальный рецепт. Когда он готов, выберете &laquo;Пропорция&raquo; и введите новое количество ингредиента для пересчёта всего рецепта.</p>
+      <div class="toggle-wide">
+        <button id="command-original-mode" class="left toggle-ison">Оригинал</button>
+        <button id="command-scale-mode" class="right toggle-isoff">Пропорция</button>
+      </div>
+    </div>
+    <div id="recipe-table">
+      <div class="recipe-table-header">
+        <div class="recipe-table-header-name">Ингредиент</div>
+        <div class="recipe-table-header-amount">Кол-во</div>
+        <div class="recipe-table-header-unit">Единица</div>
+      </div>
+      <!-- Ingredients for testing -->
+      <!--
+      <div class="ingredient">
+        <button class="ingredient-remove"></button>
+        <input class="ingredient-name" type="text" value="Мука" />
+        <input class="ingredient-amount" type="text" value="1000" />
+        <input class="ingredient-unit" type="text" value="ст. лжк" />
+      </div>
+      <div class="ingredient">
+        <button class="ingredient-remove"></button>
+        <input class="ingredient-name" type="text" value="Масло" />
+        <input class="ingredient-amount" type="text" value="80" />
+        <input class="ingredient-unit" type="text" value="мл" />
+      </div>
+      <div class="ingredient">
+        <button class="ingredient-remove"></button>
+        <input class="ingredient-name" type="text" value="Яйцо" />
+        <input class="ingredient-amount" type="text" value="4" />
+        <input class="ingredient-unit" type="text" value="шт" />
+      </div>
+      <div class="ingredient">
+        <button class="ingredient-remove"></button>
+        <input class="ingredient-name" type="text" value="Соль" />
+        <input class="ingredient-amount" type="text" value="4" />
+        <input class="ingredient-unit" type="text" value="ч. лжк" />
+      </div>
+      <div class="ingredient">
+        <button class="ingredient-remove"></button>
+        <input class="ingredient-name" type="text" value="Какао" />
+        <input class="ingredient-amount" type="text" value="100" />
+        <input class="ingredient-unit" type="text" value="гр" />
+      </div>
+      <div class="ingredient">
+        <button class="ingredient-remove"></button>
+        <input class="ingredient-name" type="text" value="Сахар" />
+        <input class="ingredient-amount" type="text" value="1" />
+        <input class="ingredient-unit" type="text" value="стакан" />
+      </div>
+      <div class="ingredient">
+        <button class="ingredient-remove"></button>
+        <input class="ingredient-name" type="text" value="Дрожжи" />
+        <input class="ingredient-amount" type="text" value="1.5" />
+        <input class="ingredient-unit" type="text" value="пакет" />
+      </div>
+      -->
+    </div>
+    <button class="ingredient-add"><span></span></button>
+  </div>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
