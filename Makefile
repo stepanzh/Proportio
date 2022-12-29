@@ -1,15 +1,23 @@
-build/index.html: src/index.html css javascript
-	cp src/index.html build/index.html
+SOURCE_DIR = src
+DEBUG_DIR = debug
+DEPLOY_DIR = deploy
 
-javascript: build/script.js
 
-build/script.js: src/script.js
-	uglifyjs src/script.js > build/script.js
+debug: $(SOURCE_DIR)/index.html $(SOURCE_DIR)/script.js $(SOURCE_DIR)/styles.css
+	mkdir -p $(DEBUG_DIR)
+	cp $(SOURCE_DIR)/index.html $(DEBUG_DIR)
+	cp $(SOURCE_DIR)/styles.css $(DEBUG_DIR)
+	cp $(SOURCE_DIR)/script.js $(DEBUG_DIR)
 
-css: build/styles.css
+deploy: debug
+	mkdir -p $(DEPLOY_DIR)
+	cp $(DEBUG_DIR)/index.html $(DEPLOY_DIR)
+	cp $(DEBUG_DIR)/styles.css $(DEPLOY_DIR)
+	uglifyjs $(DEBUG_DIR)/script.js > $(DEPLOY_DIR)/script.js
 
-build/styles.css: src/styles.css
-	cp src/styles.css build/styles.css
+pages: deploy
+	ghp-import -n -f -p $(DEPLOY_DIR)
 
-pages:
-	ghp-import -n -f -p build
+clear:
+	rm -rf $(DEBUG_DIR)
+	rm -rf $(DEPLOY_DIR)
