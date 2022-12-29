@@ -34,6 +34,38 @@ class JqueryCDN:
         )
 
 
+@dataclass
+class ExternalLinks:
+    payment:str = "https://www.tinkoff.ru/cf/7T9naweBKz8"
+    repository:str = "https://github.com/stepanzh/Proportio"
+
+
+@dataclass
+class Contact:
+    firstname:str = ""
+    secondname:str = ""
+    telegram:str = ""
+    github:str = ""
+
+@dataclass
+class ProjectContacs:
+    Stepan:Contact = Contact(
+        firstname="Степан",
+        secondname="Захаров",
+        telegram="https://t.me/red_deer",
+        github="https://github.com/stepanzh",
+    )
+    Alexandra:Contact = Contact(
+        firstname="Александра",
+        secondname="Кобец",
+        telegram="https://t.me/kobets_dez",
+    )
+    Mariya:Contact = Contact(
+        firstname="Мария",
+        secondname="Лукьянова",
+    )
+
+
 def main(path, mode):
     if not path:
         ioin = sys.stdin
@@ -48,6 +80,8 @@ def main(path, mode):
     template = jinja2.Template(template_html)
     rendered = template.render({
         "jquery": jquery,
+        "links": ExternalLinks(),
+        "contacts": ProjectContacs(),
     })
 
     print(rendered)
