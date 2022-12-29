@@ -39,10 +39,10 @@ function Quantity(amount = 0, unit = ""){
         }
     }
 
-    this.$amount = $('<input class="ingredient-amount">')
+    this.$amount = $('<input class="ingredient-amount" aria-label="количество">')
         .on("input", _onAmountChanged(this))
         .val(this.amount);
-    this.$unit = $('<input class="ingredient-unit">')
+    this.$unit = $('<input class="ingredient-unit" aria-label="единица измерения">')
         .on("input", _onUnitChanged(this))
         .val(this.unit);
 }
@@ -58,8 +58,8 @@ function Item(name = "", quantity = new Quantity(), id = 0){
         }
     }
 
-    this.$remove = $('<button class="ingredient-remove"></button>');
-    this.$name = $('<input class="ingredient-name">')
+    this.$remove = $('<button class="ingredient-remove" aria-label="удалить ингредиент"></button>');
+    this.$name = $('<input class="ingredient-name" aria-label="название ингредиента">')
         .on("input", _onNameChanged(this))
         .val(this.name);
     this.$item = $(`<div class="ingredient" id="original-item-${id}"></div>`)
@@ -74,7 +74,7 @@ function ScalableQuantity(amount = 0, original_amount = 0, unit = ""){
     this.original_amount = original_amount;
     this.unit = unit;
 
-    this.$amount = $('<input class="ingredient-amount">')
+    this.$amount = $('<input class="ingredient-amount" aria-label="количество">')
         .val(this.amount);
     this.$unit = $(`<p class="ingredient-unit">${this.unit}</p>`);
 }
