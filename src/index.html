@@ -33,24 +33,36 @@
 <body>
   <div id="app">
     <div id="app-header">
-      <button id="command-menu" class="default-button disabled" aria-label="меню программы">Меню</button>
-      <button id="command-clear" class="default-button severity-warning" aria-label="очистить таблицу">Очистить</button>
+      <nav id="recipe-nav">
+        <button id="command-menu" class="default-button" aria-label="меню программы">Меню</button>
+        <button id="command-clear" class="default-button severity-warning" aria-label="очистить таблицу">Очистить</button>
+      </nav>
+      <nav id="menu-nav">
+        <button id="command-menu-back" class="default-button" aria-label="вернуться к приложению">Назад</button>
+      </nav>
     </div>
-    <div id="mode-chooser">
-      <p class="caption">Задайте оригинальный рецепт. Когда он готов, выберите &laquo;Пропорция&raquo; и введите новое количество ингредиента для пересчёта всего рецепта.</p>
-      <div class="toggle-wide">
-        <button id="command-original-mode" class="left toggle-ison">Оригинал</button>
-        <button id="command-scale-mode" class="right toggle-isoff">Пропорция</button>
-      </div>
+    <div id="app-shell">
+      <section id="page-main">
+        <div id="mode-chooser">
+          <p class="caption">Задайте оригинальный рецепт. Когда он готов, выберите &laquo;Пропорция&raquo; и введите новое количество ингредиента для пересчёта всего рецепта.</p>
+          <div class="toggle-wide">
+            <button id="command-original-mode" class="left toggle-ison">Оригинал</button>
+            <button id="command-scale-mode" class="right toggle-isoff">Пропорция</button>
+          </div>
+        </div>
+        <div id="recipe-table">
+          <div class="recipe-table-header">
+            <div class="recipe-table-header-name">Ингредиент</div>
+            <div class="recipe-table-header-amount">Кол-во</div>
+            <div class="recipe-table-header-unit">Единица</div>
+          </div>
+        </div>
+        <button class="ingredient-add" aria-label="добавить ингредиент"><span></span></button>
+      </section>
+      <section id="page-menu">
+        <header>Меню</header>
+      </section>
     </div>
-    <div id="recipe-table">
-      <div class="recipe-table-header">
-        <div class="recipe-table-header-name">Ингредиент</div>
-        <div class="recipe-table-header-amount">Кол-во</div>
-        <div class="recipe-table-header-unit">Единица</div>
-      </div>
-    </div>
-    <button class="ingredient-add" aria-label="добавить ингредиент"><span></span></button>
   </div>
   <script type="text/javascript" src="script.js"></script>
 </body>

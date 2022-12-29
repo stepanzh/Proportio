@@ -56,11 +56,11 @@ button:hover {
   color: var(--red-0-color);
 }
 
-#command-menu {
+nav > :first-child {
   margin-left: calc( -1 * var(--ui-padding));
 }
 
-#command-clear {
+nav > :last-child:not(:first-child) {
   float: right;
   margin-right: calc( -1 * var(--ui-padding));
 }
@@ -271,6 +271,13 @@ p.ingredient-name {
 
 .ingredient-add.disabled span {
   color: var(--ui-gray-3-color);
+}
+
+/* App initial paging state */
+#menu-nav,
+#page-menu
+{
+  display: none;
 }
 
 
