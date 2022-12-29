@@ -13,12 +13,14 @@
 
   <!-- Jquery -->
   <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+
+  <title>Proportio</title>
 </head>
 <body>
   <div id="app">
     <div id="app-header">
-      <button id="command-menu" class="default-button disabled">Меню</button>
-      <button id="command-clear" class="default-button severity-warning">Очистить</button>
+      <button id="command-menu" class="default-button disabled" aria-label="меню программы">Меню</button>
+      <button id="command-clear" class="default-button severity-warning" aria-label="очистить таблицу">Очистить</button>
     </div>
     <div id="mode-chooser">
       <p class="caption">Задайте оригинальный рецепт. Когда он готов, выберете &laquo;Пропорция&raquo; и введите новое количество ингредиента для пересчёта всего рецепта.</p>
@@ -34,7 +36,7 @@
         <div class="recipe-table-header-unit">Единица</div>
       </div>
     </div>
-    <button class="ingredient-add"><span></span></button>
+    <button class="ingredient-add" aria-label="добавить ингредиент"><span></span></button>
   </div>
   <script type="text/javascript" src="script.js"></script>
 </body>
