@@ -3,6 +3,8 @@ DEBUG_DIR = debug
 DEPLOY_DIR = deploy
 
 
+all: debug deploy
+
 debug: $(SOURCE_DIR)/index.html $(SOURCE_DIR)/script.js $(SOURCE_DIR)/styles.css
 	mkdir -p $(DEBUG_DIR)
 	cp $(SOURCE_DIR)/index.html $(DEBUG_DIR)
