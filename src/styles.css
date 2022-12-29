@@ -273,13 +273,54 @@ p.ingredient-name {
   color: var(--ui-gray-3-color);
 }
 
-/* App initial paging state */
-#menu-nav,
-#page-menu
-{
-  display: none;
+/* Menu styles */
+
+#page-menu {
+  display: grid;
+  grid-template-columns: auto;
+  row-gap: 16px;
 }
 
+.app-menu-item {
+  display: grid;
+  grid-template-columns: auto;
+  row-gap: 8px;
+  justify-items: left;
+}
+
+.app-menu-item > * {
+  margin: 0;
+}
+
+.app-menu-item header {
+  font-size: var(--font-body-size);
+  font-weight: var(--font-bold-weight);
+}
+
+.app-menu-item p {
+  font-size: var(--font-body-size);
+}
+
+.app-menu-item a.default-button {
+  padding: 0;
+}
+
+.author {
+  display: grid;
+  grid-template-columns: auto;
+  row-gap: 4px;
+}
+
+.author > * {
+  margin: 0;
+}
+
+.author .caption,
+.author h1
+{
+  font-size: var(--font-body-size);
+  font-weight: normal;
+}
 
 @media only screen and (max-width: 600px){
   #app {

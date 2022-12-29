@@ -37,12 +37,12 @@
         <button id="command-menu" class="default-button" aria-label="меню программы">Меню</button>
         <button id="command-clear" class="default-button severity-warning" aria-label="очистить таблицу">Очистить</button>
       </nav>
-      <nav id="menu-nav">
+      <nav id="menu-nav" style="display: none;">
         <button id="command-menu-back" class="default-button" aria-label="вернуться к приложению">Назад</button>
       </nav>
     </div>
     <div id="app-shell">
-      <section id="page-main">
+      <div id="page-main">
         <div id="mode-chooser">
           <p class="caption">Задайте оригинальный рецепт. Когда он готов, выберите &laquo;Пропорция&raquo; и введите новое количество ингредиента для пересчёта всего рецепта.</p>
           <div class="toggle-wide">
@@ -58,10 +58,48 @@
           </div>
         </div>
         <button class="ingredient-add" aria-label="добавить ингредиент"><span></span></button>
-      </section>
-      <section id="page-menu">
-        <header>Меню</header>
-      </section>
+      </div>
+      <div id="page-menu" style="display: none;">
+        <section class="app-menu-item">
+          <header>Экспорт рецепта</header>
+          <p>Экспортируйте оригинальный рецепт и настройки пропорции, чтобы загрузить рецепт в будущем.</p>
+          <button id="command-export-recipe" class="default-button disabled" aria-label="экспорт рецепта">Экспорт</button>
+        </section>
+        <section class="app-menu-item">
+          <header>Импорт рецепта</header>
+          <p>Импортируйте ранее сохранённый рецепт.</p>
+          <button id="command-import-recipe" class="default-button disabled" aria-label="импорт рецепта">Импорт</button>
+        </section>
+        <section class="app-menu-item">
+          <header>Помощь проекту</header>
+          <p>Если Вам понравилось приложение, вы можете помочь его авторам.</p>
+          <p><a class="default-button" href="{{ links.payment }}" target="_blank">Банковский перевод</a></p>
+          <p><a class="default-button" href="{{ links.repository }}" target="_blank">Репозиторий проекта</a></p>
+          <p><a class="default-button" href="{{ contacts.Stepan.telegram }}" target="_blank">Помощь словом</a></p>
+        </section>
+        <section class="app-menu-item">
+          <header>Авторы</header>
+          <div class="author">
+            <h1>{{ contacts.Stepan.firstname}} {{ contacts.Stepan.secondname}}</h1>
+            <p class="caption">идея, разработка, дизайн</p>
+            <p>
+              <a class="default-button" href="{{ contacts.Stepan.telegram }}" target="_blank">телеграм</a>,
+              <a class="default-button" href="{{ contacts.Stepan.github }}" target="_blank">github</a>
+            </p>
+          </div>
+          <div class="author">
+            <h1>{{ contacts.Alexandra.firstname}} {{ contacts.Alexandra.secondname}}</h1>
+            <p class="caption">дизайн, обсуждение</p>
+            <p>
+              <a class="default-button" href="{{ contacts.Alexandra.telegram }}" target="_blank">телеграм</a>
+            </p>
+          </div>
+          <div class="author">
+            <h1>{{ contacts.Mariya.firstname}} {{ contacts.Mariya.secondname}}</h1>
+            <p class="caption">обсуждение</p>
+          </div>
+        </section>
+      </div>
     </div>
   </div>
   <script type="text/javascript" src="script.js"></script>
