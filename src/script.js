@@ -253,6 +253,23 @@ function ProportioApp(){
         app.clear();
     });
 
+    // Switching between app pages
+    $("#command-menu").click(function(){
+        $("#recipe-nav").hide();
+        $("#page-main").hide();
+
+        $("#menu-nav").show();
+        $("#page-menu").show();
+    });
+
+    $("#command-menu-back").click(function(){
+        $("#menu-nav").hide();
+        $("#page-menu").hide();
+
+        $("#recipe-nav").show();
+        $("#page-main").show();
+    });
+
     _updateUiOnItemsCountChanged(0);
 
     return app;
