@@ -204,10 +204,6 @@ function ProportioApp(){
             this.setOriginalMode();
             _updateUiOnItemsCountChanged(this._items.length);
         },
-        export(){
-            let exporter = new RecipeExporter();
-            exporter.export(this._items);
-        },
     };
 
     function _originalModeUI(){
@@ -259,7 +255,23 @@ function ProportioApp(){
 
     // Recipe export
     $("#command-export-recipe").click(function (){
-        app.export();
+        let exporter = new RecipeExporter();
+        // TODO: do not use private members.
+        exporter.export(app._items);
+    });
+
+    // Recipe import
+    $("#command-import-recipe").change(function(){
+        let importer = new RecipeImporter();
+        let input = document.getElementById("command-import-recipe");
+
+        importer.import(input.files[0], function (json_string){
+            let imported_items_plain = JSON.parse(json_string);
+            app.clear();
+            imported_items_plain.forEach(item => app.addItem(item.name, new Quantity(item.amount, item.unit)));
+            // TODO: make a function to switch between app pages instead of clicking.
+            $("#command-menu-back").click();
+        });
     });
 
     // Switching between app pages
@@ -325,6 +337,23 @@ function RecipeExporter(){
         let original_items_export = original_items.map(item => _item_to_object(item));
         let json_string = JSON.stringify(original_items_export, null, 2);
         download(json_string, "recipe.proportio", "application/json");
+    };
+}
+
+//
+// Recipe import.
+//
+
+function RecipeImporter(){
+    this.import = function(file, callback){
+        const reader = new FileReader();
+
+        reader.addEventListener("load", () => {
+            // file.src = reader.result;
+            callback(reader.result);
+        }, false);
+
+        reader.readAsText(file);
     };
 }
 

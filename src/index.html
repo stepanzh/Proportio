@@ -68,7 +68,10 @@
         <section class="app-menu-item">
           <header>Импорт рецепта</header>
           <p>Импортируйте ранее сохранённый рецепт.</p>
-          <button id="command-import-recipe" class="default-button disabled" aria-label="импорт рецепта">Импорт</button>
+          <label for="command-import-recipe">
+            <span class="default-button" aria-label="импорт рецепта">Импорт</span>
+            <input type="file" id="command-import-recipe" style="display:none" accept=".proportio, .json">
+          </label>
         </section>
         <section class="app-menu-item">
           <header>Помощь проекту</header>

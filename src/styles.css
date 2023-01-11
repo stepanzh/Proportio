@@ -12,7 +12,7 @@
   --ui-button-height: 34px;
   --ui-padding: 8px;
   --corner-radius: 8px;
-  
+
   --icon-line-thickness: 2px;
   --icon-line-length: 60%;
   --icon-line-corner-raidus: 1px;
@@ -35,7 +35,9 @@ body {
   justify-content: space-around;
 }
 
-button:hover {
+button:hover,
+.default-button
+{
   cursor: pointer;
 }
 
@@ -44,6 +46,7 @@ button:hover {
 }
 
 .default-button {
+  display: inline-block;
   padding: var(--ui-padding);
   background: none;
   outline: none;
