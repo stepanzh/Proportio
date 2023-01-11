@@ -204,6 +204,10 @@ function ProportioApp(){
             this.setOriginalMode();
             _updateUiOnItemsCountChanged(this._items.length);
         },
+        export(){
+            let exporter = new RecipeExporter();
+            exporter.export(this._items);
+        },
     };
 
     function _originalModeUI(){
@@ -253,6 +257,11 @@ function ProportioApp(){
         app.clear();
     });
 
+    // Recipe export
+    $("#command-export-recipe").click(function (){
+        app.export();
+    });
+
     // Switching between app pages
     $("#command-menu").click(function(){
         $("#recipe-nav").hide();
@@ -273,6 +282,50 @@ function ProportioApp(){
     _updateUiOnItemsCountChanged(0);
 
     return app;
+}
+
+//
+// Export of a recipe.
+//
+
+// Makes browser to download `data` with `filename` of `mimetype`
+function download(data, filename, mimetype) {
+    let file = new Blob([data], {type: mimetype});
+    if (window.navigator.msSaveOrOpenBlob)  // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);
+    else { // Others
+        let a = document.createElement("a");
+        let url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }, 0);
+    }
+}
+
+function RecipeExporter(){
+    function _item_to_object(item){
+        return {
+            name: item.name,
+            amount: item.quantity.amount,
+            unit: item.quantity.unit,
+        }
+    }
+
+    this.export = function(original_items){
+        if (original_items.length <= 0){
+            return;
+        }
+        // TODO: let user change file name
+
+        let original_items_export = original_items.map(item => _item_to_object(item));
+        let json_string = JSON.stringify(original_items_export, null, 2);
+        download(json_string, "recipe.proportio", "application/json");
+    };
 }
 
 //
