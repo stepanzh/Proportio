@@ -237,21 +237,13 @@ function ProportioApp(){
         }
     }
 
-    $(".ingredient-add").click(function(){
-        app.addItem();
-    });
+    $(".ingredient-add").click(() => app.addItem());
 
-    $("#command-original-mode").click(function(){
-        app.setOriginalMode();
-    });
+    $("#command-original-mode").click(() => app.setOriginalMode());
 
-    $("#command-scale-mode").click(function(){
-        app.setScaleMode();
-    });
+    $("#command-scale-mode").click(() => app.setScaleMode());
 
-    $("#command-clear").click(function(){
-        app.clear();
-    });
+    $("#command-clear").click(() => app.clear());
 
     // Recipe export
     $("#command-export-recipe").click(function (){
