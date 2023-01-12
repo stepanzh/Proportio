@@ -264,6 +264,10 @@ function ProportioApp(){
 
             switch_to_main_page();
         });
+
+        // This resets the value of input for triggering change event for the same file.
+        // https://stackoverflow.com/questions/4109276/how-to-detect-input-type-file-change-for-the-same-file
+        input.value = null;
     });
 
     // Switching between app pages
