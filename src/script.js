@@ -269,27 +269,30 @@ function ProportioApp(){
             let imported_items_plain = JSON.parse(json_string);
             app.clear();
             imported_items_plain.forEach(item => app.addItem(item.name, new Quantity(item.amount, item.unit)));
-            // TODO: make a function to switch between app pages instead of clicking.
-            $("#command-menu-back").click();
+
+            switch_to_main_page();
         });
     });
 
     // Switching between app pages
-    $("#command-menu").click(function(){
+    function switch_to_menu_page(){
         $("#recipe-nav").hide();
         $("#page-main").hide();
 
         $("#menu-nav").show();
         $("#page-menu").show();
-    });
+    }
 
-    $("#command-menu-back").click(function(){
+    function switch_to_main_page(){
         $("#menu-nav").hide();
         $("#page-menu").hide();
 
         $("#recipe-nav").show();
         $("#page-main").show();
-    });
+    }
+
+    $("#command-menu").click(switch_to_menu_page);
+    $("#command-menu-back").click(switch_to_main_page);
 
     _updateUiOnItemsCountChanged(0);
 
