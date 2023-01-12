@@ -237,42 +237,119 @@ function ProportioApp(){
         }
     }
 
-    $(".ingredient-add").click(function(){
-        app.addItem();
+    $(".ingredient-add").click(() => app.addItem());
+
+    $("#command-original-mode").click(() => app.setOriginalMode());
+
+    $("#command-scale-mode").click(() => app.setScaleMode());
+
+    $("#command-clear").click(() => app.clear());
+
+    // Recipe export
+    $("#command-export-recipe").click(function (){
+        let exporter = new RecipeExporter();
+        // TODO: do not use private members.
+        exporter.export(app._items);
     });
 
-    $("#command-original-mode").click(function(){
-        app.setOriginalMode();
-    });
+    // Recipe import
+    $("#command-import-recipe").change(function(){
+        let importer = new RecipeImporter();
+        let input = document.getElementById("command-import-recipe");
 
-    $("#command-scale-mode").click(function(){
-        app.setScaleMode();
-    });
+        importer.import(input.files[0], function (json_string){
+            let imported_items_plain = JSON.parse(json_string);
+            app.clear();
+            imported_items_plain.forEach(item => app.addItem(item.name, new Quantity(item.amount, item.unit)));
 
-    $("#command-clear").click(function(){
-        app.clear();
+            switch_to_main_page();
+        });
     });
 
     // Switching between app pages
-    $("#command-menu").click(function(){
+    function switch_to_menu_page(){
         $("#recipe-nav").hide();
         $("#page-main").hide();
 
         $("#menu-nav").show();
         $("#page-menu").show();
-    });
+    }
 
-    $("#command-menu-back").click(function(){
+    function switch_to_main_page(){
         $("#menu-nav").hide();
         $("#page-menu").hide();
 
         $("#recipe-nav").show();
         $("#page-main").show();
-    });
+    }
+
+    $("#command-menu").click(switch_to_menu_page);
+    $("#command-menu-back").click(switch_to_main_page);
 
     _updateUiOnItemsCountChanged(0);
 
     return app;
+}
+
+//
+// Export of a recipe.
+//
+
+// Makes browser to download `data` with `filename` of `mimetype`
+function download(data, filename, mimetype) {
+    let file = new Blob([data], {type: mimetype});
+    if (window.navigator.msSaveOrOpenBlob)  // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);
+    else { // Others
+        let a = document.createElement("a");
+        let url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }, 0);
+    }
+}
+
+function RecipeExporter(){
+    function _item_to_object(item){
+        return {
+            name: item.name,
+            amount: item.quantity.amount,
+            unit: item.quantity.unit,
+        }
+    }
+
+    this.export = function(original_items){
+        if (original_items.length <= 0){
+            return;
+        }
+        // TODO: let user change file name
+
+        let original_items_export = original_items.map(item => _item_to_object(item));
+        let json_string = JSON.stringify(original_items_export, null, 2);
+        download(json_string, "recipe.proportio", "application/json");
+    };
+}
+
+//
+// Recipe import.
+//
+
+function RecipeImporter(){
+    this.import = function(file, callback){
+        const reader = new FileReader();
+
+        reader.addEventListener("load", () => {
+            // file.src = reader.result;
+            callback(reader.result);
+        }, false);
+
+        reader.readAsText(file);
+    };
 }
 
 //
