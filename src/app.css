@@ -1,30 +1,3 @@
-:root {
-  --text-body-color: black;
-  --ui-accent-color: #007DFF;
-  --ui-gray-0-color: #E1E1E2;
-  --ui-gray-3-color: #8E8E93;
-  --red-0-color: #FF3B30;
-  --font-body-size: 18px;
-  --font-ui-size: 16px;
-  --font-caption-size: 12px;
-  --font-caption-color: 12px;
-  --font-bold-weight: 600;
-  --ui-button-height: 34px;
-  --ui-padding: 8px;
-  --corner-radius: 8px;
-
-  --icon-line-thickness: 2px;
-  --icon-line-length: 60%;
-  --icon-line-corner-raidus: 1px;
-}
-
-body {
-  font-family: Inter, sans-serif;
-  background: white;
-  padding: 0;
-  margin: 0;
-}
-
 #app {
   max-width: 600px;
   margin: 16px auto;
@@ -33,26 +6,6 @@ body {
 #app-header {
   margin-bottom: 16px;
   justify-content: space-around;
-}
-
-button:hover,
-.default-button
-{
-  cursor: pointer;
-}
-
-.disabled {
-  cursor: not-allowed;
-}
-
-.default-button {
-  display: inline-block;
-  padding: var(--ui-padding);
-  background: none;
-  outline: none;
-  border: none;
-  color: var(--ui-accent-color);
-  font-size: var(--font-ui-size);
 }
 
 .severity-warning {
@@ -65,17 +18,11 @@ nav > :first-child {
 
 nav > :last-child:not(:first-child) {
   float: right;
-  margin-right: calc( -1 * var(--ui-padding));
+  margin-right: calc(-1 * var(--ui-padding));
 }
 
 #mode-chooser {
   margin-bottom: 16px;
-}
-
-.caption {
-  font-size: var(--font-caption-size);
-  color: var(--ui-gray-3-color);
-  margin: 8px 0;
 }
 
 .toggle-wide {
@@ -179,11 +126,11 @@ nav > :last-child:not(:first-child) {
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
-  
+
   content: "";
   height: var(--icon-line-thickness);
   width: var(--icon-line-length);
-  background: var(--ui-accent-color); 
+  background: var(--ui-accent-color);
   border-radius: var(--icon-line-corner-raidus);
 }
 
@@ -224,7 +171,7 @@ p.ingredient-name {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
+
   background: white;
   border-radius: 9px;
 }
@@ -238,7 +185,7 @@ p.ingredient-name {
   left: 50%;
 
   content: "";
-  background: var(--ui-accent-color); 
+  background: var(--ui-accent-color);
   border-radius: var(--icon-line-corner-raidus);
 }
 
@@ -252,13 +199,6 @@ p.ingredient-name {
   width: var(--icon-line-thickness);
 }
 
-/* Disabled state */
-
-.disabled {
-  pointer-events: none;
-}
-
-.default-button.disabled,
 .toggle-isoff.disabled
 {
   color: var(--ui-gray-3-color);

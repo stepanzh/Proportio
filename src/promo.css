@@ -1,0 +1,16 @@
+#shell
+{
+  padding: 0 16px 16px 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#promo
+{
+  width: 100%;
+}
