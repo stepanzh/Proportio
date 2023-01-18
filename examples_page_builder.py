@@ -34,10 +34,9 @@ class RecipeExample:
             recipe_list = json.loads(io.read())
 
             ingredients = [item["name"] for item in recipe_list]
-            # ingredients = filter(lambda x: x.lower() not in {"порция"}, ingredients)
 
             # Remove both .proportio and .json
-            title = json_path.with_suffix('').stem
+            title = json_path.with_suffix('').stem.replace(" - ", " &#8212; ")
 
             relative_url = '/'.join(json_path.parts[1:])
             return RecipeExample(title=title, ingredients=list(ingredients), relative_url=relative_url)
@@ -54,9 +53,12 @@ def main(path, mode):
 
     recipe_dir = pathlib.Path("src/example_recipes/")
 
-    recipes = map(
-        lambda path: RecipeExample.from_json_path(path),
-        filter(lambda x: x.is_file(), recipe_dir.iterdir())
+    recipes = sorted(
+        map(
+            lambda path: RecipeExample.from_json_path(path),
+            filter(lambda x: x.is_file(), recipe_dir.iterdir())
+        ),
+        key=lambda recipe: recipe.title.lower(),
     )
 
     template = jinja2.Template(template_html)
