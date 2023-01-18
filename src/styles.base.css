@@ -5,6 +5,8 @@
   --ui-gray-3-color: #8E8E93;
   --red-0-color: #FF3B30;
   --special-0-color: #E70078;
+  --font-h1-size: 24px;
+  --font-h2-size: 18px;
   --font-body-size: 18px;
   --font-ui-size: 16px;
   --font-caption-size: 12px;
@@ -18,6 +20,15 @@
   --icon-line-length: 60%;
   --icon-line-corner-raidus: 1px;
 }
+
+h1,
+h2
+{
+  font-weight: var(--font-bold-weight);
+}
+
+h1 { font-size: var(--font-h1-size); }
+h2 { font-size: var(--font-h2-size); }
 
 body {
   font-family: Inter, sans-serif;
