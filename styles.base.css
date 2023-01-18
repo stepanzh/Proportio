@@ -1,0 +1,60 @@
+:root {
+  --text-body-color: black;
+  --ui-accent-color: #007DFF;
+  --ui-gray-0-color: #E1E1E2;
+  --ui-gray-3-color: #8E8E93;
+  --red-0-color: #FF3B30;
+  --special-0-color: #E70078;
+  --font-body-size: 18px;
+  --font-ui-size: 16px;
+  --font-caption-size: 12px;
+  --font-caption-color: 12px;
+  --font-bold-weight: 600;
+  --ui-button-height: 34px;
+  --ui-padding: 8px;
+  --corner-radius: 8px;
+
+  --icon-line-thickness: 2px;
+  --icon-line-length: 60%;
+  --icon-line-corner-raidus: 1px;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  background: white;
+  padding: 0;
+  margin: 0;
+}
+
+button:hover,
+.default-button
+{
+  cursor: pointer;
+}
+
+.default-button {
+  display: inline-block;
+  padding: var(--ui-padding);
+  background: none;
+  outline: none;
+  border: none;
+  color: var(--ui-accent-color);
+  font-size: var(--font-ui-size);
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.default-button.disabled
+{
+  color: var(--ui-gray-3-color);
+}
+
+
+.caption {
+  font-size: var(--font-caption-size);
+  color: var(--ui-gray-3-color);
+  margin: 8px 0;
+}

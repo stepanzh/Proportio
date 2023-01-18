@@ -18,14 +18,15 @@
     Введите оригинальный рецепт, выберите ингредиент для пересчёта или количество порций, всё остальное приложение сделает за вас.">
   <meta name="keywords" content="посчитать пропорцию, пропорция, рецепт, кулинария, готовка, онлайн калькулятор">
 
-  <title>Пропорцио &#8212; калькулятор для конвертации рецептов по ингредиенту или порциям</title>
+  <title>Пропорцио &#8212; калькулятор рецептов по ингредиенту или порциям</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style> @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap'); </style>
 
   <!-- Style -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.base.css">
+  <link rel="stylesheet" href="app.css">
 
   <!-- Jquery -->
   <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
@@ -35,6 +36,7 @@
     <div id="app-header">
       <nav id="recipe-nav">
         <button id="command-menu" class="default-button" aria-label="меню программы">Меню</button>
+        <div id="promo"><a href="promo.html"></a></div>
         <button id="command-clear" class="default-button severity-warning" aria-label="очистить таблицу">Очистить</button>
       </nav>
       <nav id="menu-nav" style="display: none;">
