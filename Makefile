@@ -17,6 +17,7 @@ deploy: debug
 	python3 html_builder.py -m deploy -f $(SOURCE_DIR)/index.html > $(DEPLOY_DIR)/index.html
 	python3 examples_page_builder.py -m deploy -f $(SOURCE_DIR)/examples.html > $(DEPLOY_DIR)/examples.html
 	uglifyjs $(DEBUG_DIR)/script.js > $(DEPLOY_DIR)/script.js
+	uglifyjs $(DEBUG_DIR)/examples.js > $(DEPLOY_DIR)/examples.js
 
 pages: deploy
 	ghp-import -n -f -p $(DEPLOY_DIR)
