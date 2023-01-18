@@ -36,10 +36,11 @@
         <section>
           <h2>{{ example.title }}</h2>
           <p>{{ example.ingredients_as_string }}.</p>
-          <a href="{{ example.relative_url }}" target="_blank">Скачать</a>
+          <div class="default-button command-download" data-href="{{ example.relative_url }}">Скачать</div>
         </section>
       {% endfor %}
     </div>
   </div>
+  <script type="text/javascript" src="examples.js"></script>
 </body>
 </html>
