@@ -5,10 +5,11 @@ DEPLOY_DIR = deploy
 
 all: debug deploy
 
-debug: $(SOURCE_DIR)/index.html $(SOURCE_DIR)/script.js $(SOURCE_DIR)/app.css $(SOURCE_DIR)/promo.css
+debug: $(SOURCE_DIR)/index.html $(SOURCE_DIR)/script.js $(SOURCE_DIR)/app.css $(SOURCE_DIR)/promo.css $(SOURCE_DIR)/examples.html
 	mkdir -p $(DEBUG_DIR)
-	cp $(SOURCE_DIR)/* $(DEBUG_DIR)
+	cp -r $(SOURCE_DIR)/* $(DEBUG_DIR)
 	python3 html_builder.py -m debug -f $(SOURCE_DIR)/index.html > $(DEBUG_DIR)/index.html
+	python3 examples_page_builder.py -m debug -f $(SOURCE_DIR)/examples.html > $(DEBUG_DIR)/examples.html
 
 deploy: debug
 	mkdir -p $(DEPLOY_DIR)

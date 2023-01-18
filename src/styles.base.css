@@ -42,6 +42,11 @@ button:hover,
   font-size: var(--font-ui-size);
 }
 
+a
+{
+  color: var(--ui-accent-color);
+}
+
 .disabled {
   pointer-events: none;
   cursor: not-allowed;
