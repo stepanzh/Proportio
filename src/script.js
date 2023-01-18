@@ -335,7 +335,7 @@ function RecipeExporter(){
 
         let original_items_export = original_items.map(item => _item_to_object(item));
         let json_string = JSON.stringify(original_items_export, null, 2);
-        download(json_string, "recipe.proportio", "application/json");
+        download(json_string, "recipe.json", "application/json");
     };
 }
 
