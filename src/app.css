@@ -1,29 +1,75 @@
-#app {
+#app
+{
   max-width: 600px;
   margin: 16px auto;
 }
 
-#app-header {
+#app-header,
+#mode-chooser
+{
   margin-bottom: 16px;
-  justify-content: space-around;
 }
 
-.severity-warning {
+.severity-warning
+{
   color: var(--red-0-color);
 }
 
-nav > :first-child {
-  margin-left: calc( -1 * var(--ui-padding));
+#app-header nav
+{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 
-nav > :last-child:not(:first-child) {
-  float: right;
-  margin-right: calc(-1 * var(--ui-padding));
+#app-header nav > :first-child
+{
+  padding-left: 0;
 }
 
-#mode-chooser {
-  margin-bottom: 16px;
+#app-header nav > :last-child
+{
+  padding-right: 0;
 }
+
+/* Promo link start */
+#promo
+{
+  /* Center itself, ignore flex */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background: var(--special-0-color);
+  
+  animation: 1s linear 10 throbe;
+}
+
+#promo a
+{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%);
+  background-image: url("gift-icon.svg");
+  background-size: contain;
+}
+
+@keyframes throbe {
+  from {
+    box-shadow: 0 0 0 0 var(--special-0-color);
+  }
+  to {
+    box-shadow: 0 0 0 8px transparent;
+  }
+}
+
+/* Promo link end */
 
 .toggle-wide {
   display: grid;
