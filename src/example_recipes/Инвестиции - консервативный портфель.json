@@ -1,37 +1,44 @@
-[
-  {
-    "name": "Размер портфеля",
-    "amount": 100,
-    "unit": "RUB"
-  },
-  {
-    "name": "Облигации USD/CNY",
-    "amount": 47,
-    "unit": "RUB"
-  },
-  {
-    "name": "Облигации RUB",
-    "amount": 13,
-    "unit": "RUB"
-  },
-  {
-    "name": "Зарубежные акции",
-    "amount": 9,
-    "unit": "RUB"
-  },
-  {
-    "name": "Российские акции",
-    "amount": 8,
-    "unit": "RUB"
-  },
-  {
-    "name": "Золото",
-    "amount": 9,
-    "unit": "RUB"
-  },
-  {
-    "name": "Наличные средства",
-    "amount": 14,
-    "unit": "RUB"
+{
+  "title": "Инвестиции - консервативный портфель на 2023 год",
+  "original_items": [
+    {
+      "name": "Размер портфеля",
+      "amount": 100,
+      "unit": "RUB"
+    },
+    {
+      "name": "Облигации USD/CNY",
+      "amount": 47,
+      "unit": "RUB"
+    },
+    {
+      "name": "Облигации RUB",
+      "amount": 13,
+      "unit": "RUB"
+    },
+    {
+      "name": "Зарубежные акции",
+      "amount": 9,
+      "unit": "RUB"
+    },
+    {
+      "name": "Российские акции",
+      "amount": 8,
+      "unit": "RUB"
+    },
+    {
+      "name": "Золото",
+      "amount": 9,
+      "unit": "RUB"
+    },
+    {
+      "name": "Наличные средства",
+      "amount": 14,
+      "unit": "RUB"
+    }
+  ],
+  "credits": {
+    "author": "Тинькофф Инвестиции",
+    "recipe_url": "https://www.tinkoff.ru/invest/research/strategy/2022-december/"
   }
-]
+}

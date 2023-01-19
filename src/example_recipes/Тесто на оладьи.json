@@ -1,0 +1,44 @@
+{
+  "title": "Тесто на оладьи",
+  "credits": {
+    "author": "Borsch",
+    "recipe_url": "https://youtu.be/14Q6O4ADt8g"
+  },
+  "original_items": [
+    {
+      "name": "Мука",
+      "amount": 350,
+      "unit": "грамм"
+    },
+    {
+      "name": "Молоко",
+      "amount": 500,
+      "unit": "грамм"
+    },
+    {
+      "name": "Яйцо",
+      "amount": 2,
+      "unit": "шт"
+    },
+    {
+      "name": "Сахар",
+      "amount": 60,
+      "unit": "грамм"
+    },
+    {
+      "name": "Соль",
+      "amount": 7,
+      "unit": "грамм"
+    },
+    {
+      "name": "Разрыхлитель",
+      "amount": 1,
+      "unit": "пачка"
+    },
+    {
+      "name": "Масло подсолнечное",
+      "amount": 40,
+      "unit": "грамм"
+    }
+  ]
+}

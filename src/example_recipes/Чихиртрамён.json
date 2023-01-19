@@ -1,0 +1,64 @@
+{
+  "title": "Чихиртрамен (куриный суп с лапшой)",
+  "credits": {
+    "author": "CHEF MARAT",
+    "recipe_url": "https://youtu.be/1u8sFwbBPuA"
+  },
+  "original_items": [
+    {
+      "name": "Цыплёнок",
+      "amount": 1,
+      "unit": "шт"
+    },
+    {
+      "name": "Лук репчатый",
+      "amount": 250,
+      "unit": "грамм"
+    },
+    {
+      "name": "Чеснок",
+      "amount": 15,
+      "unit": "грамм"
+    },
+    {
+      "name": "Сливочное масло",
+      "amount": 10,
+      "unit": "грамм"
+    },
+    {
+      "name": "Вода",
+      "amount": 2.5,
+      "unit": "литр"
+    },
+    {
+      "name": "Соевый соус",
+      "amount": 2,
+      "unit": "ст. лжк"
+    },
+    {
+      "name": "Чёрный перец",
+      "amount": 1,
+      "unit": "по вкусу"
+    },
+    {
+      "name": "Соль",
+      "amount": 1,
+      "unit": "ч. лжк"
+    },
+    {
+      "name": "Мука",
+      "amount": 150,
+      "unit": "грамм"
+    },
+    {
+      "name": "Яйцо",
+      "amount": 2,
+      "unit": "шт"
+    },
+    {
+      "name": "Манка",
+      "amount": 50,
+      "unit": "гр"
+    }
+  ]
+}
