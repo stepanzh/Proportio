@@ -5,9 +5,9 @@ function load_recipe(url, action)
             if (!response.ok) {
                 throw new Error(`HTTP error, status = ${response.status}`);
             }
-            return response.text();
+            return response.json();
         })
-        .then((json_body) => action(json_body))
+        .then((json) => action(json))
         .catch((error) => console.log(error));
 }
 
@@ -38,13 +38,14 @@ function setup_command_download(dom_element)
     dom_element.onclick = () => {
         load_recipe(
             link_for_download,
-            (recipe_body) => {
-                let title = recipe_body["title"];
+            (recipe) => {
+                let title = recipe["title"];
                 if (title === undefined || title == "")
                 {
                     title = "Рецепт";
                 }
-                download(recipe_body, title + ".json", "application/json");
+                let recipe_string = JSON.stringify(recipe, null, 2);
+                download(recipe_string, title + ".json", "application/json");
             }
         );
     };
