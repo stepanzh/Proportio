@@ -16,10 +16,30 @@ def parse_commandline():
 
 
 @dataclass
+class RecipeCredits:
+    author: str = ""
+    recipe_url: str = ""
+
+    @classmethod
+    def from_dict(cls, d):
+        if d is None:
+            return RecipeCredits()
+
+        author = d.get("author", "")
+        recipe_url = d.get("recipe_url", "")
+        return RecipeCredits(author, recipe_url)
+
+    @property
+    def is_empty(self):
+        return (not self.author) and (not self.recipe_url)
+
+
+@dataclass
 class RecipeExample:
     title: str
     ingredients: typing.List[str]
     relative_url: str
+    credits: RecipeCredits
 
     @property
     def ingredients_as_string(self):
@@ -31,15 +51,14 @@ class RecipeExample:
     @classmethod
     def from_json_path(cls, json_path):
         with open(json_path) as io:
-            recipe_list = json.loads(io.read())
+            recipe = json.loads(io.read())
 
-            ingredients = [item["name"] for item in recipe_list]
-
-            # Remove both .proportio and .json
-            title = json_path.with_suffix('').stem.replace(" - ", " &#8212; ")
-
+            title = recipe.get("title", "").replace(" - ", " &#8212; ")
+            ingredients = [item["name"] for item in recipe.get("original_items")]
             relative_url = '/'.join(json_path.parts[1:])
-            return RecipeExample(title=title, ingredients=list(ingredients), relative_url=relative_url)
+            credits = RecipeCredits.from_dict(recipe.get("credits"))
+
+            return RecipeExample(title=title, ingredients=list(ingredients), relative_url=relative_url, credits=credits)
 
 
 def main(path, mode):

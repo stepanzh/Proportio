@@ -35,6 +35,16 @@
       {% for example in recipe_examples %}
         <section>
           <h2>{{ example.title }}</h2>
+          {% if not example.credits.is_empty %}
+          <p>
+            <span>Источник: </span>
+            {% if example.credits.author %}
+              {{ example.credits.author }}{% if example.credits.recipe_url %}, <a href="{{ example.credits.recipe_url }}" target="_blank">ссылка</a>{% endif %}.
+            {% else %}
+               <a href="{{ example.credits.recipe_url }}" target="_blank">ссылка</a>.
+            {% endif %}
+          </p>
+          {% endif %}
           <p>{{ example.ingredients_as_string }}.</p>
           <div class="default-button command-download" data-href="{{ example.relative_url }}">Скачать</div>
         </section>
