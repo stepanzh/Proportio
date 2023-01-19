@@ -1,0 +1,34 @@
+{
+  "title": "Лимонад",
+  "credits": {
+    "author": "Borsch",
+    "recipe_url": "https://youtu.be/d-wwvL1BOXs"
+  },
+  "original_items": [
+    {
+      "name": "Объём лимонада",
+      "amount": 1.25,
+      "unit": "литр"
+    },
+    {
+      "name": "Газированная вода",
+      "amount": 1.5,
+      "unit": "литр"
+    },
+    {
+      "name": "Сахар",
+      "amount": 70,
+      "unit": "грамм"
+    },
+    {
+      "name": "Лимон (средний)",
+      "amount": 1,
+      "unit": "шт"
+    },
+    {
+      "name": "Мята",
+      "amount": 10,
+      "unit": "лист"
+    }
+  ]
+}
