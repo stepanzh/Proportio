@@ -38,7 +38,14 @@ function setup_command_download(dom_element)
     dom_element.onclick = () => {
         load_recipe(
             link_for_download,
-            (recipe_body) => download(recipe_body, "Recipe.json", "application/json")
+            (recipe_body) => {
+                let title = recipe_body["title"];
+                if (title === undefined || title == "")
+                {
+                    title = "Рецепт";
+                }
+                download(recipe_body, title + ".json", "application/json");
+            }
         );
     };
 }
