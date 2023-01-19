@@ -258,7 +258,8 @@ function ProportioApp(){
         let input = document.getElementById("command-import-recipe");
 
         importer.import(input.files[0], function (json_string){
-            let imported_items_plain = JSON.parse(json_string);
+            let imported_object = JSON.parse(json_string)
+            let imported_items_plain = imported_object.original_items;
             app.clear();
             imported_items_plain.forEach(item => app.addItem(item.name, new Quantity(item.amount, item.unit)));
 
@@ -332,9 +333,15 @@ function RecipeExporter(){
             return;
         }
         // TODO: let user change file name
-
-        let original_items_export = original_items.map(item => _item_to_object(item));
-        let json_string = JSON.stringify(original_items_export, null, 2);
+        let object_to_export = {
+            title: "",
+            original_items: original_items.map(item => _item_to_object(item)),
+            credits: {
+                author: "",
+                recipe_url: "",
+            },
+        };
+        let json_string = JSON.stringify(object_to_export, null, 2);
         download(json_string, "recipe.json", "application/json");
     };
 }
@@ -348,7 +355,6 @@ function RecipeImporter(){
         const reader = new FileReader();
 
         reader.addEventListener("load", () => {
-            // file.src = reader.result;
             callback(reader.result);
         }, false);
 
