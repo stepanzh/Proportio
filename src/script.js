@@ -77,6 +77,15 @@ function ScalableQuantity(amount = 0, original_amount = 0, unit = ""){
     this.$amount = $('<input class="ingredient-amount" aria-label="количество">')
         .val(this.amount);
     this.$unit = $(`<p class="ingredient-unit">${this.unit}</p>`);
+
+    this.setOriginal = function (original_quantity){
+        this.amount = original_quantity.amount;
+        this.original_amount = original_quantity.amount;
+        this.unit = original_quantity.unit;
+
+        this.$amount.val(this.amount);
+        this.$unit.text(this.unit);
+    };
 }
 
 function ScalableItem(name = "", quantity = new ScalableQuantity(), id = 0){
@@ -89,6 +98,14 @@ function ScalableItem(name = "", quantity = new ScalableQuantity(), id = 0){
         .append(this.$name)
         .append(this.quantity.$amount)
         .append(this.quantity.$unit);
+
+    this.setOriginal = function (original_item){
+        this.name = original_item.name;
+        this.quantity.setOriginal(original_item.quantity);
+        this.id = original_item.id;
+
+        this.$name.text(this.name);
+    }
 }
 
 function ProportioApp(){
@@ -117,17 +134,46 @@ function ProportioApp(){
 
     let app = {
         _items: [],
-        _scaled_items: [],
-        _itemInnerCount: 0,
-        addItem(name = "", quantity = new Quantity()){
-            this._itemInnerCount += 1;
-            var newItem = new Item(name, quantity, this._itemInnerCount);
-            this._items.push(newItem);
 
-            newItem.$remove.click(_onItemRemoveClick(this, newItem));
-            $("#recipe-table").append(newItem.$item);
+        _scaled_items: [],
+
+        addItem(name = "", quantity = new Quantity()){
+            let original_item = new Item(name, quantity, this._items.length);
+            let scaled_item = new ScalableItem(
+                original_item.name,
+                new ScalableQuantity(
+                    original_item.quantity.amount,
+                    original_item.quantity.amount,
+                    original_item.quantity.unit,
+                ),
+                original_item.id,
+            )
+
+            this._items.push(original_item);
+            this._scaled_items.push(scaled_item);
+
+            original_item.$remove.click(_onItemRemoveClick(this, original_item));
+            $("#recipe-table").append(original_item.$item);
+            original_item.$name.on("input", function (){
+                scaled_item.setOriginal(original_item);
+            });
+            // TODO: other scaled items should be updated too?
+            original_item.quantity.$amount.on("input", function (){
+                scaled_item.quantity.setOriginal(original_item.quantity);
+            });
+            original_item.quantity.$unit.on("input", function (){
+                scaled_item.quantity.setOriginal(original_item.quantity);
+            });
+
+            // This supposed that an item can be added only from originalMode.
+            scaled_item.$item.hide();
+            scaled_item.quantity.$amount.on("input", _onScaleAmountChanged(this, scaled_item));
+
+            $("#recipe-table").append(scaled_item.$item);
+
             _updateUiOnItemsCountChanged(this._items.length);
         },
+
         removeItem(itemIdentifier){
             let itemToDelete = this.getItem(itemIdentifier);
             if (itemToDelete === undefined)
@@ -140,11 +186,16 @@ function ProportioApp(){
                 if (itemIdentifier == this._items[index].id){
                     this._items.splice(index, 1);
                     itemToDelete.$item.remove();
+
+                    this._scaled_items[index].$item.remove();
+                    this._scaled_items.splice(index, 1);
+
                     break;
                 }
             }
             _updateUiOnItemsCountChanged(this._items.length);
         },
+
         getItem(itemIdentifier){
             for (var index in this._items){
                 item = this._items[index];
@@ -152,38 +203,20 @@ function ProportioApp(){
                     return item;
             }
         },
+
         getLastItemUnsafe(){
             return this._items[this._items.length - 1];
         },
+
         setOriginalMode(){
-            while (this._scaled_items.length > 0){
-                let scaled_item = this._scaled_items.pop();
-                scaled_item.$item.remove();
-            }
             this._items.forEach(item => item.$item.show());
+            this._scaled_items.forEach(item => item.$item.hide());
             _originalModeUI();
         },
+
         setScaleMode(){
-            this._scaled_items = [];
-
-            // TOOD: ForEach?
-            for (var index in this._items){
-                let original_item = this._items[index];
-                let scaled_item = new ScalableItem(
-                    original_item.name,
-                    new ScalableQuantity(
-                        original_item.quantity.amount,
-                        original_item.quantity.amount,
-                        original_item.quantity.unit
-                    ),
-                    original_item.id
-                )
-                original_item.$item.hide();
-
-                this._scaled_items.push(scaled_item);
-                scaled_item.quantity.$amount.on("input", _onScaleAmountChanged(this, scaled_item));
-                $("#recipe-table").append(scaled_item.$item);
-            }
+            this._scaled_items.forEach(item => item.$item.show());
+            this._items.forEach(item => item.$item.hide());
             _scaleModeUI();
         },
         scale(byRatio, exceptItemIdentifier){
