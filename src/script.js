@@ -119,11 +119,6 @@ function ProportioApp(){
         _items: [],
         _scaled_items: [],
         _itemInnerCount: 0,
-        _onItemNameUpdate(itemIdentifier){
-            return function(e){  // e for on 'input' event
-                let item = this.getItem(itemIdentifier);
-            }
-        },
         addItem(name = "", quantity = new Quantity()){
             this._itemInnerCount += 1;
             var newItem = new Item(name, quantity, this._itemInnerCount);
