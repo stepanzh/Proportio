@@ -1,3 +1,15 @@
+// Copy to clipboard. Must be called from user interaction, e.g. button click.
+function writeToClipboard(text){
+    navigator.clipboard
+        .writeText(text)
+        .then(() => {
+            console.log("clipboard success");
+        })
+        .catch((e) => {
+            console.log("clipboard failed\n" + e);
+        });
+}
+
 function formatNumber(x){
     let number = parseFloat(x);
     let rounded;
