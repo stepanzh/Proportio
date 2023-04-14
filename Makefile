@@ -25,3 +25,10 @@ pages: deploy
 clear:
 	rm -rf $(DEBUG_DIR)
 	rm -rf $(DEPLOY_DIR)
+
+newpromo:
+ifdef i
+	cp $(i) 'src/promo.jpg'
+else
+	@echo "No picture specified. Usage: make i=path newpromo"
+endif
