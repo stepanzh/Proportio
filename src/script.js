@@ -13,7 +13,7 @@ function formatNumber(x){
     return parseFloat(rounded);
 }
 
-function Quantity(amount = 0, unit = ""){
+function Quantity(amount = NaN, unit = ""){
     let invalidInputClassName = "invalid";
 
     this.amount = amount;
@@ -41,7 +41,7 @@ function Quantity(amount = 0, unit = ""){
 
     this.$amount = $('<input class="ingredient-amount" aria-label="количество">')
         .on("input", _onAmountChanged(this))
-        .val(this.amount);
+        .val(isNaN(this.amount) ? "" : this.amount);
     this.$unit = $('<input class="ingredient-unit" aria-label="единица измерения">')
         .on("input", _onUnitChanged(this))
         .val(this.unit);
