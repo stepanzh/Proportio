@@ -252,7 +252,12 @@ function ProportioApp(){
 
     $("#command-scale-mode").click(() => app.setScaleMode());
 
-    $("#command-clear").click(() => app.clear());
+    // Clears item list and leave one empty item.
+    $("#command-clear").click(function () {
+        app.clear();
+        app.addItem();
+        // No focusing here.
+    });
 
     // Recipe export
     $("#command-export-recipe").click(function (){
