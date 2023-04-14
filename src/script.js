@@ -1,15 +1,3 @@
-// Copy to clipboard. Must be called from user interaction, e.g. button click.
-function writeToClipboard(text){
-    navigator.clipboard
-        .writeText(text)
-        .then(() => {
-            console.log("clipboard success");
-        })
-        .catch((e) => {
-            console.log("clipboard failed\n" + e);
-        });
-}
-
 function formatNumber(x){
     let number = parseFloat(x);
     let rounded;
@@ -317,6 +305,12 @@ function ProportioApp(){
     $("#command-menu").click(switch_to_menu_page);
     $("#command-menu-back").click(switch_to_main_page);
 
+    $("#command-copy-to-clipboard").click(function (){
+        let exporter = new RecipeClipboardExporter();
+        let text = exporter.toPlainText(app._items, app._scaled_items); // TODO: avoid private interface.
+        exporter.export(text);
+    });
+
     _updateUiOnItemsCountChanged(0);
 
     return app;
@@ -386,6 +380,45 @@ function RecipeImporter(){
 
         reader.readAsText(file);
     };
+}
+
+// Export text or recipe to clipboard.
+// Usage:
+// let exporter = new RecipeClipboardExporter();
+// exporter.export("hello!");
+// let recipe_text = exporter.toPlainText(app._items, app._scaled_items);
+// exporter.export(recipe_text);
+function RecipeClipboardExporter(){
+    this.toPlainText = function (original_items, scaled_items){
+        let rows = [];
+        let colsep = "\t";
+        let rowsep = "\n"; // TODO: platform independent EOL
+
+        rows.push(["Ингредиент", "Оригинал", "Пропорция", "Единица"].join(colsep));
+        for (let i = 0; i < Math.min(original_items.length, scaled_items.length); i++){
+            let original_item = original_items[i];
+            let scaled_item = scaled_items[i];
+            rows.push([
+                original_item.name,
+                original_item.quantity.amount,
+                scaled_item.quantity.amount,
+                original_item.quantity.unit,
+            ].join(colsep));
+        }
+        return rows.join(rowsep) + rowsep;
+    };
+
+    // Copy text to clipboard. Must be called from user interaction, e.g. button click.
+    this.export = function(text){
+        navigator.clipboard
+            .writeText(text)
+            .then(() => {
+                console.log("clipboard success");
+            })
+            .catch((e) => {
+                console.log("clipboard failed\n" + e);
+            });
+    }
 }
 
 //
