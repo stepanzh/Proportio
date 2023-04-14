@@ -157,6 +157,9 @@ function ProportioApp(){
                     return item;
             }
         },
+        getLastItemUnsafe(){
+            return this._items[this._items.length - 1];
+        },
         setOriginalMode(){
             while (this._scaled_items.length > 0){
                 let scaled_item = this._scaled_items.pop();
@@ -237,7 +240,13 @@ function ProportioApp(){
         }
     }
 
-    $(".ingredient-add").click(() => app.addItem());
+    // Adds an empty item and focus on its name field.
+    $(".ingredient-add").click(function () {
+        app.addItem();
+        // Unsafe should be OK, because is called after addItem.
+        let last_added_item = app.getLastItemUnsafe();
+        last_added_item.$name.focus();
+    });
 
     $("#command-original-mode").click(() => app.setOriginalMode());
 
