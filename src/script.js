@@ -2,9 +2,9 @@ function formatNumber(x){
     let number = parseFloat(x);
     let rounded;
     if (number < 10){
-        rounded = x.toFixed(3);
+        rounded = number.toFixed(3);
     } else if (10 <= number && number <= 100){
-        rounded = x.toFixed(2);
+        rounded = number.toFixed(2);
     } else if (100 <= number && number < 1000){
         rounded = number.toFixed(1);
     } else {
@@ -454,7 +454,7 @@ function RecipeClipboardExporter(){
             rows.push([
                 original_item.name,
                 original_item.quantity.amount,
-                scaled_item.quantity.amount,
+                formatNumber(scaled_item.quantity.amount),
                 original_item.quantity.unit,
             ].join(colsep));
         }
