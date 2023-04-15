@@ -69,13 +69,15 @@ button:hover,
 
   visibility: hidden;
   opacity: 0;
+
+  transition: visibility 0s linear 0.4s, opacity 0.4s linear;
 }
 
 .command-complete-info.shown {
   visibility: visible;
   opacity: 1;
 
-  transition: visibility 0s linear 0.33s, opacity 0.33s linear;
+  transition: opacity 0.4s linear;
 }
 
 a
