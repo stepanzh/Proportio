@@ -240,6 +240,9 @@ function ProportioApp(){
         clear(){
             this._items.forEach(item => item.$item.remove());
             this._items = [];
+            this._scaled_items.forEach(item => item.$item.remove());
+            this._scaled_items = [];
+
             this.setOriginalMode();
             _updateUiOnItemsCountChanged(this._items.length);
         },
@@ -308,7 +311,7 @@ function ProportioApp(){
         let input = document.getElementById("command-import-recipe");
 
         importer.import(input.files[0], function (json_string){
-            let imported_object = JSON.parse(json_string)
+            let imported_object = JSON.parse(json_string);
             let imported_items_plain = imported_object.original_items;
             app.clear();
             imported_items_plain.forEach(item => app.addItem(item.name, new Quantity(item.amount, item.unit)));

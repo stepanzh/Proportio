@@ -64,11 +64,11 @@
         <!-- App actions -->
         <section class="app-menu-item-group">
           <div class="app-menu-item">
-            <button aria-label="импорт рецепта">
+            <label for="command-import-recipe">
               <span class="app-menu-item__icon">{{ icons.folder }}</span>
-              <span class="app-menu-item__caption">Открыть</span>
+              <span class="app-menu-item__caption" aria-label="открыть рецепт">Открыть</span>
               <input type="file" id="command-import-recipe" style="display:none" accept=".proportio, .json">
-            </button>
+            </label>
           </div>
           <div class="app-menu-item">
             <button id="command-export-recipe" aria-label="экспорт рецепта">
