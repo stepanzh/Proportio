@@ -2,9 +2,9 @@ function formatNumber(x){
     let number = parseFloat(x);
     let rounded;
     if (number < 10){
-        rounded = x.toFixed(3);
+        rounded = number.toFixed(3);
     } else if (10 <= number && number <= 100){
-        rounded = x.toFixed(2);
+        rounded = number.toFixed(2);
     } else if (100 <= number && number < 1000){
         rounded = number.toFixed(1);
     } else {
@@ -77,6 +77,15 @@ function ScalableQuantity(amount = 0, original_amount = 0, unit = ""){
     this.$amount = $('<input class="ingredient-amount" aria-label="количество">')
         .val(this.amount);
     this.$unit = $(`<p class="ingredient-unit">${this.unit}</p>`);
+
+    this.setOriginal = function (original_quantity){
+        this.amount = original_quantity.amount;
+        this.original_amount = original_quantity.amount;
+        this.unit = original_quantity.unit;
+
+        this.$amount.val(this.amount);
+        this.$unit.text(this.unit);
+    };
 }
 
 function ScalableItem(name = "", quantity = new ScalableQuantity(), id = 0){
@@ -89,12 +98,29 @@ function ScalableItem(name = "", quantity = new ScalableQuantity(), id = 0){
         .append(this.$name)
         .append(this.quantity.$amount)
         .append(this.quantity.$unit);
+
+    this.setOriginal = function (original_item){
+        this.name = original_item.name;
+        this.quantity.setOriginal(original_item.quantity);
+        this.id = original_item.id;
+
+        this.$name.text(this.name);
+    }
 }
 
 function ProportioApp(){
     function _onItemRemoveClick(app, item){
         return function(e){
             app.removeItem(item.id);
+        }
+    }
+
+    function _onOriginalAmountChanged(app){
+        // Update all slaled items and set their quantity to original.
+        return function(e){
+            for (let i = 0; i < app._items.length; i++){
+                    app._scaled_items[i].quantity.setOriginal(app._items[i].quantity);
+                }
         }
     }
 
@@ -117,22 +143,44 @@ function ProportioApp(){
 
     let app = {
         _items: [],
-        _scaled_items: [],
-        _itemInnerCount: 0,
-        _onItemNameUpdate(itemIdentifier){
-            return function(e){  // e for on 'input' event
-                let item = this.getItem(itemIdentifier);
-            }
-        },
-        addItem(name = "", quantity = new Quantity()){
-            this._itemInnerCount += 1;
-            var newItem = new Item(name, quantity, this._itemInnerCount);
-            this._items.push(newItem);
 
-            newItem.$remove.click(_onItemRemoveClick(this, newItem));
-            $("#recipe-table").append(newItem.$item);
+        _scaled_items: [],
+
+        addItem(name = "", quantity = new Quantity()){
+            let original_item = new Item(name, quantity, this._items.length);
+            let scaled_item = new ScalableItem(
+                original_item.name,
+                new ScalableQuantity(
+                    original_item.quantity.amount,
+                    original_item.quantity.amount,
+                    original_item.quantity.unit,
+                ),
+                original_item.id,
+            )
+
+            this._items.push(original_item);
+            this._scaled_items.push(scaled_item);
+
+            original_item.$remove.click(_onItemRemoveClick(this, original_item));
+            $("#recipe-table").append(original_item.$item);
+            original_item.$name.on("input", function (){
+                scaled_item.setOriginal(original_item);
+            });
+
+            original_item.quantity.$amount.on("input", _onOriginalAmountChanged(this));
+            original_item.quantity.$unit.on("input", function (){
+                scaled_item.quantity.setOriginal(original_item.quantity);
+            });
+
+            // This supposed that an item can be added only from originalMode.
+            scaled_item.$item.hide();
+            scaled_item.quantity.$amount.on("input", _onScaleAmountChanged(this, scaled_item));
+
+            $("#recipe-table").append(scaled_item.$item);
+
             _updateUiOnItemsCountChanged(this._items.length);
         },
+
         removeItem(itemIdentifier){
             let itemToDelete = this.getItem(itemIdentifier);
             if (itemToDelete === undefined)
@@ -145,11 +193,16 @@ function ProportioApp(){
                 if (itemIdentifier == this._items[index].id){
                     this._items.splice(index, 1);
                     itemToDelete.$item.remove();
+
+                    this._scaled_items[index].$item.remove();
+                    this._scaled_items.splice(index, 1);
+
                     break;
                 }
             }
             _updateUiOnItemsCountChanged(this._items.length);
         },
+
         getItem(itemIdentifier){
             for (var index in this._items){
                 item = this._items[index];
@@ -157,44 +210,27 @@ function ProportioApp(){
                     return item;
             }
         },
+
         getLastItemUnsafe(){
             return this._items[this._items.length - 1];
         },
+
         setOriginalMode(){
-            while (this._scaled_items.length > 0){
-                let scaled_item = this._scaled_items.pop();
-                scaled_item.$item.remove();
-            }
             this._items.forEach(item => item.$item.show());
+            this._scaled_items.forEach(item => item.$item.hide());
             _originalModeUI();
         },
+
         setScaleMode(){
-            this._scaled_items = [];
-
-            // TOOD: ForEach?
-            for (var index in this._items){
-                let original_item = this._items[index];
-                let scaled_item = new ScalableItem(
-                    original_item.name,
-                    new ScalableQuantity(
-                        original_item.quantity.amount,
-                        original_item.quantity.amount,
-                        original_item.quantity.unit
-                    ),
-                    original_item.id
-                )
-                original_item.$item.hide();
-
-                this._scaled_items.push(scaled_item);
-                scaled_item.quantity.$amount.on("input", _onScaleAmountChanged(this, scaled_item));
-                $("#recipe-table").append(scaled_item.$item);
-            }
+            this._scaled_items.forEach(item => item.$item.show());
+            this._items.forEach(item => item.$item.hide());
             _scaleModeUI();
         },
         scale(byRatio, exceptItemIdentifier){
             for (var index in this._scaled_items){
                 let scaled_item = this._scaled_items[index];
                 if (scaled_item.id == exceptItemIdentifier){
+                    scaled_item.quantity.amount = scaled_item.quantity.$amount.val();
                     continue;
                 }
                 scaled_item.quantity.amount = scaled_item.quantity.original_amount * byRatio;
@@ -305,6 +341,29 @@ function ProportioApp(){
     $("#command-menu").click(switch_to_menu_page);
     $("#command-menu-back").click(switch_to_main_page);
 
+    $("#command-copy-to-clipboard").click(function (){
+        let animation_step_duration_milliseconds = 400;
+        let exporter = new RecipeClipboardExporter();
+        let text = exporter.toPlainText(app._items, app._scaled_items); // TODO: avoid private interface.
+        let $info = $("#command-copy-to-clipboard .command-complete-info");
+        exporter.export(text,
+            () => {
+                $info
+                    .text("Готово")
+                    .fadeIn(animation_step_duration_milliseconds)
+                    .delay(animation_step_duration_milliseconds)
+                    .fadeOut(animation_step_duration_milliseconds);
+            },
+            (e) => {
+                $info
+                    .text("Ошибка :(")
+                    .fadeIn(animation_step_duration_milliseconds)
+                    .delay(animation_step_duration_milliseconds)
+                    .fadeOut(animation_step_duration_milliseconds);
+            },
+        );
+    });
+
     _updateUiOnItemsCountChanged(0);
 
     return app;
@@ -374,6 +433,55 @@ function RecipeImporter(){
 
         reader.readAsText(file);
     };
+}
+
+// Export text or recipe to clipboard.
+// Usage:
+// let exporter = new RecipeClipboardExporter();
+// exporter.export("hello!");
+// let recipe_text = exporter.toPlainText(app._items, app._scaled_items);
+// exporter.export(recipe_text);
+function RecipeClipboardExporter(){
+    this.toPlainText = function (original_items, scaled_items){
+        let rows = [];
+        let colsep = "\t";
+        let rowsep = "\n"; // TODO: platform independent EOL
+
+        rows.push(["Ингредиент", "Оригинал", "Пропорция", "Единица"].join(colsep));
+        for (let i = 0; i < Math.min(original_items.length, scaled_items.length); i++){
+            let original_item = original_items[i];
+            let scaled_item = scaled_items[i];
+            rows.push([
+                original_item.name,
+                original_item.quantity.amount,
+                formatNumber(scaled_item.quantity.amount),
+                original_item.quantity.unit,
+            ].join(colsep));
+        }
+        return rows.join(rowsep) + rowsep;
+    };
+
+    // Copy text to clipboard. Must be called from user interaction, e.g. button click.
+    // onSuccess() => void
+    // onFailure(e) => void
+    this.export = function(text, onSuccess = undefined, onFailure = undefined){
+        navigator.clipboard
+            .writeText(text)
+            .then(() => {
+                if (onSuccess === undefined){
+                    console.log("clipboard success");
+                    return;
+                }
+                onSuccess();
+            })
+            .catch((e) => {
+                if (onFailure === undefined){
+                    console.log("clipboard failed\n" + e);
+                    return;
+                }
+                onFailure(e);
+            });
+    }
 }
 
 //

@@ -1,5 +1,6 @@
 :root {
   --text-body-color: black;
+  --text-body-color-invert: white;
   --ui-accent-color: #007DFF;
   --ui-gray-0-color: #E1E1E2;
   --ui-gray-3-color: #8E8E93;
@@ -10,7 +11,7 @@
   --font-body-size: 18px;
   --font-ui-size: 16px;
   --font-caption-size: 12px;
-  --font-caption-color: 12px;
+  --font-caption-color: 12px;  /* TODO: seems broken. */
   --font-bold-weight: 600;
   --ui-button-height: 34px;
   --ui-padding: 8px;
@@ -45,12 +46,27 @@ button:hover,
 
 .default-button {
   display: inline-block;
+  position: relative;
   padding: var(--ui-padding);
   background: none;
   outline: none;
   border: none;
   color: var(--ui-accent-color);
   font-size: var(--font-ui-size);
+}
+
+.command-complete-info {
+  position: absolute;
+  left: 50%;
+  top: -50%;
+  transform: translateX(-50%);
+  display: none;
+
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: var(--ui-gray-3-color);
+  color: var(--text-body-color-invert);
+  font-size: var(--font-caption-size);
 }
 
 a
