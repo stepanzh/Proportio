@@ -342,9 +342,26 @@ function ProportioApp(){
     $("#command-menu-back").click(switch_to_main_page);
 
     $("#command-copy-to-clipboard").click(function (){
+        let animation_step_duration_milliseconds = 400;
         let exporter = new RecipeClipboardExporter();
         let text = exporter.toPlainText(app._items, app._scaled_items); // TODO: avoid private interface.
-        exporter.export(text);
+        let $info = $("#command-copy-to-clipboard .command-complete-info");
+        exporter.export(text,
+            () => {
+                $info
+                    .text("Готово")
+                    .fadeIn(animation_step_duration_milliseconds)
+                    .delay(animation_step_duration_milliseconds)
+                    .fadeOut(animation_step_duration_milliseconds);
+            },
+            (e) => {
+                $info
+                    .text("Ошибка :(")
+                    .fadeIn(animation_step_duration_milliseconds)
+                    .delay(animation_step_duration_milliseconds)
+                    .fadeOut(animation_step_duration_milliseconds);
+            },
+        );
     });
 
     _updateUiOnItemsCountChanged(0);
@@ -445,14 +462,24 @@ function RecipeClipboardExporter(){
     };
 
     // Copy text to clipboard. Must be called from user interaction, e.g. button click.
-    this.export = function(text){
+    // onSuccess() => void
+    // onFailure(e) => void
+    this.export = function(text, onSuccess = undefined, onFailure = undefined){
         navigator.clipboard
             .writeText(text)
             .then(() => {
-                console.log("clipboard success");
+                if (onSuccess === undefined){
+                    console.log("clipboard success");
+                    return;
+                }
+                onSuccess();
             })
             .catch((e) => {
-                console.log("clipboard failed\n" + e);
+                if (onFailure === undefined){
+                    console.log("clipboard failed\n" + e);
+                    return;
+                }
+                onFailure(e);
             });
     }
 }
