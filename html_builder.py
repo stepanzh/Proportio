@@ -3,6 +3,7 @@
 from dataclasses import dataclass
 import argparse
 import jinja2
+import pathlib
 import sys
 
 
@@ -63,7 +64,31 @@ class ProjectContacs:
     Mariya:Contact = Contact(
         firstname="Мария",
         secondname="Лукьянова",
+        telegram="https://t.me/Marnia_made"
     )
+
+
+class Icons:
+    def __init__(self):
+        self.inner = dict()
+
+    def __getattr__(self, icon_name):
+        if icon_name not in self.inner.keys():
+            raise AttributeError()
+        return self.inner[icon_name]
+
+    @classmethod
+    def from_icon_folder(cls, folder_path: pathlib.Path):
+        assert folder_path.is_dir(), f"Icon folder does not exist: {folder_path}"
+
+        icons = Icons()
+
+        for child in folder_path.iterdir():
+            if not child.is_file():
+                continue
+            with open(child) as io:
+                icons.inner[child.stem] = io.read().strip()
+        return icons
 
 
 def main(path, mode):
@@ -82,6 +107,7 @@ def main(path, mode):
         "jquery": jquery,
         "links": ExternalLinks(),
         "contacts": ProjectContacs(),
+        "icons": Icons.from_icon_folder(pathlib.Path(path).parent / "icons"),
     })
 
     print(rendered)
