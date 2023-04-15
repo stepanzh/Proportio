@@ -60,14 +60,22 @@ button:hover,
   left: 50%;
   top: -50%;
   transform: translateX(-50%);
-  display: none;
-  opacity: 0;
 
   padding: 4px 8px;
   border-radius: 8px;
   background: var(--ui-gray-3-color);
   color: var(--text-body-color-invert);
   font-size: var(--font-caption-size);
+
+  visibility: hidden;
+  opacity: 0;
+}
+
+.command-complete-info.shown {
+  visibility: visible;
+  opacity: 1;
+
+  transition: visibility 0s linear 0.33s, opacity 0.33s linear;
 }
 
 a
