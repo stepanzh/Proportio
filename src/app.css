@@ -267,50 +267,56 @@ p.ingredient-name {
 /* Menu styles */
 
 #page-menu {
-  display: grid;
-  grid-template-columns: auto;
-  row-gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+    font-size: var(--font-body-size);
+}
+
+#page-menu header {
+  padding-bottom: 4px;
 }
 
 .app-menu-item {
-  display: grid;
-  grid-template-columns: auto;
-  row-gap: 8px;
-  justify-items: left;
+  border-radius: 10px;
 }
 
-.app-menu-item > * {
-  margin: 0;
+.app-menu-item:hover {
+  background: var(--ui-gray-m1-color);
 }
 
-.app-menu-item header {
-  font-size: var(--font-body-size);
-  font-weight: var(--font-bold-weight);
-}
-
-.app-menu-item p {
-  font-size: var(--font-body-size);
-}
-
-.app-menu-item a.default-button {
-  padding: 0;
-}
-
-.author {
-  display: grid;
-  grid-template-columns: auto;
-  row-gap: 4px;
-}
-
-.author > * {
-  margin: 0;
-}
-
-.author .caption,
-.author h1
+.app-menu-item > a,
+.app-menu-item > button
 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  width: 100%;
+  margin: 0;
+
   font-size: var(--font-body-size);
-  font-weight: normal;
+  color: var(--text-body-color);
+  text-decoration: none;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.app-menu-item__icon,
+.app-menu-item__external-link-icon
+{
+  display: flex;
+}
+
+.app-menu-item__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.app-menu-item__external-link-icon svg {
+  width: 16px;
+  height: 16px;
 }
 
 @media only screen and (max-width: 600px){
