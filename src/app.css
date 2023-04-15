@@ -270,7 +270,7 @@ p.ingredient-name {
   display: flex;
   flex-direction: column;
   gap: 24px;
-    font-size: var(--font-body-size);
+  font-size: var(--font-body-size);
 }
 
 #page-menu header {
@@ -286,7 +286,8 @@ p.ingredient-name {
 }
 
 .app-menu-item > a,
-.app-menu-item > button
+.app-menu-item > button,
+.app-menu-item > label
 {
   display: flex;
   align-items: center;
@@ -294,6 +295,7 @@ p.ingredient-name {
   height: 36px;
   width: 100%;
   margin: 0;
+  padding: 0;
 
   font-size: var(--font-body-size);
   color: var(--text-body-color);
@@ -301,6 +303,8 @@ p.ingredient-name {
   background: none;
   border: none;
   outline: none;
+
+  cursor: pointer;
 }
 
 .app-menu-item__icon,
