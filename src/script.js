@@ -230,6 +230,7 @@ function ProportioApp(){
             for (var index in this._scaled_items){
                 let scaled_item = this._scaled_items[index];
                 if (scaled_item.id == exceptItemIdentifier){
+                    scaled_item.quantity.amount = scaled_item.quantity.$amount.val();
                     continue;
                 }
                 scaled_item.quantity.amount = scaled_item.quantity.original_amount * byRatio;
