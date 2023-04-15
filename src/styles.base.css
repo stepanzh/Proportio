@@ -60,13 +60,24 @@ button:hover,
   left: 50%;
   top: -50%;
   transform: translateX(-50%);
-  display: none;
 
   padding: 4px 8px;
   border-radius: 8px;
   background: var(--ui-gray-3-color);
   color: var(--text-body-color-invert);
   font-size: var(--font-caption-size);
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition: visibility 0s linear 0.4s, opacity 0.4s linear;
+}
+
+.command-complete-info.shown {
+  visibility: visible;
+  opacity: 1;
+
+  transition: opacity 0.4s linear;
 }
 
 a

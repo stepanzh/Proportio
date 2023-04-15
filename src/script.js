@@ -342,24 +342,29 @@ function ProportioApp(){
     $("#command-menu-back").click(switch_to_main_page);
 
     $("#command-copy-to-clipboard").click(function (){
-        let animation_step_duration_milliseconds = 400;
         let exporter = new RecipeClipboardExporter();
         let text = exporter.toPlainText(app._items, app._scaled_items); // TODO: avoid private interface.
         let $info = $("#command-copy-to-clipboard .command-complete-info");
+
+        // jQuery's animate does not work on mobile devices.
+        // Instead, css transition is used based on toggling class.
+        // Still has troubles with iOS Safari.
         exporter.export(text,
             () => {
                 $info
                     .text("Готово")
-                    .fadeIn(animation_step_duration_milliseconds)
-                    .delay(animation_step_duration_milliseconds)
-                    .fadeOut(animation_step_duration_milliseconds);
+                    .toggleClass("shown");
+                setTimeout(function() {
+                   $info.removeClass("shown");
+                }, 1000);
             },
             (e) => {
                 $info
                     .text("Ошибка :(")
-                    .fadeIn(animation_step_duration_milliseconds)
-                    .delay(animation_step_duration_milliseconds)
-                    .fadeOut(animation_step_duration_milliseconds);
+                    .toggleClass("shown");
+                setTimeout(function() {
+                   $info.removeClass("shown");
+                }, 1000);
             },
         );
     });
