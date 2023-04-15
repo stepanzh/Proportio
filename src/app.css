@@ -43,23 +43,21 @@
   width: 36px;
   height: 36px;
   border-radius: 18px;
-  background: var(--special-0-color);
-  
-  animation: 1s linear 10 throbe;
+
+  animation: 1s linear 3 throbe;
 }
 
-#promo a
-{
+.promo__icon {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 100%;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  background-image: url("gift-icon.svg");
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: center;
+  transform: translate(-50%, -40%);
+}
+
+.promo__icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--special-0-color);
 }
 
 @keyframes throbe {
