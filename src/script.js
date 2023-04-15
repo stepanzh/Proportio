@@ -115,6 +115,15 @@ function ProportioApp(){
         }
     }
 
+    function _onOriginalAmountChanged(app){
+        // Update all slaled items and set their quantity to original.
+        return function(e){
+            for (let i = 0; i < app._items.length; i++){
+                    app._scaled_items[i].quantity.setOriginal(app._items[i].quantity);
+                }
+        }
+    }
+
     function _onScaleAmountChanged(app, scalableItem){
         return function(e){
             let scalableQuantity = scalableItem.quantity;
@@ -157,10 +166,8 @@ function ProportioApp(){
             original_item.$name.on("input", function (){
                 scaled_item.setOriginal(original_item);
             });
-            // TODO: other scaled items should be updated too?
-            original_item.quantity.$amount.on("input", function (){
-                scaled_item.quantity.setOriginal(original_item.quantity);
-            });
+
+            original_item.quantity.$amount.on("input", _onOriginalAmountChanged(this));
             original_item.quantity.$unit.on("input", function (){
                 scaled_item.quantity.setOriginal(original_item.quantity);
             });
