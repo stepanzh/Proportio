@@ -14,7 +14,8 @@
   --font-caption-size: 12px;
   --font-caption-color: 12px;  /* TODO: seems broken. */
   --font-bold-weight: 600;
-  --ui-button-height: 34px;
+  --ui-button-height: 36px;
+  --ui-icon-size: 24px;
   --ui-padding: 8px;
   --corner-radius: 8px;
 
