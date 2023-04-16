@@ -298,12 +298,17 @@ p.ingredient-name {
     grid-template-columns: var(--ui-button-height) auto 64px 78px;
   }
   input.ingredient-name {
-    max-width: 136px;
+    max-width: 160px;
   }
 }
 
 @media only screen and (max-width: 400px){
+  .recipe-table-header,
+  .ingredient {
+    gap: 4px;
+  }
+  
   input.ingredient-name {
-    max-width: 136px;
+    max-width: 128px;
   }
 }
