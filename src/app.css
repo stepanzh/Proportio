@@ -73,6 +73,7 @@
 
 .toggle-wide {
   display: grid;
+  height: var(--ui-button-height);
   grid-template-columns: 50% 50%;
   gap: 0;
   margin: var(--ui-padding) 0;
@@ -203,47 +204,19 @@ p.ingredient-name {
 }
 
 /* Plus button */
-
 .ingredient-add {
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--ui-button-height);
 }
 
-.ingredient-add span
-{
-  position: absolute;
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  background: white;
-  border-radius: 9px;
+.ingredient-add svg {
+  width: var(--ui-icon-size);
+  height: var(--ui-icon-size);
+  color: var(--text-body-color-invert);
 }
 
-.ingredient-add span:after,
-.ingredient-add span:before
-{
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-
-  content: "";
-  background: var(--ui-accent-color);
-  border-radius: var(--icon-line-corner-raidus);
-}
-
-.ingredient-add span:after {
-  height: var(--icon-line-thickness);
-  width: var(--icon-line-length);
-}
-
-.ingredient-add span:before {
-  height: var(--icon-line-length);
-  width: var(--icon-line-thickness);
-}
 
 .toggle-isoff.disabled
 {
@@ -312,8 +285,8 @@ p.ingredient-name {
 }
 
 .app-menu-item__icon svg {
-  width: 24px;
-  height: 24px;
+  width: var(--ui-icon-size);
+  height: var(--ui-icon-size);
 }
 
 .app-menu-item__external-link-icon svg {
