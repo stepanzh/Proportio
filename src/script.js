@@ -58,7 +58,9 @@ function Item(name = "", quantity = new Quantity(), id = 0){
         }
     }
 
-    this.$remove = $('<button class="ingredient-remove" aria-label="удалить ингредиент"></button>');
+    const remove_icon = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>'
+
+    this.$remove = $(`<button class="ingredient-remove" aria-label="удалить ингредиент">${remove_icon}</button>`);
     this.$name = $('<input class="ingredient-name" aria-label="название ингредиента">')
         .on("input", _onNameChanged(this))
         .val(this.name);
@@ -240,6 +242,9 @@ function ProportioApp(){
         clear(){
             this._items.forEach(item => item.$item.remove());
             this._items = [];
+            this._scaled_items.forEach(item => item.$item.remove());
+            this._scaled_items = [];
+
             this.setOriginalMode();
             _updateUiOnItemsCountChanged(this._items.length);
         },
@@ -308,7 +313,7 @@ function ProportioApp(){
         let input = document.getElementById("command-import-recipe");
 
         importer.import(input.files[0], function (json_string){
-            let imported_object = JSON.parse(json_string)
+            let imported_object = JSON.parse(json_string);
             let imported_items_plain = imported_object.original_items;
             app.clear();
             imported_items_plain.forEach(item => app.addItem(item.name, new Quantity(item.amount, item.unit)));

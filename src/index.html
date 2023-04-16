@@ -35,7 +35,7 @@
     <div id="app-header">
       <nav id="recipe-nav">
         <button id="command-menu" class="default-button" aria-label="меню программы">Меню</button>
-        <div id="promo"><a href="promo.html"></a></div>
+        <div id="promo"><a href="promo.html"><span class="promo__icon">{{ icons.gift }}</span></a></div>
         <button id="command-clear" class="default-button severity-warning" aria-label="очистить таблицу">Очистить</button>
       </nav>
       <nav id="menu-nav" style="display: none;">
@@ -58,62 +58,95 @@
             <div class="recipe-table-header-unit">Единица</div>
           </div>
         </div>
-        <button class="ingredient-add" aria-label="добавить ингредиент"><span></span></button>
+        <button class="ingredient-add" aria-label="добавить ингредиент">{{ icons.plus_circle_solid }}</button>
       </div>
       <div id="page-menu" style="display: none;">
-        <section class="app-menu-item">
-          <header>Примеры рецептов</header>
-          <p>Посмотрите на примеры рецептов и пропорций.</p>
-          <p><a class="default-button" href="examples.html" target="_blank">Примеры</a></p>
+        <!-- App actions -->
+        <section class="app-menu-item-group">
+          <div class="app-menu-item">
+            <label for="command-import-recipe">
+              <span class="app-menu-item__icon">{{ icons.folder }}</span>
+              <span class="app-menu-item__caption" aria-label="открыть рецепт">Открыть</span>
+              <input type="file" id="command-import-recipe" style="display:none" accept=".proportio, .json">
+            </label>
+          </div>
+          <div class="app-menu-item">
+            <button id="command-export-recipe" aria-label="экспорт рецепта">
+              <span class="app-menu-item__icon">{{ icons.save }}</span>
+              <span class="app-menu-item__caption">Сохранить</span>
+            </button>
+          </div>
+          <div class="app-menu-item">
+            <button id="command-copy-to-clipboard" aria-label="скопировать в буфер обмена">
+              <span class="app-menu-item__icon">{{ icons.clipboard }}</span>
+              <span class="app-menu-item__caption"><span class="command-complete-info">Скопировано!</span>Скопировать</span>
+            </button>
+          </div>
         </section>
-        <section class="app-menu-item">
-          <header>Экспорт рецепта</header>
-          <p>Экспортируйте оригинальный рецепт и настройки пропорции, чтобы загрузить рецепт в будущем.</p>
-          <button id="command-export-recipe" class="default-button" aria-label="экспорт рецепта">Экспорт</button>
+
+        <!-- Recipe examples -->
+        <section class="app-menu-item-group">
+          <div class="app-menu-item">
+            <a href="examples.html" target="_blank">
+              <span class="app-menu-item__icon">{{ icons.academic_hat }}</span>
+              <span class="app-menu-item__caption">Примеры рецептов</span>
+              <span class="app-menu-item__external-link-icon">{{ icons.external_link_mini }}</span>
+            </a>
+          </div>
         </section>
-        <section class="app-menu-item">
-          <header>Импорт рецепта</header>
-          <p>Импортируйте ранее сохранённый рецепт.</p>
-          <label for="command-import-recipe">
-            <span class="default-button" aria-label="импорт рецепта">Импорт</span>
-            <input type="file" id="command-import-recipe" style="display:none" accept=".proportio, .json">
-          </label>
-        </section>
-        <section class="app-menu-item">
-          <header>Скопировать в буфер обмена</header>
-          <p>Скопируйте рецепт в буфер обмена для быстрой вставки куда-нибудь.</p>
-          <button id="command-copy-to-clipboard" class="default-button" aria-label="скопировать в буфер обмена">
-            <span class="command-complete-info">Скопировано!</span>
-            Скопировать
-          </button>
-        </section>
-        <section class="app-menu-item">
+
+        <!-- Project help -->
+        <section class="app-menu-item-group">
           <header>Помощь проекту</header>
-          <p>Если Вам понравилось приложение, вы можете помочь его авторам.</p>
-          <p><a class="default-button" href="{{ links.payment }}" target="_blank">Банковский перевод</a></p>
-          <p><a class="default-button" href="{{ links.repository }}" target="_blank">Репозиторий проекта</a></p>
-          <p><a class="default-button" href="{{ contacts.Stepan.telegram }}" target="_blank">Помощь словом</a></p>
+          <!-- Help by donation -->
+          <div class="app-menu-item">
+            <a href="{{ links.payment }}" target="_blank">
+              <span class="app-menu-item__icon">{{ icons.credit_card }}</span>
+              <span class="app-menu-item__caption">Помочь монетой</span>
+              <span class="app-menu-item__external-link-icon">{{ icons.external_link_mini }}</span>
+            </a>
+          </div>
+          <!-- Help by developing -->
+          <div class="app-menu-item">
+            <a href="{{ links.repository }}" target="_blank">
+              <span class="app-menu-item__icon">{{ icons.github }}</span>
+              <span class="app-menu-item__caption">Помочь разработкой</span>
+              <span class="app-menu-item__external-link-icon">{{ icons.external_link_mini }}</span>
+            </a>
+          </div>
+          <!-- Help by feedback -->
+          <div class="app-menu-item">
+            <a href="{{ contacts.Stepan.telegram }}" target="_blank">
+              <span class="app-menu-item__icon">{{ icons.chat }}</span>
+              <span class="app-menu-item__caption">Помочь словом</span>
+              <span class="app-menu-item__external-link-icon">{{ icons.external_link_mini }}</span>
+            </a>
+          </div>
         </section>
-        <section class="app-menu-item">
+
+        <!-- Project authors -->
+        <section class="app-menu-item-group">
           <header>Авторы</header>
-          <div class="author">
-            <h1>{{ contacts.Stepan.firstname}} {{ contacts.Stepan.secondname}}</h1>
-            <p class="caption">идея, разработка, дизайн</p>
-            <p>
-              <a class="default-button" href="{{ contacts.Stepan.telegram }}" target="_blank">телеграм</a>,
-              <a class="default-button" href="{{ contacts.Stepan.github }}" target="_blank">github</a>
-            </p>
+          <div class="app-menu-item">
+            <a href="{{ contacts.Stepan.telegram }}" target="_blank">
+              <span class="app-menu-item__icon">{{ icons.rocket }}</span>
+              <span class="app-menu-item__caption">{{ contacts.Stepan.firstname}} {{ contacts.Stepan.secondname}}</span>
+              <span class="app-menu-item__external-link-icon">{{ icons.external_link_mini }}</span>
+            </a>
           </div>
-          <div class="author">
-            <h1>{{ contacts.Alexandra.firstname}} {{ contacts.Alexandra.secondname}}</h1>
-            <p class="caption">дизайн, обсуждение</p>
-            <p>
-              <a class="default-button" href="{{ contacts.Alexandra.telegram }}" target="_blank">телеграм</a>
-            </p>
+          <div class="app-menu-item">
+            <a href="{{ contacts.Mariya.telegram }}" target="_blank">
+              <span class="app-menu-item__icon">{{ icons.star }}</span>
+              <span class="app-menu-item__caption">{{ contacts.Mariya.firstname}} {{ contacts.Mariya.secondname }}</span>
+              <span class="app-menu-item__external-link-icon">{{ icons.external_link_mini }}</span>
+            </a>
           </div>
-          <div class="author">
-            <h1>{{ contacts.Mariya.firstname}} {{ contacts.Mariya.secondname}}</h1>
-            <p class="caption">обсуждение</p>
+          <div class="app-menu-item">
+            <a href="{{ contacts.Alexandra.telegram }}" target="_blank">
+              <span class="app-menu-item__icon">{{ icons.brush }}</span>
+              <span class="app-menu-item__caption">{{ contacts.Alexandra.firstname}} {{ contacts.Alexandra.secondname}}</span>
+              <span class="app-menu-item__external-link-icon">{{ icons.external_link_mini }}</span>
+            </a>
           </div>
         </section>
       </div>
