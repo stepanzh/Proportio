@@ -168,6 +168,10 @@
   height: var(--ui-button-height);
   border: none;
   background: none;
+
+  /* iOS Safari issue, perhaps of default button styles. */
+  padding: 0;
+  margin: 0;
 }
 
 .ingredient-remove svg {
