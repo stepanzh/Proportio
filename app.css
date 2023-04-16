@@ -298,12 +298,12 @@ p.ingredient-name {
     grid-template-columns: var(--ui-button-height) auto 64px 78px;
   }
   input.ingredient-name {
-    max-width: 160px;
+    max-width: 136px;
   }
 }
 
 @media only screen and (max-width: 400px){
   input.ingredient-name {
-    max-width: 140px;
+    max-width: 136px;
   }
 }
