@@ -168,6 +168,8 @@
   height: var(--ui-button-height);
   border: none;
   background: none;
+  padding: 0;
+  margin: 0;
 }
 
 .ingredient-remove svg {
@@ -307,7 +309,7 @@ p.ingredient-name {
   .ingredient {
     gap: 4px;
   }
-  
+
   input.ingredient-name {
     max-width: 128px;
   }
