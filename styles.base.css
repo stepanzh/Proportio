@@ -57,17 +57,22 @@ button:hover,
   font-size: var(--font-ui-size);
 }
 
+.app-menu-item__caption {
+  position: relative;
+}
+
 .command-complete-info {
   position: absolute;
   left: 50%;
-  top: -50%;
+  top: -140%;
   transform: translateX(-50%);
 
-  padding: 4px 8px;
+  padding: 4px 12px;
   border-radius: 8px;
-  background: var(--ui-gray-3-color);
-  color: var(--text-body-color-invert);
+  background: white;
+  color: var(--text-body-color);
   font-size: var(--font-caption-size);
+  border: 1px solid var(--ui-accent-color);
 
   visibility: hidden;
   opacity: 0;
@@ -75,11 +80,26 @@ button:hover,
   transition: visibility 0s linear 0.4s, opacity 0.4s linear;
 }
 
+.command-complete-info::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%) rotate(45deg);
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-style: none solid solid none;
+  border-width: 1px;
+  border-color: var(--ui-accent-color);
+}
+
 .command-complete-info.shown {
   visibility: visible;
   opacity: 1;
 
-  transition: opacity 0.4s linear;
+  transition: opacity 0.1s linear;
 }
 
 a
