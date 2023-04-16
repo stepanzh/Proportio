@@ -304,6 +304,6 @@ p.ingredient-name {
 
 @media only screen and (max-width: 400px){
   input.ingredient-name {
-    max-width: 160px;
+    max-width: 140px;
   }
 }
