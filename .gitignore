@@ -1,4 +1,7 @@
 debug
 deploy
 venv
-src/promo.jpg
+static/promo.jpg
+
+*.pyc
+

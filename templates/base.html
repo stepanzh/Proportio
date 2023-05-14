@@ -1,0 +1,53 @@
+{#
+  Base template for other pages
+
+  Blocks to extend
+  - title: page title
+  - [pagecss]: custom css
+  - [headjavascript]: javascript to load in <head>
+  - content: body of page
+#}
+
+{% set longdash = '&#8212;' %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-33KVSYJECE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-33KVSYJECE');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Удобное онлайн приложение для конвертации рецептов с сохранением пропорции. Введите оригинальный рецепт, выберите ингредиент для пересчёта или количество порций, всё остальное приложение сделает за вас.">
+  <meta name="keywords" content="посчитать пропорцию, пропорция, рецепт, кулинария, готовка, онлайн калькулятор">
+
+  <title>Пропорцио &#8212; калькулятор рецептов по ингредиенту или порциям</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style> @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap'); </style>
+
+  <!-- Style -->
+  <link rel="stylesheet" href="css/base.css">
+  {% block pagecss %}{% endblock %}
+
+  <!-- Head javascript -->
+  {% block headjavascript %}{% endblock %}
+
+  <!-- App icons -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+  {% block content %}{% endblock %}
+</body>

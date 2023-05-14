@@ -1,42 +1,19 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-33KVSYJECE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+{% extends 'base.html' %}
 
-    gtag('config', 'G-33KVSYJECE');
-  </script>
+{% block title %}Пропорцио {{ longdash }} калькулятор рецептов по ингредиенту или порциям{% endblock %}
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Удобное онлайн приложение для конвертации рецептов с сохранением пропорции. Введите оригинальный рецепт, выберите ингредиент для пересчёта или количество порций, всё остальное приложение сделает за вас.">
-  <meta name="keywords" content="посчитать пропорцию, пропорция, рецепт, кулинария, готовка, онлайн калькулятор">
+{% block pagecss %}<link rel="stylesheet" href="css/index.css">{% endblock %}
 
-  <title>Пропорцио &#8212; калькулятор рецептов по ингредиенту или порциям</title>
+{% block headjavascript %}
+{# Jquery #}
+  {% if isdebug %}
+    <script src="{{ jquery.debug.src }}" integrity="{{ jquery.debug.integrity }}" crossorigin="anonymous"></script>
+  {% else %}
+    <script src="{{ jquery.deploy.src }}" integrity="{{ jquery.deploy.integrity }}" crossorigin="anonymous"></script>
+  {% endif %}
+{% endblock %}
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style> @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap'); </style>
-
-  <!-- Style -->
-  <link rel="stylesheet" href="styles.base.css">
-  <link rel="stylesheet" href="app.css">
-
-  <!-- Jquery -->
-  <script src="{{ jquery.src }}" integrity="{{ jquery.integrity }}" crossorigin="anonymous"></script>
-
-  <!-- App icons -->
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-</head>
-<body>
+{% block content %}
   <div id="app">
     <div id="app-header">
       <nav id="recipe-nav">
@@ -158,6 +135,5 @@
       </div>
     </div>
   </div>
-  <script type="text/javascript" src="script.js"></script>
-</body>
-</html>
+  <script type="text/javascript" src="js/index.js"></script>
+{% endblock %}
