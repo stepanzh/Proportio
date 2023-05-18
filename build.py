@@ -22,6 +22,7 @@ ICONS = Icons.from_icon_folder(STATICS_PATH / 'icons')
 EXTERNAL_LINKS = {
     'payment': 'https://www.tinkoff.ru/cf/7T9naweBKz8',
     'repository': 'https://github.com/stepanzh/Proportio',
+    'vk_community': 'https://vk.com/proportioapp',
 }
 PROJECT_CONTACTS = {
     'Stepan': Contact(
