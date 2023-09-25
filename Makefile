@@ -27,5 +27,7 @@ newpromo:
 ifdef i
 	cp $(i) 'static/promo.jpg'
 else
-	@echo "No picture specified. Usage: make i=path newpromo"
+	@echo "No picture specified. Usage: make newpromo i=path"
 endif
+
+.PHONY: all debug deploy clear pages newpromo
