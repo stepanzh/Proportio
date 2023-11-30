@@ -76,7 +76,7 @@ function ScalableQuantity(amount = 0, original_amount = 0, unit = ""){
     this.original_amount = original_amount;
     this.unit = unit;
 
-    this.$amount = $('<input class="ingredient-amount" aria-label="количество">')
+    this.$amount = $('<input class="ingredient-amount accent" aria-label="количество">')
         .val(this.amount);
     this.$unit = $(`<p class="ingredient-unit">${this.unit}</p>`);
 
@@ -251,6 +251,8 @@ function ProportioApp(){
     };
 
     function _originalModeUI(){
+        $("#mode-help").text("Введите оригинальную раскладку рецепта.");
+
         $("#command-original-mode")
             .removeClass("toggle-isoff")
             .addClass("toggle-ison");
@@ -259,6 +261,8 @@ function ProportioApp(){
     }
 
     function _scaleModeUI(){
+        $("#mode-help").text("Измените количество любого ингредиента для пересчёта.");
+
         $("#command-scale-mode")
             .removeClass("toggle-isoff")
             .addClass("toggle-ison");
@@ -375,6 +379,7 @@ function ProportioApp(){
     });
 
     _updateUiOnItemsCountChanged(0);
+    _originalModeUI();
 
     return app;
 }

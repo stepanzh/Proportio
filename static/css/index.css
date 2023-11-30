@@ -158,6 +158,8 @@
   margin-bottom: -1px;
 }
 
+.ingredient-amount.accent { color: var(--ui-accent-color); }
+
 /* Delete button */
 
 .ingredient-remove {
