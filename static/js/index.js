@@ -251,6 +251,8 @@ function ProportioApp(){
     };
 
     function _originalModeUI(){
+        $("#mode-help").text("Введите оригинальную раскладку рецепта.");
+
         $("#command-original-mode")
             .removeClass("toggle-isoff")
             .addClass("toggle-ison");
@@ -259,6 +261,8 @@ function ProportioApp(){
     }
 
     function _scaleModeUI(){
+        $("#mode-help").text("Измените количество любого ингредиента для пересчёта.");
+
         $("#command-scale-mode")
             .removeClass("toggle-isoff")
             .addClass("toggle-ison");
@@ -375,6 +379,7 @@ function ProportioApp(){
     });
 
     _updateUiOnItemsCountChanged(0);
+    _originalModeUI();
 
     return app;
 }
