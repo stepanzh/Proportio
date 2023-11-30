@@ -4,6 +4,7 @@
   Blocks to extend
   - pagedescription: description of page for search engines (meta description)
   - pagetitle: page title
+  - pagekeywords: keywords of page for search engines (meta keywords)
   - [pagecss]: custom css
   - [headjavascript]: javascript to load in <head>
   - content: body of page
@@ -44,7 +45,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{% block pagedescription %}Пересчитайте рецепт на любой ингредиент или число порций. Удобный и бесплатный калькулятор Пропорцио.{% endblock %}">
-  <meta name="keywords" content="калькулятор рецептов, бесплатно, калькулятор ингредиентов, пересчитать рецепт, посчитать пропорцию, пропорция, рецепт, кулинария, готовка">
+  <meta name="keywords" content="{% block pagekeywords %}калькулятор рецептов, бесплатно, калькулятор ингредиентов, пересчитать рецепт, посчитать пропорцию, пропорция, рецепт, кулинария, готовка{% endblock %}">
 
   <title>{% block pagetitle %}Пересчитать рецепт{% endblock %} {{ longdash }} Пропорцио</title>
 
