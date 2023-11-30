@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 
+{% block pagedescription %}Примеры файлов с рецептами для калькулятора Пропорцио.{% endblock %}
 {% block pagetitle %}Примеры рецептов{% endblock %}
+
 {% block pagecss %}<link rel="stylesheet" href="css/examples.css">{% endblock %}
 
 {% block content %}
   <div id="shell">
-    <h1>Пропорцио {{ longdash }} примеры</h1>
+    <h1>Примеры рецептов {{ longdash }} Пропорцио</h1>
     <p>Выберите пример (рецепт) из списка, загрузите на компьютер или телефон и импортируйте в <a href="index.html" target="_blank">Пропорцио</a>.</p>
     <div id="examples">
       {% for example in recipe_examples %}
