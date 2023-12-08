@@ -76,8 +76,7 @@ function ScalableQuantity(amount = 0, original_amount = 0, unit = ""){
     this.original_amount = original_amount;
     this.unit = unit;
 
-    this.$amount = $('<input class="ingredient-amount accent" aria-label="количество">')
-        .val(this.amount);
+    this.$amount = $('<input class="ingredient-amount accent" aria-label="количество">');
     this.$unit = $(`<p class="ingredient-unit">${this.unit}</p>`);
 
     this.setOriginal = function (original_quantity){
@@ -85,9 +84,12 @@ function ScalableQuantity(amount = 0, original_amount = 0, unit = ""){
         this.original_amount = original_quantity.amount;
         this.unit = original_quantity.unit;
 
-        this.$amount.val(this.amount);
+        this.$amount.attr("placeholder", this.original_amount).val("");
         this.$unit.text(this.unit);
     };
+
+    // Initialize
+    this.$amount.attr("placeholder", this.original_amount).val("");
 }
 
 function ScalableItem(name = "", quantity = new ScalableQuantity(), id = 0){
@@ -107,6 +109,10 @@ function ScalableItem(name = "", quantity = new ScalableQuantity(), id = 0){
         this.id = original_item.id;
 
         this.$name.text(this.name);
+    }
+
+    this.clearInputs = function(){
+        this.quantity.$amount.val("");
     }
 }
 
@@ -129,16 +135,15 @@ function ProportioApp(){
     function _onScaleAmountChanged(app, scalableItem){
         return function(e){
             let scalableQuantity = scalableItem.quantity;
+            let newAmountString = scalableQuantity.$amount.val().trim();
 
-            let newAmount = scalableQuantity.$amount.val();
+            let newAmount = parseFloat(newAmountString);
+            if (isNaN(newAmount)){
+                app.clearScalableInputs();
+                return;
+            }
 
-            if (newAmount === ""){
-                newAmount = 0;
-            }
-            if (isNaN(newAmount) || isNaN(parseFloat(newAmount))){
-                newAmount = NaN;
-            }
-            let ratio = parseFloat(newAmount) / scalableQuantity.original_amount;
+            let ratio = newAmount / scalableQuantity.original_amount;
             app.scale(ratio, scalableItem.id);
         }
     }
@@ -247,6 +252,9 @@ function ProportioApp(){
 
             this.setOriginalMode();
             _updateUiOnItemsCountChanged(this._items.length);
+        },
+        clearScalableInputs(){
+            this._scaled_items.forEach(item => item.clearInputs());
         },
     };
 
