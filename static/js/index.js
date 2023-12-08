@@ -76,7 +76,7 @@ function ScalableQuantity(amount = 0, original_amount = 0, unit = ""){
     this.original_amount = original_amount;
     this.unit = unit;
 
-    this.$amount = $('<input class="ingredient-amount accent" aria-label="количество">');
+    this.$amount = $('<input class="ingredient-amount" aria-label="новое количество">');
     this.$unit = $(`<p class="ingredient-unit">${this.unit}</p>`);
 
     this.setOriginal = function (original_quantity){
