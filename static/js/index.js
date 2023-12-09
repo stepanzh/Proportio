@@ -291,8 +291,7 @@ function ProportioApp(){
         } else if (newCount == 1){
             $("#command-clear").removeClass("disabled");
             $("#command-scale-mode").addClass("disabled");
-        }
-        else {
+        } else {
             $("#command-clear").removeClass("disabled");
             $("#command-scale-mode").removeClass("disabled");
         }
@@ -520,12 +519,5 @@ var app;
 $(document).ready(function(){
     app = new ProportioApp();
 
-    app.addItem("Тесто для пиццы", new Quantity(6, "порция"));
-    app.addItem("Мука", new Quantity(400, "гр"));
-    app.addItem("Манная крупа", new Quantity(200, "гр"));
-    app.addItem("Дрожжи", new Quantity(6, "гр"));
-    app.addItem("Сахар", new Quantity(20, "гр"));
-    app.addItem("Соль", new Quantity(20, "гр"));
-    app.addItem("Масло оливковое", new Quantity(80, "гр"));
-    app.addItem("Вода тёплая", new Quantity(300, "мл"));
+    app.addItem("", new Quantity(NaN, ""));
 });
