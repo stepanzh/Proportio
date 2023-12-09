@@ -84,12 +84,17 @@ function ScalableQuantity(amount = 0, original_amount = 0, unit = ""){
         this.original_amount = original_quantity.amount;
         this.unit = original_quantity.unit;
 
-        this.$amount.attr("placeholder", this.original_amount).val("");
+        this._updatePlaceholder();
         this.$unit.text(this.unit);
     };
 
+    // Private
+    this._updatePlaceholder = function (){
+      this.$amount.attr("placeholder", formatNumber(this.original_amount / 2)).val("");
+    }
+
     // Initialize
-    this.$amount.attr("placeholder", this.original_amount).val("");
+    this._updatePlaceholder();
 }
 
 function ScalableItem(name = "", quantity = new ScalableQuantity(), id = 0){
