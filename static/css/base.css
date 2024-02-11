@@ -18,8 +18,10 @@
   --ui-button-height: 36px;
   --ui-icon-size: 24px;
   --ui-padding: 8px;
+  
   --corner-radius: 8px;
-
+  --corner-radius-half: 4px;
+  
   --icon-line-thickness: 2px;
   --icon-line-length: 60%;
   --icon-line-corner-raidus: 1px;
