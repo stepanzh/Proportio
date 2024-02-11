@@ -142,20 +142,19 @@
 }
 
 .ingredient input {
-  border: 0;
+  border: 1px solid var(--ui-gray-0-color);
   margin: 0;
-  padding: 0;
+  padding: 4px;
+  border-radius: var(--corner-radius-half);
 
   font-size: var(--font-body-size);
-  /* Forces usage of body's font-family */
-  font-family: inherit;
+  font-family: inherit;  /* Forces usage of body's font-family */
   color: var(--text-body-color);
 }
 
 .ingredient input:focus {
-  outline: none;
-  border-bottom: 1px solid var(--ui-accent-color);
-  margin-bottom: -1px;
+  outline: 1px solid var(--ui-accent-color);
+  border: 1px solid var(--ui-accent-color);
 }
 
 input::placeholder {
@@ -220,7 +219,6 @@ p.ingredient-name {
   height: var(--ui-icon-size);
   color: var(--text-body-color-invert);
 }
-
 
 .toggle-isoff.disabled
 {
