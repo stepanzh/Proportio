@@ -42,8 +42,6 @@
   width: 36px;
   height: 36px;
   border-radius: 18px;
-
-  animation: 1s linear 3 throbe;
 }
 
 .promo__icon {
@@ -57,15 +55,6 @@
   width: 24px;
   height: 24px;
   color: var(--special-0-color);
-}
-
-@keyframes throbe {
-  from {
-    box-shadow: 0 0 0 0 var(--special-0-color);
-  }
-  to {
-    box-shadow: 0 0 0 8px transparent;
-  }
 }
 
 /* Promo link end */
