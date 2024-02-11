@@ -18,16 +18,17 @@
   --ui-button-height: 36px;
   --ui-icon-size: 24px;
   --ui-padding: 8px;
+  
   --corner-radius: 8px;
-
+  --corner-radius-half: 4px;
+  
   --icon-line-thickness: 2px;
   --icon-line-length: 60%;
   --icon-line-corner-raidus: 1px;
 }
 
 h1,
-h2
-{
+h2 {
   font-weight: var(--font-bold-weight);
 }
 
@@ -42,8 +43,7 @@ body {
 }
 
 button:hover,
-.default-button
-{
+.default-button {
   cursor: pointer;
 }
 
@@ -58,9 +58,7 @@ button:hover,
   font-size: var(--font-ui-size);
 }
 
-.app-menu-item__caption {
-  position: relative;
-}
+.app-menu-item__caption { position: relative; }
 
 .command-complete-info {
   position: absolute;
@@ -99,25 +97,17 @@ button:hover,
 .command-complete-info.shown {
   visibility: visible;
   opacity: 1;
-
   transition: opacity 0.1s linear;
 }
 
-a
-{
-  color: var(--ui-accent-color);
-}
+a { color: var(--ui-accent-color); }
 
 .disabled {
   pointer-events: none;
   cursor: not-allowed;
 }
 
-.default-button.disabled
-{
-  color: var(--ui-gray-3-color);
-}
-
+.default-button.disabled { color: var(--ui-gray-3-color); }
 
 .caption {
   font-size: var(--font-caption-size);
