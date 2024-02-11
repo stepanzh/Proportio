@@ -90,7 +90,7 @@ function ScalableQuantity(amount = 0, original_amount = 0, unit = ""){
 
     // Private
     this._updatePlaceholder = function (){
-      this.$amount.attr("placeholder", formatNumber(this.original_amount / 2)).val("");
+      this.$amount.attr("placeholder", formatNumber(this.original_amount)).val("");
     }
 
     // Initialize
