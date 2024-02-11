@@ -196,7 +196,10 @@ p.ingredient-name {
   color: var(--text-body-color-invert);
 }
 
-.toggle-isoff.disabled { color: var(--ui-gray-3-color); }
+.toggle-isoff.disabled {
+  color: var(--ui-gray-3-color);
+  border-color: var(--ui-gray-3-color);
+}
 
 .ingredient-remove.disabled { display: none; }
 
