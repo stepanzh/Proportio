@@ -20,7 +20,7 @@ TEMPLATES_PATH = pathlib.Path(__file__).parent / 'templates'
 STATICS_PATH = pathlib.Path(__file__).parent / 'static'
 ICONS = Icons.from_icon_folder(STATICS_PATH / 'icons')
 EXTERNAL_LINKS = {
-    'payment': 'https://www.tinkoff.ru/cf/7T9naweBKz8',
+    'payment': 'https://pay.cloudtips.ru/p/01aa1961',
     'repository': 'https://github.com/stepanzh/Proportio',
     'vk_community': 'https://vk.com/proportioapp',
 }
@@ -57,7 +57,12 @@ JQUERY = {
 
 class Page:
     name: str
-    template_variables: dict
+    template_variables = {
+        'contacts': PROJECT_CONTACTS,
+        'icons': ICONS,
+        'links': EXTERNAL_LINKS,
+        'jquery': JQUERY,
+    }
 
     def extend_template_variables(self, variables: dict):
         self.template_variables |= variables
@@ -78,17 +83,10 @@ class PageWriter:
 
 class IndexPage(Page):
     name = 'index'
-    template_variables = {
-        'contacts': PROJECT_CONTACTS,
-        'icons': ICONS,
-        'links': EXTERNAL_LINKS,
-        'jquery': JQUERY,
-   }
 
 
 class PromoPage(Page):
     name = 'promo'
-    template_variables = dict()
 
 
 class ExamplePage(Page):
