@@ -73,20 +73,22 @@
   <div class='page'>
     {% block page_top %}
     <div class='page-top surface top-tight full-width'>
-      <header class='header'>
-        <a class='home-button' href='index.html'>
-          <span class='proportio-logo'>
-            <img class='logo-img' src='icon.svg' alt='логотип пропорцио'>
-            <span class='logo-text'>Пропорцио</span>
-          </span>
-        </a>
-      </header>
-      <nav class='nav'>
-        <a class='nav-item' href='index.html'>Приложение</a>
-        <a class='nav-item' href='promo.html'>Подарки</a>
-        <a class='nav-item' href='examples.html'>Рецепты</a>
-        <a class='nav-item' href='{{ links.payment }}' target='_blank'>Задонатить</a>
-      </nav>
+      <div class='page-top-content'>
+        <header class='header'>
+          <a class='home-button' href='index.html'>
+            <span class='proportio-logo'>
+              <img class='logo-img' src='icon.svg' alt='логотип пропорцио'>
+              <span class='logo-text'>Пропорцио</span>
+            </span>
+          </a>
+        </header>
+        <nav class='nav'>
+          <a class='nav-item' href='index.html'>Приложение</a>
+          <a class='nav-item' href='promo.html'>Подарки</a>
+          <a class='nav-item' href='examples.html'>Рецепты</a>
+          <a class='nav-item' href='{{ links.payment }}' target='_blank'>Задонатить</a>
+        </nav>
+      </div>
     </div>
     {% endblock %}
 
