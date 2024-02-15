@@ -40,8 +40,10 @@
   <title>Подарки &#8212; Пропорцио</title>
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style> @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap'); </style>
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap');
+  </style>
 
   <!-- Style -->
   <link rel="stylesheet" href="css/base.css">
@@ -58,12 +60,32 @@
 </head>
 <body>
   
-  <div id="shell">
-    <image id="promo" src="promo.jpg" alt="чистая линия промокод скидка SML766278"/>
-    <p class="caption">Мы не всегда успеваем обновлять промокод на подарок, а вот промокод на скидку SML766278 работает всегда!</p>
-    <a class="default-button" href="https://omoloko.ru/" target="_blank">Интернет-магазин «Чистая Линия»</a>
-    <a class="default-button" href="https://vk.com/@proportioapp-usloviya-akcii-ot-chistoi-linii" target="_blank">Почему мы делимся промокодами?</a>
-    <a class="default-button" href="index.html">Вернуться в Пропорцио</a>
+  <div class='page'>
+    <div class='page-top surface top-tight full-width'>
+      <header class='header'>
+        <a class='home-button' href='index.html'>
+          <span class='proportio-logo'>
+            <img class='logo-img' src='icon.svg' alt='логотип пропорцио'>
+            <span class='logo-text'>Пропорцио</span>
+          </span>
+        </a>
+      </header>
+      <nav class='nav'>
+        <a class='nav-item' href='index.html'>Приложение</a>
+        <a class='nav-item' href='promo.html'>Подарки</a>
+        <a class='nav-item' href='examples.html'>Рецепты</a>
+        <a class='nav-item' href='https://pay.cloudtips.ru/p/01aa1961' target='_blank'>Задонатить</a>
+      </nav>
+    </div>
+
+    <div class='page-content'>
+      <section class='content-block surface'>
+        <image class='promo-img' src="promo.jpg" alt="чистая линия промокод скидка SML766278"/>
+        <p class="caption">Мы не всегда успеваем обновлять промокод на подарок, а вот промокод на скидку SML766278 работает всегда!</p>
+        <p><a class="" href="https://omoloko.ru/" target="_blank">Интернет-магазин «Чистая Линия»</a></p>
+        <p><a class="" href="https://vk.com/@proportioapp-usloviya-akcii-ot-chistoi-linii" target="_blank">Почему мы делимся промокодами?</a></p>
+      </section>
+    </div>
   </div>
 
 </body>
