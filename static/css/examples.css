@@ -1,34 +1,10 @@
-#examples
-{
+.recipes-list {
   display: grid;
-  row-gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
 }
 
-section
-{
-  display: grid;
-  row-gap: 8px;
-}
-
-section:last-child
-{
-  margin-bottom: 0;
-}
-
-section *
-{
-  margin: 0;
-  padding: 0;
-}
-
-#shell
-{
-  max-width: 600px;
-  margin: 16px auto;
-}
-
-@media only screen and (max-width: 600px){
-  #shell {
-    margin: 16px;
-  }
+@media only screen and (max-width: 700px){
+  .recipes-list { grid-template-columns: 1fr; }
 }
