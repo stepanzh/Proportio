@@ -16,6 +16,9 @@ deploy: debug
 	uglifyjs $(STATIC_DIR)/js/index.js > $(DEPLOY_DIR)/js/index.js
 	uglifyjs $(STATIC_DIR)/js/examples.js > $(DEPLOY_DIR)/js/examples.js
 
+syncss:
+	cp -r $(DEBUG_DIR)/css/ $(STATIC_DIR)/css/
+
 clear:
 	rm -rf $(DEBUG_DIR)
 	rm -rf $(DEPLOY_DIR)
