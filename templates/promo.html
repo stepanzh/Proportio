@@ -6,32 +6,12 @@
 
 {% block pagecss %}<link rel="stylesheet" href="css/promo.css">{% endblock %}
 
-{% block content %}
-  <div class='page'>
-    <div class='page-top surface top-tight full-width'>
-      <header class='header'>
-        <a class='home-button' href='index.html'>
-          <span class='proportio-logo'>
-            <img class='logo-img' src='icon.svg' alt='логотип пропорцио'>
-            <span class='logo-text'>Пропорцио</span>
-          </span>
-        </a>
-      </header>
-      <nav class='nav'>
-        <a class='nav-item' href='index.html'>Приложение</a>
-        <a class='nav-item' href='promo.html'>Подарки</a>
-        <a class='nav-item' href='examples.html'>Рецепты</a>
-        <a class='nav-item' href='{{ links.payment }}' target='_blank'>Задонатить</a>
-      </nav>
-    </div>
-
-    <div class='page-content'>
-      <section class='content-block surface'>
-        <image class='promo-img' src="promo.jpg" alt="чистая линия промокод скидка SML766278"/>
-        <p class="caption">Мы не всегда успеваем обновлять промокод на подарок, а вот промокод на скидку SML766278 работает всегда!</p>
-        <p><a class="" href="https://omoloko.ru/" target="_blank">Интернет-магазин «Чистая Линия»</a></p>
-        <p><a class="" href="https://vk.com/@proportioapp-usloviya-akcii-ot-chistoi-linii" target="_blank">Почему мы делимся промокодами?</a></p>
-      </section>
-    </div>
-  </div>
+{% block page_content %}
+<section class='content-block surface'>
+  <image class='promo-img' src="promo.jpg" alt="чистая линия промокод скидка SML766278"/>
+  <p class="caption">Мы не всегда успеваем обновлять промокод на подарок, а вот промокод на скидку SML766278 работает всегда!</p>
+  <p><a class="" href="https://omoloko.ru/" target="_blank">Интернет-магазин «Чистая Линия»</a></p>
+  <p><a class="" href="https://vk.com/@proportioapp-usloviya-akcii-ot-chistoi-linii" target="_blank">Почему мы делимся промокодами?</a></p>
+</section>
+</div>
 {% endblock %}

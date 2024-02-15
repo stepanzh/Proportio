@@ -103,9 +103,9 @@ class ExamplePage(Page):
             key=lambda recipe: recipe.title.lower(),
         )
 
-        self.template_variables = {
+        self.extend_template_variables({
             'recipe_examples': recipes,
-        }
+        })
 
 
 PAGES = [IndexPage(), PromoPage(), ExamplePage()]
