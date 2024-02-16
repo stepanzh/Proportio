@@ -7,10 +7,30 @@
 {% block pagecss %}<link rel='stylesheet' href='css/promo.css'>{% endblock %}
 
 {% block page_content %}
-<section class='content-block surface'>
-  <img class='promo-img' src='promo.jpg' alt='чистая линия промокод скидка SML766278'/>
-  <p class='caption'>Мы не всегда успеваем обновлять промокод на подарок, а вот промокод на скидку SML766278 работает всегда!</p>
-  <p><a href='https://omoloko.ru/' target='_blank'>Интернет-магазин «Чистая Линия»</a></p>
+<header class='content-block surface full-width'>
+  <h1>Подарки пользователям</h1>
+  <p>Свежие промокоды на покупки в интернет-магазине сладостей и молочной продукции <a href='https://omoloko.ru' target='_blank'>{{ ruquotes('Чистая Линия') }}</a>.</p>
   <p><a href='https://vk.com/@proportioapp-usloviya-akcii-ot-chistoi-linii' target='_blank'>Почему мы делимся промокодами?</a></p>
-</section>
+</header>
+
+<div class='gift-list'>
+  <section class='content-block surface'>
+    <h2>Промокод на скидку</h2>
+    <p>Скидка в 10% на заказ в интернет-магазине {{ ruquotes('Чистая Линия') }}.</p>
+    <div class='promocode'>
+      {{ copybutton('SML766278') }}
+      <span class='promocode-duration'>Действует всегда.</span>
+    </div>
+    <p class='caption'>Не суммируется с сертификатами и картой интернет-магазина.</p>
+  </section>
+  <section class='content-block surface'>
+    <h2>Промокод на подарок</h2>
+    <p>Два пломбира {{ ruquotes('Малиновый кактус') }} к каждому заказу в интернет-магазине {{ ruquotes('Чистая Линия') }}.</p>
+    <div class='promocode'>
+      {{ copybutton('MAL14') }}
+      <span class='promocode-duration'>Действует с 14 по 17 февраля.</span>
+    </div>
+    <img class='gift-img' src='promo.jpg' />
+  </section>
+</div>
 {% endblock %}

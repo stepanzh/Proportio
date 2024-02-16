@@ -13,6 +13,12 @@
 {% set longdash = '&#8212;' %}
 
 {% macro ruquotes(string) -%}«{{ string}}»{%- endmacro %}
+{% macro copybutton(texttocopy) -%}
+<span class='cp-btn'>
+  <input class='cp-btn-text-to-copy' type='text' value='{{ texttocopy }}' size='{{ texttocopy|length }}' readonly />
+  <button class='cp-btn-cp-action'>{{ icons.clipboard }}</button>
+</span>
+{%- endmacro %}
 
 <!DOCTYPE html>
 <html lang="ru">
