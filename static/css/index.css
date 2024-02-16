@@ -1,16 +1,25 @@
+.severity-warning { color: var(--red-0-color); }
+
 body { background-color: white; }
 
 #app {
   max-width: 600px;
   margin: 16px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-#app-header,
-#mode-chooser {
-  margin-bottom: 16px;
+.logo-text {
+  font-size: var(--font-body-size);
 }
 
-.severity-warning { color: var(--red-0-color); }
+.logo-img {
+  width: 36px;
+  height: 36px;
+}
+
+#mode-chooser > :first-child { margin-top: 0; }
 
 #recipe-nav {
   display: grid;
