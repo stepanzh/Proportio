@@ -1,5 +1,6 @@
 import argparse
 from dataclasses import dataclass, field
+import configparser
 import jinja2
 import json
 import pathlib
@@ -78,6 +79,35 @@ class IndexPage(Page):
 
 class PromoPage(Page):
     name = 'promo'
+    _config_path = 'config.cfg'
+
+    def __init__(self):
+        super().__init__()
+
+        conf_path = pathlib.Path(self._config_path)
+        if not conf_path.is_file():
+            print('Config not found in:', self._config_path) 
+            exit(1)
+        
+        promo_dict = self._read_promodes_from_config(conf_path)
+        self.extend_template_variables(promo_dict)
+
+    def _read_promodes_from_config(self, path):
+        promo_dict = dict()
+
+        cfg = configparser.ConfigParser()
+        cfg.read(path)
+
+        promo_dict['discount_code'] = cfg.get('promocode.discount', 'code').upper()
+        promo_dict['gift_code'] = cfg.get('promocode.gift', 'code').upper()
+        promo_dict['gift_name'] = cfg.get('promocode.gift', 'name')
+        promo_dict['gift_duration'] = cfg.get('promocode.gift', 'duration')
+
+        # TODO: Log this instead of printing to stdout.
+        print('Прочитанная информация для страницы с промокодами')
+        print(promo_dict)
+
+        return promo_dict
 
 
 class ExamplePage(Page):
