@@ -1,19 +1,68 @@
-.page-content {
+.action-icon-done { color: var(--green-0-color); }
+.action-icon-error { color: var(--red-0-color); }
+
+.gift-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+@media only screen and (max-width: 960px){
+  .gift-list { grid-template-columns: 1fr; }
+}
+
+.promocode {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 8px;
 }
 
-/* Здесь всего один блок. */
-.content-block {
-  max-width: 400px;
+.cp-btn {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  border: 1px solid var(--ui-gray-3-color);
+  border-radius: 8px;
 }
 
-.content-block p {
-  margin-bottom: 0;
+.cp-btn-text-to-copy {
+  font-size: var(--font-body-size);
+  border: 0;
+  padding: 0 8px;
+  border-radius: 8px 0 0 8px;
 }
 
-.promo-img {
-  border-radius: 16px;
-  max-width: 100%;
+.cp-btn-text-to-copy:focus { outline: 0; }
+
+.cp-btn-cp-action {
+  border: 0;
+  border-left: 1px solid var(--ui-gray-3-color);
+  padding: 0;
+  margin: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 0 8px 8px 0;
+  background: var(--ui-gray-m1-color);
+}
+
+.cp-btn-cp-action:hover {
+  background: var(--ui-gray-0-color);
+  cursor: pointer;
+}
+
+.cp-btn-cp-action:active { background: var(--ui-gray-1-color); }
+
+.icon-holder > svg {
+  width: var(--ui-icon-size);
+  height: var(--ui-icon-size);
+  /*  Centering of icon, based on button size.  */
+  padding: 6px;
+}
+
+.gift-img {
+  width: min(100%, 360px);
+  height: auto;
 }
