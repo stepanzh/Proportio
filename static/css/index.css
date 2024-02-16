@@ -125,9 +125,13 @@ body { background-color: white; }
   color: var(--text-body-color);
 }
 
+.ingredient input:hover,
+.ingredient input:focus {
+  border: 1px solid var(--ui-accent-color);
+}
+
 .ingredient input:focus {
   outline: 1px solid var(--ui-accent-color);
-  border: 1px solid var(--ui-accent-color);
 }
 
 input::placeholder {
