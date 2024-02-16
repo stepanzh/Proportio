@@ -20,7 +20,8 @@
     <div id="app-header">
       <nav id="recipe-nav">
         <button id="command-menu" class="default-button" aria-label="меню программы">Меню</button>
-        <div id="promo"><a href="promo.html"><span class="promo__icon">{{ icons.gift }}</span></a></div>
+        <a class="link-icon" href="promo.html">{{ icons.gift }}</a>
+        <a class="link-icon" href="{{ links.payment }}" target="_blank">{{ icons.dollar }}</a>
         <button id="command-clear" class="default-button severity-warning" aria-label="очистить таблицу">Очистить</button>
       </nav>
       <nav id="menu-nav" style="display: none;">
@@ -87,7 +88,7 @@
           <!-- Help by donation -->
           <div class="app-menu-item">
             <a href="{{ links.payment }}" target="_blank">
-              <span class="app-menu-item__icon">{{ icons.credit_card }}</span>
+              <span class="app-menu-item__icon">{{ icons.dollar }}</span>
               <span class="app-menu-item__caption">Помочь монетой</span>
               <span class="app-menu-item__external-link-icon">{{ icons.external_link_mini }}</span>
             </a>
