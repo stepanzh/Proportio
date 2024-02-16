@@ -1,3 +1,6 @@
+.action-icon-done { color: var(--green-0-color); }
+.action-icon-error { color: var(--red-0-color); }
+
 .gift-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -45,12 +48,18 @@
   background: var(--ui-gray-m1-color);
 }
 
-.cp-btn-cp-action:hover { background: var(--ui-gray-0-color); }
+.cp-btn-cp-action:hover {
+  background: var(--ui-gray-0-color);
+  cursor: pointer;
+}
+
 .cp-btn-cp-action:active { background: var(--ui-gray-1-color); }
 
-.cp-btn-cp-action > svg {
+.icon-holder > svg {
   width: var(--ui-icon-size);
   height: var(--ui-icon-size);
+  /*  Centering of icon, based on button size.  */
+  padding: 6px;
 }
 
 .gift-img {

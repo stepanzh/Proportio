@@ -16,7 +16,11 @@
 {% macro copybutton(texttocopy) -%}
 <span class='cp-btn'>
   <input class='cp-btn-text-to-copy' type='text' value='{{ texttocopy }}' size='{{ texttocopy|length }}' readonly />
-  <button class='cp-btn-cp-action'>{{ icons.clipboard }}</button>
+  <span class='cp-btn-cp-action'>
+    <span class='icon-holder action-icon-act'>{{ icons.clipboard }}</span>
+    <span class='icon-holder action-icon-done' style='display:none'>{{ icons.check }}</span>
+    <span class='icon-holder action-icon-error' style='display:none'>{{ icons.x_mark }}</span>
+  </span>
 </span>
 {%- endmacro %}
 
@@ -105,5 +109,8 @@
       {% endblock %}
     </div>
   </div>
+  {% endblock %}
+
+  {% block page_just_before_end %}
   {% endblock %}
 </body>
