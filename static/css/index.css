@@ -10,46 +10,39 @@ body { background-color: white; }
   margin-bottom: 16px;
 }
 
-.severity-warning {
-  color: var(--red-0-color);
+.severity-warning { color: var(--red-0-color); }
+
+#recipe-nav {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 3fr;
+  column-gap: 8px;
+  height: 36px;
 }
 
-#app-header nav {
+#command-menu,
+#command-menu-back {
+  padding-left: 0;
+  justify-self: left;
+}
+
+#command-clear { 
+  justify-self: right;
+  padding-right: 0;
+}
+
+.link-icon {
   position: relative;
-  display: flex;
-  justify-content: space-between;
 }
 
-#app-header nav > :first-child { padding-left: 0; }
-
-#app-header nav > :last-child { padding-right: 0; }
-
-/* Promo link start */
-#promo {
-  /* Center itself, ignore flex */
-  position: absolute;
+.link-icon > svg {
+  position: relative;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 36px;
-  height: 36px;
-  border-radius: 18px;
-}
-
-.promo__icon {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -40%);
-}
-
-.promo__icon svg {
   width: 24px;
   height: 24px;
-  color: var(--special-0-color);
 }
 
-/* Promo link end */
 
 .toggle-wide {
   display: grid;
