@@ -24,22 +24,13 @@ EXTERNAL_LINKS = {
     'repository': 'https://github.com/stepanzh/Proportio',
     'vk_community': 'https://vk.com/proportioapp',
 }
+
 PROJECT_CONTACTS = {
     'Stepan': Contact(
         firstname='Степан',
         secondname='Захаров',
         telegram='https://t.me/red_deer',
         github='https://github.com/stepanzh',
-    ),
-    'Alexandra': Contact(
-        firstname='Александра',
-        secondname='Кобец',
-        telegram='https://t.me/kobets_dez',
-    ),
-    'Mariya': Contact(
-        firstname='Мария',
-        secondname='Лукьянова',
-        telegram='https://t.me/Marnia_made'
     ),
 }
 
