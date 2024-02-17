@@ -169,8 +169,8 @@ a { color: var(--ui-accent-color); }
 }
 
 .logo-img {
-  height: 52px;
-  width: 52px;
+  height: 36px;
+  width: 36px;
 }
 
 .logo-text {
@@ -179,7 +179,7 @@ a { color: var(--ui-accent-color); }
   font-style: normal;
   
   color: var(--text-body-color);
-  font-size: 32px;
+  font-size: 24px;
 }
 
 /* Nav */

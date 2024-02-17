@@ -1,22 +1,17 @@
 .severity-warning { color: var(--red-0-color); }
 
-body { background-color: white; }
+.page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 #app {
   max-width: 600px;
-  margin: 16px auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
-
-.logo-text {
-  font-size: var(--font-body-size);
-}
-
-.logo-img {
-  width: 36px;
-  height: 36px;
 }
 
 #mode-chooser > :first-child { margin-top: 0; }
@@ -270,8 +265,6 @@ p.ingredient-name {
 }
 
 @media only screen and (max-width: 600px){
-  #app { margin: 16px; }
-
   .recipe-table-header,
   .ingredient {
     grid-template-columns: var(--ui-button-height) auto 64px 78px;
