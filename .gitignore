@@ -2,6 +2,7 @@ debug
 deploy
 venv
 static/promo.jpg
+config.cfg
 
 *.pyc
 
