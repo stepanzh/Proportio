@@ -101,6 +101,7 @@ class PromoPage(Page):
         promo_dict['discount_code'] = cfg.get('promocode.discount', 'code').upper()
         promo_dict['gift_code'] = cfg.get('promocode.gift', 'code').upper()
         promo_dict['gift_name_and_condition'] = cfg.get('promocode.gift', 'name_and_condition')
+        promo_dict['gift_link'] = cfg.get('promocode.gift', 'link')
         promo_dict['gift_duration'] = cfg.get('promocode.gift', 'duration')
 
         # TODO: Log this instead of printing to stdout.
