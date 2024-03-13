@@ -185,6 +185,16 @@ a { color: var(--ui-accent-color); }
   font-size: 24px;
 }
 
+.nav-special-link
+{
+  padding: 4px 8px;
+  text-decoration: none;
+  border: 1px solid var(--special-0-color);
+  border-radius: 8px;
+  color: var(--special-0-color);
+}
+
+
 /* Nav */
 
 .nav {
