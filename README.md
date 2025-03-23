@@ -1,27 +1,30 @@
-# Proportio
-
-*Web app that scales. Made with love.*
+# Пропорцио 🧑‍🍳 
 
 https://stepanzh.github.io/Proportio/
 
-Proportio is handy calculator for scaling moderate-size lists of items (e.g. a recipe). All you need is to enter a recipe with original amounts of items, and enter a new amount of an item you want to scale on. Just try it.
+Пропорцио пересчитывает кулинарные рецепты.
+На любой ингредиент или количество порций.
 
-**Use cases**
+Что удобно пересчитать в Пропорцио?
 
-- Cooking
-- Baking
-- Canning
-- Investment portfolio planning
-- *etc*
+- Соусы и заправки
+- Тесто и выпечка
+- Кондитерские изделия: торты, конфеты, пирожные
+- Напитки: без или с алкоголем
+- Салаты
+- Маринады и консервацию
 
-## Features
+Что ещё можно сделать?
 
-- Reactive (linear) scaling on any item of a recipe
-- Load and saving of recipes 
-- Copy to cliboard, spreadsheet-optimized
+- Сохранить и загрузить рецепт
+- Скопировать и отправить рецепт в сообщении или вставить в таблицу
 
-## Authors
+Подписывайтесь на новости в Телеграмм канале
 
-- Stepan Zakharov, https://t.me/red_deer
-- Mariya Lukyanova, https://t.me/marnia_made
-- Alexandra Kobets, https://t.me/kobets_dez
+| <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_Logo.svg" width=64 height=64> |
+| ------ |
+| https://t.me/proportioapp |
+
+## Авторы
+
+Степан Захаров, https://stepanzh.github.io/
