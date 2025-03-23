@@ -21,7 +21,9 @@ https://stepanzh.github.io/Proportio/
 
 Подписывайтесь на новости в Телеграмм канале
 
-- https://t.me/proportioapp
+| <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_Logo.svg" width=64 height=64> |
+| ------ |
+| https://t.me/proportioapp |
 
 ## Авторы
 
