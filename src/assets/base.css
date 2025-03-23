@@ -1,0 +1,94 @@
+:root {
+  --blue-ribbon-100: #d8e9ff;
+  --blue-ribbon-200: #b9d8ff;
+  --blue-ribbon-300: #89c0ff;
+  --blue-ribbon-400: #529fff;
+  --blue-ribbon-500: #2A78ff;
+  --blue-ribbon-600: #0d51fd;
+  --blue-ribbon-700: #0c3fe9;
+  --blue-ribbon-800: #1134BC;
+  --blue-ribbon-900: #143194;
+  --cerise-50: #fff0fa;
+  --cerise-100: #ffe4f6;
+  --cerise-200: #ffc9ef;
+  --cerise-400: #ff5fc8;
+  --cerise-600: #f50d8c;
+  --elevation-1: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  --elevation-2: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+  --elevation-3: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+  --elevation-4: 0 10px 24px 0 rgba(0, 0, 0, 0.2);
+  --elevation-5: 0 15px 35px 0 rgba(0, 0, 0, 0.2);
+  --gorse-500: #e7c60b;
+  --malachite-700: #078e07;
+  --red-orange-100: #ffe2e0;
+  --red-orange-200: #ffcbc7;
+  --red-orange-500: #f93224;
+  --red-orange-600: #e7281b;
+  --shuttle-gray-50: #f5f5f6;
+  --shuttle-gray-100: #e5e6e8;
+  --shuttle-gray-200: #cecfd3;
+  --shuttle-gray-300: #acaeb4;
+  --shuttle-gray-400: #82858e;
+  --shuttle-gray-600: #585a62;
+  --shuttle-gray-900: #3a3a3f;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: var(--weight-regular);
+  font-style: normal;
+  color: var(--shuttle-gray-900);
+  margin: 0;
+  background-color: var(--shuttle-gray-50);
+  min-width: 320px;
+}
+
+p,
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: var(--weight-bold);
+}
+
+p { font-size: 16px; }
+h1, .txt-h1 { font-size: 24px; }
+h2, .txt-h2 { font-size: 20px; }
+h3, .txt-h3 { font-size: 18px; }
+h4, .txt-h4 { font-size: 16px; }
+
+.txt-h-caption {
+  font-size: 14px;
+  font-weight: var(--weight-semibold);
+  color: var(--shuttle-gray-400);
+}
+
+a {
+  color: var(--blue-ribbon-600);
+  text-decoration: none;
+}
+
+a:hover { text-decoration: underline; }
+
+ol {
+    padding-left: 16px;
+    margin: 0;
+}
+
+ul > li,
+ol > li {
+    margin: 4px 0;
+}
+
+.txt-cerise-600 { color: var(--cerise-600); }

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Layer_1"
+   viewBox="0 0 430.4483 132.06757"
+   version="1.1"
+   sodipodi:docname="tbank.svg"
+   inkscape:export-filename="tbank-no-margins.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   width="430.4483"
+   height="132.06757"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.0188501"
+     inkscape:cx="220.34645"
+     inkscape:cy="136.91906"
+     inkscape:window-width="1512"
+     inkscape:window-height="916"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1" />
+  <defs
+     id="defs1">
+    <style
+       id="style1">.cls-1,.cls-2,.cls-3{stroke-width:0px;}.cls-1,.cls-3{fill:#333;}.cls-2{fill:#ffdd2d;}.cls-3{fill-rule:evenodd;}</style>
+  </defs>
+  <path
+     class="cls-1"
+     d="m 214.32552,56.322756 c -2.97004,-1.142499 -6.85442,-1.485019 -11.08132,-1.485019 h -23.53559 v -7.311876 h 40.44377 V 34.95895 h -57.00942 v 54.381328 h 38.61565 c 5.36997,0 9.36757,-0.456884 12.33876,-1.599958 6.28374,-2.399362 10.51064,-8.225645 10.51064,-15.880042 0,-7.768186 -3.99875,-13.13816 -10.28249,-15.537522 z m -8.22565,18.850654 c -0.91376,0.343094 -2.17063,0.456884 -3.77059,0.456884 h -22.62067 v -8.68253 h 22.62067 c 1.82869,0 3.31314,0.114939 4.45621,0.685614 1.37065,0.685614 2.05627,1.942478 2.05627,3.541286 0,1.599383 -0.79941,3.313131 -2.74189,3.998746 z"
+     id="path1"
+     inkscape:export-filename="./path1.svg"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <path
+     class="cls-1"
+     d="m 271.05621,34.95895 h -24.22005 l -22.27815,54.381328 h 18.73686 l 3.0844,-7.883126 h 25.13383 l 3.19934,7.883126 h 18.6225 z m -20.5644,34.501966 7.8837,-21.935055 h 1.25629 l 7.88313,21.935055 z"
+     id="path2" />
+  <polygon
+     class="cls-1"
+     points="377.39737,92.188628 393.9625,92.188628 393.9625,112.06759 420.58214,112.06759 420.58214,92.188628 437.14816,92.188628 437.14816,146.57007 420.58214,146.57007 420.58214,126.34883 393.9625,126.34883 393.9625,146.57007 377.39737,146.57007 "
+     id="polygon2"
+     transform="translate(-79.304912,-57.229908)" />
+  <polygon
+     class="cls-1"
+     points="446.80321,92.188628 463.36924,92.188628 463.36924,112.63885 467.93916,112.63885 487.93238,92.188628 508.72453,92.188628 482.21978,118.23683 509.75322,146.57007 487.7035,146.57007 467.93916,126.00593 463.36924,126.00593 463.36924,146.57007 446.80321,146.57007 "
+     id="polygon3"
+     transform="translate(-79.304912,-57.229908)" />
+  <path
+     class="cls-2"
+     d="m 0,0 h 132.06774 v 66.420442 c 0,17.027283 -9.08357,32.761605 -23.82879,41.276138 L 66.0339,132.06757 23.82891,107.69658 C 9.083389,99.182047 0,83.447725 0,66.420442 Z"
+     id="path3" />
+  <path
+     class="cls-3"
+     d="m 36.24528,34.95872 v 20.658166 c 2.824924,-3.190001 7.96111,-5.348994 13.83369,-5.348994 h 6.381846 V 74.28279 c 0,6.389077 -1.735928,11.981362 -4.311606,15.057374 H 79.908886 C 77.338596,86.261033 75.606638,80.675837 75.606638,74.294983 V 50.267892 h 6.382129 c 5.87258,0 11.008625,2.158993 13.83369,5.348994 V 34.95872 Z"
+     id="path4" />
+</svg>
