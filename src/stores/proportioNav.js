@@ -6,7 +6,8 @@ export const useProportioNavStore = defineStore('proportio-nav', () => {
         calc: 1,
         edit: 2,
         help: 3,
-        support: 4
+        support: 4,
+        social: 5,
     })
 
     // Current app's home is calc screen
@@ -39,6 +40,8 @@ export const useProportioNavStore = defineStore('proportio-nav', () => {
     
     function navToSupport() { navToScreenById(screens.support) }
 
+    function navToSocial() { navToScreenById(screens.social) }
+
     function navBack() {
         console.debug('back before', navHistory)
         if (navHistory.length > 0) {
@@ -62,5 +65,6 @@ export const useProportioNavStore = defineStore('proportio-nav', () => {
         navToEdit,
         navToHelp,
         navToSupport,
+        navToSocial,
     }
 })

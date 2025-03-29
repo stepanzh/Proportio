@@ -48,6 +48,9 @@ ListBulletIconMini.__name = getVariableName({ ListBulletIconMini })
 import { PlusCircleIcon as PlusCircleIconMini } from '@heroicons/vue/16/solid'
 PlusCircleIconMini.__name = getVariableName({ PlusCircleIconMini })
 
+import { RssIcon as RssIconOutline} from '@heroicons/vue/24/outline'
+RssIconOutline.__name = getVariableName({ RssIconOutline })
+
 import { TrashIcon as TrashIconOutline } from '@heroicons/vue/24/outline'
 TrashIconOutline.__name = getVariableName({ TrashIconOutline })
 
@@ -75,6 +78,7 @@ export default [
     HeartIconSolid,
     ListBulletIconMini,
     PlusCircleIconMini,
+    RssIconOutline,
     TrashIconOutline,
     QuestionMarkCircleIconOutline,
     XCircleIconMini,

@@ -45,6 +45,12 @@
                                 </template>
                                 Как пользоваться
                             </PMenuButton>
+                            <PMenuButton @click="proportio.navToSocial()">
+                                <template #icon>
+                                    <RssIconOutline />
+                                </template>
+                                Пропорцио в соцсетях
+                            </PMenuButton>
                         </div>
                     </div>
                 </template>
