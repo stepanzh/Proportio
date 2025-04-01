@@ -9,6 +9,8 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
 
     const numberOfIngredients = computed(() => ingredients.value.length)
 
+    const userChangedScaledAmount = ref(false)
+
     function emptyIngredient() {
         const ingr = reactive({
             id: crypto.randomUUID(),
@@ -89,6 +91,8 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
 
     function onScaleAmountChanged(forId) {
         console.log(`SAmount changed for ${forId}`)
+        userChangedScaledAmount.value = true
+
         const changedIngr = ingredients.value.find((x) => x.id === forId)
 
         // TODO: NaNs
@@ -137,6 +141,7 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
     return {
         ingredients,
         numberOfIngredients,
+        userChangedScaledAmount,
         add,
         remove,
         clear,
