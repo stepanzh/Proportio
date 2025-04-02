@@ -131,8 +131,18 @@ const mode = ref(Modes.original)
 function setOriginal() { mode.value = Modes.original }
 
 function setScaled() {
+    // Validate that there are ingredients
+    const isListOfIngedientsEmpty = store.numberOfIngredients == 0
+    if (isListOfIngedientsEmpty) {
+        showToast({ message: 'Добавьте ингредиент, а лучше два', severity: 'error' })
+        return
+    }
+
     // Validate original amounts
     const isAllOriginalAmountAreCorrect = !store.ingredients.some((ingr) => isNaN(ingr.originalAmount))
+    console.debug(store.ingredients.length)
+    console.debug(isAllOriginalAmountAreCorrect)
+
     if (!isAllOriginalAmountAreCorrect) {
         showToast({ message: 'Упс. Есть ингредиенты без количества', severity: 'error' })
         return
