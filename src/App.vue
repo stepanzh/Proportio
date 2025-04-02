@@ -13,7 +13,6 @@ import { useProportioCalculatorStore } from '@/stores/proportioCalculator'
 
 const store = useProportioCalculatorStore()
 store.add()
-
 </script>
 
 
