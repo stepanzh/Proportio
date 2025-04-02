@@ -1,5 +1,6 @@
 <template>
   <div class="app-layout">
+    <PToast />
     <SiteNav />
     <ProportioView />
   </div>
@@ -7,6 +8,7 @@
 
 
 <script setup>
+import PToast from '@/ui/PToast.vue'
 import ProportioView from '@/views/proportio/ProportioView.vue'
 import SiteNav from '@/components/SiteNav.vue'
 import { useProportioCalculatorStore } from '@/stores/proportioCalculator'

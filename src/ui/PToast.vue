@@ -1,47 +1,29 @@
-<!-- TODO: UPDATE ICONS, ADD COLOR -->
-
 <template>
-    <Transition name="toast">
-        <div v-show="isVisible" class="p-toast">
-            <div class="p-toast__icon">
-                <XCircleIconMini v-if="severity === 'error'" class="icon-err" />
-                <CheckCircleIconMini v-else-if="severity === 'success'" class="icon-succ" />
-                <ExclamationTriangleIconMini v-else-if="severity === 'warning'" class="icon-warn" />
-                <ExclamationCircleIconMini v-else class="icon-info" />
+    <Teleport to="#app">
+        <Transition name="toast">
+            <div v-show="isVisible" class="p-toast">
+                <div class="p-toast__icon">
+                    <XCircleIconMini v-if="severity === 'error'" class="icon-err" />
+                    <CheckCircleIconMini v-else-if="severity === 'success'" class="icon-succ" />
+                    <ExclamationTriangleIconMini v-else-if="severity === 'warning'" class="icon-warn" />
+                    <ExclamationCircleIconMini v-else class="icon-info" />
+                </div>
+                <div class="p-toast__content">
+                    {{ message }}
+                </div>
             </div>
-            <div class="p-toast__content">
-                <slot />
-            </div>
-        </div>
-    </Transition>
+        </Transition>
+    </Teleport>
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { useProportioToastStore } from '@/stores/proportioToastStore'
+import { computed } from 'vue'
 
-const props = defineProps({
-    'severity': {
-        type: String,  // One of info, success, error, warning,
-    },
-    'isVisible': {
-        type: Boolean,
-        default: false
-    }
-})
-
-// TODO: prop + emit should be directive similar to v-model
-
-const emit = defineEmits(['hide'])
-
-watch(() => props.isVisible, (newValue) => {
-    if (newValue) {
-        setTimeout(hide, 2000)
-    }
-})
-
-function hide() {
-    emit('hide')
-}
+const toastStore = useProportioToastStore()
+const message = computed(() => toastStore.toastMessage )
+const isVisible = computed(() => toastStore.isToastVisible)
+const severity = computed(() => toastStore.toastSeverity)
 </script>
 
 
@@ -50,6 +32,7 @@ function hide() {
     box-sizing: border-box;
     position: absolute;
     left: 50vw;
+    top: 40px;
     transform: translateX(-50%);
     width: 320px;
 

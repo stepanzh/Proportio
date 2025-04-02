@@ -1,5 +1,5 @@
 <template>
-    <div class-="p-view-wrapper">
+    <div class="p-view-wrapper">
         <div class="p-app-card">
             <CalculatorView v-if="proportio.currentScreen == proportio.screens.calc" />
             <EditView v-if="proportio.currentScreen == proportio.screens.edit" />
@@ -17,7 +17,6 @@ import EditView from '@/views/proportio/EditView.vue'
 import HelpView from '@/views/proportio/HelpView.vue'
 import SupportView from '@/views/proportio/SupportView.vue'
 import SocialView from '@/views/proportio/SocialView.vue'
-
 import { useProportioNavStore } from '@/stores/proportioNav'
 
 const proportio = useProportioNavStore()
