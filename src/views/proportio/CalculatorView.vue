@@ -275,6 +275,7 @@ function exportRecipe() {
 .popup__content {
     top: calc(100% + 2px);
     position: absolute;
+    z-index: 99;
 }
 
 .popup-menu {
