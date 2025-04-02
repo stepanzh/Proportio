@@ -7,7 +7,7 @@ export const useProportioToastStore = defineStore('proportio-toast', () => {
     // Uses one toast, not many
 
     const toastMessage = ref('')
-    const toastSeverity = ref('info')
+    const toastSeverity = ref('info')  // One of: info, error, success, warning
     const isToastVisible = ref(false)
 
     let _lastShowTimeoutID = -1
@@ -26,10 +26,29 @@ export const useProportioToastStore = defineStore('proportio-toast', () => {
         }, 2000)
     }
 
+    function showInfo(message) {
+        return showToast({ message: message, severity: 'info' })
+    }
+
+    function showError(message) {
+        return showToast({ message: message, severity: 'error' })
+    }
+
+    function showSuccess(message) {
+        return showToast({ message: message, severity: 'success' })
+    }
+
+    function showWarning(message) {
+        return showToast({ message: message, severity: 'warning' })
+    }
+
     return {
         toastMessage,
         toastSeverity,
         isToastVisible,
-        showToast,
+        showInfo,
+        showError,
+        showSuccess,
+        showWarning,
     }
 })

@@ -124,20 +124,21 @@ function setScaled() {
     // Validate that there are ingredients
     const isListOfIngedientsEmpty = store.numberOfIngredients == 0
     if (isListOfIngedientsEmpty) {
-        toastStore.showToast({ message: 'Добавьте ингредиент, а лучше два', severity: 'error' })
+        toastStore.showError('Добавьте ингредиент, а лучше два')
+        return
     }
 
     // Validate original amounts
     const isAllOriginalAmountAreCorrect = !store.ingredients.some((ingr) => isNaN(ingr.originalAmount))
 
     if (!isAllOriginalAmountAreCorrect) {
-        toastStore.showToast({ message: 'Упс. Есть ингредиенты без количества', severity: 'error' })
+        toastStore.showError('Упс. Есть ингредиенты без количества')
         return
     }
 
     // If enterred only one ingredient, show warning
     if (store.numberOfIngredients == 1 && mode.value == Modes.original) {
-        toastStore.showToast({ message: 'Лучше добавить ещё один ингредиент', severity: 'info' })
+        toastStore.showWarning('Лучше добавить ещё один ингредиент')
     }
 
     mode.value = Modes.scale
@@ -150,7 +151,7 @@ function onPopupOutside() { isMenuShown.value = false }
 function copyRecipeToClipboard() {
     // There is some ingredients
     if (store.numberOfIngredients == 0) {
-        toastStore.showToast({ message: 'Рецепт пуст. Добавьте ингредиентов.', severity: 'error' })
+        toastStore.showError('Рецепт пуст. Добавьте ингредиенты.')
         return
     }
 
@@ -158,8 +159,8 @@ function copyRecipeToClipboard() {
 
     copyToClipboard({
         string: recipeAsString,
-        onFailure: (e) => toastStore.showToast({ message: 'Не удалось скопировать', severity: 'error' }),
-        onSuccess: () => toastStore.showToast({ message: 'Рецепт скопирован', severity: 'success' }),
+        onFailure: (e) => toastStore.showError('Не удалось скопировать'),
+        onSuccess: () => toastStore.showSuccess('Рецепт скопирован'),
     })
 }
 
@@ -186,15 +187,15 @@ function importRecipe() {
                         x.unit
                     )
                 )
-                toastStore.showToast({ message: 'Рецепт открыт', severity: 'success' })
+                toastStore.showSuccess('Рецепт открыт')
             } catch (e) {
-                toastStore.showToast({ message: 'Не получилось открыть рецепт', severity: 'error' })
+                toastStore.showError('Не получилось открыть рецепт. Попробуйте снова.')
             } finally {
                 isMenuShown.value = false
             }
 
         },
-        onError: toastStore.showToast({ message: 'Упс. Не удалось открыть рецепт.', severity: 'error' })
+        onError: toastStore.showError('Упс. Не удалось открыть рецепт. Попробуйте снова.')
     })
 
     importFileInputRef.value.value = null
@@ -202,7 +203,7 @@ function importRecipe() {
 
 function exportRecipe() {
     if (store.numberOfIngredients == 0) {
-        toastStore.showToast({ message: 'Рецепт пуст. Добавьте ингредиентов.', severity: 'error' })
+        toastStore.showError('Рецепт пуст. Добавьте ингредиентов.')
         return
     }
 
@@ -210,11 +211,11 @@ function exportRecipe() {
     try {
         let recipeAsJson = exporter.serializeToJson(store.ingredients)
         downloadJson({ data: recipeAsJson, filename: 'Рецепт.proportio.json' })
-        toastStore.showToast({ message: 'Рецепт сохранён, проверьте папку с загрузками.'})
+        toastStore.showInfo('Рецепт сохранён, проверьте папку с загрузками.')
     }
     catch (e) {
         console.error(e)
-        toastStore.showToast({ message: `Не удалось сохранить рецепт.`, severity: 'error' })
+        toastStore.showError('Не удалось сохранить рецепт.')
     }
 }
 </script>
