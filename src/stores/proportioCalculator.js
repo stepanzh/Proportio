@@ -2,9 +2,12 @@ import { computed, reactive, ref, watch } from 'vue'
 import { defineStore } from 'pinia'
 
 import { prettifyNumber } from '@/lib/prettifyNumber'
+import { useProportioOnboardingStore } from '@/stores/proportioOnboarding'
 
 
 export const useProportioCalculatorStore = defineStore('proportio-calculator', () => {
+    const onboardingStore = useProportioOnboardingStore()
+
     const ingredients = ref([])
 
     const numberOfIngredients = computed(() => ingredients.value.length)
@@ -89,6 +92,9 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
 
     function onScaleAmountChanged(forId) {
         console.log(`SAmount changed for ${forId}`)
+
+        onboardingStore.isOnboardingForScaledModeEnabled = false
+
         const changedIngr = ingredients.value.find((x) => x.id === forId)
 
         // TODO: NaNs
