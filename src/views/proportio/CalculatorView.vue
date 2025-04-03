@@ -138,7 +138,7 @@ function setScaled() {
 
     // If enterred only one ingredient, show warning
     if (store.numberOfIngredients == 1 && mode.value == Modes.original) {
-        toastStore.showWarning('Лучше добавить ещё один ингредиент')
+        toastStore.showTip('Лучше добавить ещё один ингредиент')
     }
 
     mode.value = Modes.scale
