@@ -23,6 +23,12 @@ store.add()
   display: grid;
   gap: 12px;
   grid-template-columns: auto;
-  grid-template-rows: auto auto; 
+  grid-template-rows: min-content auto;
+}
+
+@media screen and (max-width: 576px) {
+  .app-layout {
+    min-height: 100%;
+  }
 }
 </style>

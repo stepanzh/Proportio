@@ -45,7 +45,6 @@ body {
   color: var(--shuttle-gray-900);
   margin: 0;
   background-color: var(--shuttle-gray-50);
-  min-width: 320px;
 }
 
 p,

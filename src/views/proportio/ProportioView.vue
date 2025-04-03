@@ -35,8 +35,6 @@ proportio.navToHome()
     justify-content: center;
     background-color: white;
     width: 100%;
-    /* TODO: minus site-nav height */
-    min-height: 100vh;
 }
 
 /* Switch to 512px width for app screen */
