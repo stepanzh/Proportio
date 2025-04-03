@@ -1,7 +1,9 @@
 <template>
     <div class="onboarding-tooltip-wrapper">
         <slot />
-        <span class="onboarding-tooltip__text" :class="{ show: isShown }">{{ text }}</span>
+        <Transition name="fade">
+            <span class="onboarding-tooltip__text" v-show="isShown">{{ text }}</span>
+        </Transition>
     </div>
 </template>
 
@@ -26,9 +28,6 @@ const props = defineProps({
 }
 
 .onboarding-tooltip__text {
-    visibility: hidden;
-    opacity: 0;
-
     position: absolute;
     top: -6px;
     left: 50%;
@@ -41,11 +40,6 @@ const props = defineProps({
     padding: 8px;
     border-radius: 6px;
     line-height: 1;   
-}
-
-.onboarding-tooltip__text.show {
-    visibility: visible;
-    opacity: 1;
 }
 
 .onboarding-tooltip__text::after {
