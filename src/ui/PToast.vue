@@ -69,4 +69,13 @@ const severity = computed(() => toastStore.toastSeverity)
 .icon-warn { color: var(--gorse-500); }
 .icon-info { color: var(--blue-ribbon-500); }
 
+.toast-enter-active,
+.toast-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.toast-enter-from,
+.toast-leave-to {
+  opacity: 0;
+}
 </style>
