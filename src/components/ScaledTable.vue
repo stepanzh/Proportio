@@ -15,15 +15,24 @@
 
 
 <script setup>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useProportioCalculatorStore } from '@/stores/proportioCalculator'
 import ScaledAmount from '@/components/ScaledAmount.vue'
 import OnboardingTooltip from '@/ui/OnboardingTooltip.vue'
 import { useProportioOnboardingStore } from '@/stores/proportioOnboarding'
+import { useProportioToastStore } from '@/stores/proportioToastStore'
 
 const store = useProportioCalculatorStore()
 const onboardingStore = useProportioOnboardingStore()
 const showTooltip = computed(() => { return onboardingStore.isOnboardingForScaledModeEnabled })
+
+const toastStore = useProportioToastStore()
+
+onMounted(() => {
+    if (onboardingStore.isOnboardingForScaledModeEnabled) {
+        toastStore.showTip("Обновите кол-во любого ингредиента")
+    }
+})
 </script>
 
 
