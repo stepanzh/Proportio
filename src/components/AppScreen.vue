@@ -20,10 +20,6 @@
 
 
 <style scoped>
-.p-app-base {
-    max-width: 512px;
-}
-
 .p-app-base__nav-wrapper {
     padding: 8px;
 }
