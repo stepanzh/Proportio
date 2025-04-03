@@ -1,6 +1,6 @@
 <template>
     <Teleport to="#app">
-        <Transition name="toast">
+        <Transition name="fade">
             <div v-show="isVisible" class="p-toast">
                 <div class="p-toast__icon">
                     <XCircleIconMini v-if="severity === 'error'" class="icon-err" />
@@ -68,14 +68,4 @@ const severity = computed(() => toastStore.toastSeverity)
 .icon-succ { color: var(--malachite-700); }
 .icon-warn { color: var(--gorse-500); }
 .icon-info { color: var(--blue-ribbon-500); }
-
-.toast-enter-active,
-.toast-leave-active {
-  transition: opacity 0.25s ease;
-}
-
-.toast-enter-from,
-.toast-leave-to {
-  opacity: 0;
-}
 </style>
