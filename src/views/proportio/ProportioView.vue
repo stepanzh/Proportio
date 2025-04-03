@@ -1,5 +1,5 @@
 <template>
-    <div class-="p-view-wrapper">
+    <div class="p-view-wrapper">
         <div class="p-app-card">
             <CalculatorView v-if="proportio.currentScreen == proportio.screens.calc" />
             <EditView v-if="proportio.currentScreen == proportio.screens.edit" />
@@ -17,7 +17,6 @@ import EditView from '@/views/proportio/EditView.vue'
 import HelpView from '@/views/proportio/HelpView.vue'
 import SupportView from '@/views/proportio/SupportView.vue'
 import SocialView from '@/views/proportio/SocialView.vue'
-
 import { useProportioNavStore } from '@/stores/proportioNav'
 
 const proportio = useProportioNavStore()
@@ -35,11 +34,12 @@ proportio.navToHome()
 .p-app-card {
     justify-content: center;
     background-color: white;
-    /* TODO: minus site-nav height */
-    min-height: 100vh;
+    width: 100%;
 }
 
-@media screen and (min-width: 512px) {
+/* Switch to 512px width for app screen */
+/* 576px = width + horizontal padding */
+@media screen and (min-width: 576px) {
     .p-app-card {
         width: 512px;
         height: auto;
