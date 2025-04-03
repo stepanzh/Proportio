@@ -2,4 +2,5 @@
 
 body {
     font-size: 16px;
+    min-width: 340px; /* min-width for supported devices */
 }

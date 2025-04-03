@@ -34,11 +34,14 @@ proportio.navToHome()
 .p-app-card {
     justify-content: center;
     background-color: white;
+    width: 100%;
     /* TODO: minus site-nav height */
     min-height: 100vh;
 }
 
-@media screen and (min-width: 512px) {
+/* Switch to 512px width for app screen */
+/* 576px = width + horizontal padding */
+@media screen and (min-width: 576px) {
     .p-app-card {
         width: 512px;
         height: auto;
