@@ -43,8 +43,7 @@ export const useProportioToastStore = defineStore('proportio-toast', () => {
     }
 
     function showTip(message) {
-        // TODO: Create tip class for toasts
-        return showToast({ message: message, severity: 'info' })
+        return showToast({ message: message, severity: 'tip' })
     }
 
     return {

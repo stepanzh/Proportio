@@ -6,6 +6,7 @@
                     <XCircleIconMini v-if="severity === 'error'" class="icon-err" />
                     <CheckCircleIconMini v-else-if="severity === 'success'" class="icon-succ" />
                     <ExclamationTriangleIconMini v-else-if="severity === 'warning'" class="icon-warn" />
+                    <AcademicCapIconMini v-else-if="severity === 'tip'" class="icon-tip" />
                     <ExclamationCircleIconMini v-else class="icon-info" />
                 </div>
                 <div class="p-toast__content">
@@ -68,4 +69,5 @@ const severity = computed(() => toastStore.toastSeverity)
 .icon-succ { color: var(--malachite-700); }
 .icon-warn { color: var(--gorse-500); }
 .icon-info { color: var(--blue-ribbon-500); }
+.icon-tip { color: var(--cerise-500); }
 </style>
