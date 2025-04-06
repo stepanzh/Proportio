@@ -72,7 +72,12 @@ const props = defineProps({
     color: white;
 }
 
-.btn-filled-primary:hover { background-color: var(--blue-ribbon-700); }
+.btn-filled-primary:hover,
+.btn-filled-primary:focus
+{
+    background-color: var(--blue-ribbon-700);
+}
+
 .btn-filled-primary:active { background-color: var(--blue-ribbon-800); }
 
 
@@ -81,7 +86,12 @@ const props = defineProps({
     color: var(--blue-ribbon-900);
 }
 
-.btn-filled-secondary:hover { background-color: var(--blue-ribbon-200); }
+.btn-filled-secondary:hover,
+.btn-filled-secondary:focus
+{
+    background-color: var(--blue-ribbon-200);
+}
+
 .btn-filled-secondary:active { background-color: var(--blue-ribbon-300); }
 
 
@@ -92,7 +102,12 @@ const props = defineProps({
     color: var(--blue-ribbon-600);
 }
 
-.btn-outlined:hover { background-color: var(--blue-ribbon-100); }
+.btn-outlined:hover,
+.btn-outlined:focus
+{
+    background-color: var(--blue-ribbon-100);
+}
+
 .btn-outlined:active { background-color: var(--blue-ribbon-200); }
 
 </style>
