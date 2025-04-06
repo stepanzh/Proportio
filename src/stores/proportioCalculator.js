@@ -12,6 +12,8 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
 
     const numberOfIngredients = computed(() => ingredients.value.length)
 
+    const scaleFactor = ref(NaN)
+
     function emptyIngredient() {
         const ingr = reactive({
             id: crypto.randomUUID(),
@@ -22,7 +24,15 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
         })
 
         ingr.stopWatchingScaledAmount = watch(() => ingr.scaledAmount, () => { onScaleAmountChanged(ingr.id) })
-        watch(() => ingr.originalAmount, () => { ingr.scaledAmount = NaN })
+        watch(() => ingr.originalAmount, () => {
+            // Note. When there are some components and scale factor, update ingr.scaledAmount.
+            // It is needed when user backed from scaled mode and add new ingredient.
+            if (scaleFactor.value && scaleFactor.value !== NaN) {
+                updateScaleAmount(ingr, scaleFactor.value)
+            } else {
+                ingr.scaledAmount = NaN
+            }
+        })
 
         ingr.displayedName = computed(() => ingr.name === '' ? '<Без названия>' : ingr.name )
 
@@ -46,8 +56,6 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
         }
 
         ingredients.value.push(ingr)
-        
-        // TODO: When there are some components and scale factor, update ingr.scaledAmount
     }
 
     function remove(id) {
@@ -98,20 +106,24 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
         const changedIngr = ingredients.value.find((x) => x.id === forId)
 
         // TODO: NaNs
-        const scaleFactor = changedIngr.scaledAmount / changedIngr.originalAmount
-        updateScaleAmounts(forId, scaleFactor)
+        scaleFactor.value = changedIngr.scaledAmount / changedIngr.originalAmount
+        updateScaleAmounts(forId, scaleFactor.value)
     }
 
     function updateScaleAmounts(excludeId, scaleBy) {
         ingredients.value
             .filter((ingr) => ingr.id !== excludeId)
             .forEach((ingr) => {
-                console.log(`${Date.now()} updateScaleAmounts: updating ${ingr.id}`)
-                ingr.stopWatchingScaledAmount()
-                ingr.scaledAmount = ingr.originalAmount * scaleBy
-                // DRY
-                ingr.stopWatchingScaledAmount = watch(() => ingr.scaledAmount, () => { onScaleAmountChanged(ingr.id) })
+                updateScaleAmount(ingr, scaleBy)
             })
+    }
+
+    function updateScaleAmount(ingr, scaleBy) {
+        console.log(`${Date.now()} updateScaleAmounts: updating ${ingr.id}`)
+        ingr.stopWatchingScaledAmount()
+        ingr.scaledAmount = ingr.originalAmount * scaleBy
+        // DRY
+        ingr.stopWatchingScaledAmount = watch(() => ingr.scaledAmount, () => { onScaleAmountChanged(ingr.id) })
     }
 
     function getRecipeAsPlainTextTabular() {
