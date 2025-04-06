@@ -59,11 +59,16 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
     }
 
     function remove(id) {
-        ingredients.value = ingredients.value.filter((x) => x.id != id)
+        if (ingredients.value.length == 1) {
+            clear()
+        } else {
+            ingredients.value = ingredients.value.filter((x) => x.id != id)
+        }
     }
 
     function clear() {
         ingredients.value = []
+        scaleFactor.value = NaN
     }
 
     // Moves ingredient with `id` up, if possible
@@ -160,9 +165,6 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
         clear,
         moveTowardsFirstOnce,
         moveTowardsLastOnce,
-        emptyIngredient,
-        onScaleAmountChanged,
-        updateScaleAmounts,
         getRecipeAsPlainTextTabular,
     }
 })
