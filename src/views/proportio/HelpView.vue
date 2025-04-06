@@ -48,7 +48,7 @@ const anchorUrlForSection = (section) => `help-${section.id}`
 const sections = [
     {
         id: 1,
-        title: 'Пересчёт на рецепт',
+        title: 'Пересчёт на ингредиент',
         tocTitle: 'Как пересчитать на новое количество ингредиента?',
         steps: [
             'Нажмите “По рецепту”.',

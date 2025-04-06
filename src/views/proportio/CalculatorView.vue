@@ -159,8 +159,8 @@ function copyRecipeToClipboard() {
 
     copyToClipboard({
         string: recipeAsString,
-        onFailure: (e) => toastStore.showError('Не удалось скопировать'),
-        onSuccess: () => toastStore.showSuccess('Рецепт скопирован'),
+        onFailure: (e) => toastStore.showError('Не удалось скопировать рецепт'),
+        onSuccess: () => toastStore.showSuccess('Рецепт скопирован в буфер обмена'),
     })
 }
 

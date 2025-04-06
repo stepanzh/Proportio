@@ -13,7 +13,7 @@
         <template #body>
             <main>
                 <section>
-                    Новости Пропорцио, советы и рецепты. 
+                    Новости, советы и рецепты. Присоединяйтесь, не упустите выпуск мобильного приложения.
                 </section>
                 <section class="social-list">
                     <a class="social-card" href="https://t.me/proportioapp">
