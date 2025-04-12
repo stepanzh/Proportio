@@ -24,6 +24,9 @@ Bars3IconOutline.__name = getVariableName({ Bars3IconOutline })
 import { CalculatorIcon as CalculatorIconMini } from '@heroicons/vue/16/solid'
 CalculatorIconMini.__name = getVariableName({ CalculatorIconMini })
 
+import { CircleStackIcon as CircleStackIconMini } from '@heroicons/vue/16/solid'
+CircleStackIconMini.__name = getVariableName({ CircleStackIconMini })
+
 import { CheckCircleIcon as CheckCircleIconMini } from '@heroicons/vue/16/solid'
 CheckCircleIconMini.__name = getVariableName({ CheckCircleIconMini })
 
@@ -73,6 +76,7 @@ export default [
     ArrowsUpDownIconMini,
     Bars3IconOutline,
     CalculatorIconMini,
+    CircleStackIconMini,
     CheckCircleIconMini,
     ClipboardDocumentListIconOutline,
     ExclamationTriangleIconMini,
