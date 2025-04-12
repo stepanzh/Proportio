@@ -45,6 +45,7 @@ function addIngredient() {
             let nameInputs = last.getElementsByClassName('cell-name')
             if (nameInputs.length > 0) {
                 nameInputs[0].focus()
+                last.scrollIntoView({ 'behavior': 'smooth' })
             }
         }
     })
