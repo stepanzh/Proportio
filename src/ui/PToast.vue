@@ -41,10 +41,10 @@ const severity = computed(() => toastStore.toastSeverity)
     gap: 4px;
     align-items: center;
 
-    padding: 8px;
+    padding: 12px 8px;
     border-radius: 8px;
     font-size: 14px;
-    line-height: 1;
+    line-height: 1.2;
     font-weight: var(--weight-semibold);
     background: var(--shuttle-gray-900);
     box-shadow: var(--elevation-1);
