@@ -1,17 +1,23 @@
 <template>
-    <div class="p-view-wrapper">
-        <div class="p-app-card">
-            <CalculatorView v-if="proportio.currentScreen == proportio.screens.calc" />
-            <EditView v-if="proportio.currentScreen == proportio.screens.edit" />
-            <HelpView v-if="proportio.currentScreen == proportio.screens.help" />
-            <SupportView v-if="proportio.currentScreen == proportio.screens.support" />
-            <SocialView v-if="proportio.currentScreen == proportio.screens.social" />
+    <div class="app-layout">
+        <PToast />
+        <SiteNav />
+        <div class="p-view-wrapper">
+            <div class="p-app-card">
+                <CalculatorView v-if="proportio.currentScreen == proportio.screens.calc" />
+                <EditView v-if="proportio.currentScreen == proportio.screens.edit" />
+                <HelpView v-if="proportio.currentScreen == proportio.screens.help" />
+                <SupportView v-if="proportio.currentScreen == proportio.screens.support" />
+                <SocialView v-if="proportio.currentScreen == proportio.screens.social" />
+            </div>
         </div>
     </div>
 </template>
 
 
 <script setup>
+import PToast from '@/ui/PToast.vue'
+import SiteNav from '@/components/SiteNav.vue'
 import CalculatorView from '@/views/proportio/CalculatorView.vue'
 import EditView from '@/views/proportio/EditView.vue'
 import HelpView from '@/views/proportio/HelpView.vue'
@@ -26,6 +32,19 @@ proportio.navToHome()
 
 
 <style>
+.app-layout {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: auto;
+  grid-template-rows: min-content auto;
+}
+
+@media screen and (max-width: 576px) {
+  .app-layout {
+    min-height: 100%;
+  }
+}
+
 .p-view-wrapper {
     display: flex;
     justify-content: center;
