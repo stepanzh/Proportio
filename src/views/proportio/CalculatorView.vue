@@ -238,7 +238,6 @@ function exportRecipe() {
 .cell-amount,
 .cell-unit {
     display: inline-block;
-    padding: 4px 0;
 }
 
 .cell-unit {
