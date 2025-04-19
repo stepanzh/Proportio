@@ -15,7 +15,7 @@
         <div class="table-orig-actions">
             <PButton @click="proportio.navToEdit()" :iconOnly="true" class="btn-filled-secondary">
                 <template #icon>
-                    <ArrowsUpDownIconMini />
+                    <TrashIconMini />
                 </template>
             </PButton>
             <div class="table-orig-actions__right">
