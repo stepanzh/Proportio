@@ -6,6 +6,7 @@ import App from '@/App.vue'
 import directives from '@/directives'
 import uiComponents from '@/ui'
 import '@/assets/app.css'
+import { useProportioCalculatorStore } from './stores/proportioCalculator'
 
 // Routes
 import ProportioView from './views/proportio/ProportioView.vue'
@@ -28,3 +29,6 @@ const router = createRouter({
 app.use(router)
 app.use(pinia)
 app.mount('#app')
+
+const proportio = useProportioCalculatorStore()
+proportio.add()

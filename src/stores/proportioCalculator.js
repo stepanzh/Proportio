@@ -157,9 +157,6 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
         return text
     }
 
-    // Initialize
-    add()
-
     return {
         ingredients,
         numberOfIngredients,
