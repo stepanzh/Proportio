@@ -53,9 +53,6 @@
                     </div>
                     <p class="stxt feature__description">Рецепты можно сохранять и делиться ими</p>
                 </section>
-                <section class="feature">
-                    <p class="stxt feature__description">Пройдите обучение, если пользуетесь Пропорцио в первый раз</p>
-                </section>
             </template>
         </LandingArticle>
         <LandingArticle>
