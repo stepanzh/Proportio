@@ -4,11 +4,11 @@
             Для чего Пропорцио?
         </template>
         <template #default>
-            <section class="culinary-use-cases">
-                <header class="culinary-use-cases__header">
+            <section class="use-cases">
+                <header class="use-cases__header">
                     <h3 class="sh2">🧑‍🍳 Кулинария</h3>
                 </header>
-                <div class="culinary-use-cases__list">
+                <div class="use-cases__list">
                     <CulinaryUseCase emoji="🍰" title="Кондитерские изделия"
                         description="Торты, конфеты, пирожные, печенье, мороженое" />
                     <CulinaryUseCase emoji="🥖" title="Тесто и выпечка" description="Хлеб, пироги, куличи, пицца" />
@@ -26,27 +26,34 @@
                         description="Для правильного размера порции и состава" />
                 </div>
             </section>
+            <section class="use-cases">
+                <header class="use-cases__header">
+                    <h3 class="sh2">🧑‍🎨 Творчество и хобби</h3>
+                </header>
+                <section>
+                    <p class="stxt">Изделия из гипса, домашнее мыло и ароматы. Пропорцио подходит для точного расчёта смесей и растворов.</p>
+                </section>
+            </section>
         </template>
     </LandingArticle>
 </template>
 
 <script setup>
 import CulinaryUseCase from '@/components/CulinaryUseCase.vue'
-import LandingArticle from './LandingArticle.vue';
+import LandingArticle from './LandingArticle.vue'
 </script>
 
 <style>
-.landing-article__header,
-.culinary-use-cases__header
+.use-cases__header
 {
     text-align: center;
 }
 
-.culinary-use-cases__header {
+.use-cases__header {
     margin-bottom: 24px;
 }
 
-.culinary-use-cases__list {
+.use-cases__list {
     display: flex;
     flex-direction: column;
     gap: 20px;
