@@ -42,7 +42,20 @@
             <template #header>Калькулятор для рецептов</template>
             <template #default>
                 <section class="feature">
-                    <p class="stxt feature__description">В Пропорцио вы можете пересчитать рецепт на ингредиент или число порций</p>
+                    <div class="feature-mode-toggle">
+                        <PButton label="Как в рецепте" class="feature-orig-btn mode-toggle__left btn-outlined readonly">
+                            <template #icon>
+                                <ListBulletIconMini />
+                            </template>
+                        </PButton>
+                        <PButton label="Пересчитать" class="feature-scale-btn mode-toggle__right btn-filled-primary readonly">
+                            <template #icon>
+                                <CalculatorIconMini />
+                            </template>
+                        </PButton>
+                    </div>
+                    <p class="stxt feature__description">В Пропорцио вы можете пересчитать рецепт на ингредиент или
+                        число порций</p>
                 </section>
                 <section class="feature">
                     <div class="feature__icon-list">
@@ -70,7 +83,7 @@
 <script setup>
 import CulinaryUseCase from '@/components/CulinaryUseCase.vue'
 import LandingArticle from './LandingArticle.vue'
-import { ArrowDownTrayIcon, ClipboardDocumentIcon, ClipboardDocumentListIcon, FolderOpenIcon, ShareIcon } from '@heroicons/vue/24/outline';
+import { ArrowDownTrayIcon, ClipboardDocumentListIcon, FolderOpenIcon, ShareIcon } from '@heroicons/vue/24/outline';
 </script>
 
 <style>
@@ -101,6 +114,21 @@ import { ArrowDownTrayIcon, ClipboardDocumentIcon, ClipboardDocumentListIcon, Fo
 .feature__description {
     font-weight: var(--weight-semibold);
     text-align: center;
+}
+
+.feature-mode-toggle {
+    display: grid;
+    grid-template-columns: 1fr repeat(3, 80px) 1fr;
+    grid-template-areas: 
+        ". orig orig . ."
+        ". . scale scale .";
+}
+
+.feature-orig-btn { grid-area: orig; }
+.feature-scale-btn { grid-area: scale; }
+
+.feature-mode-toggle .btn {
+    display: block;
 }
 
 .feature__icon-list {

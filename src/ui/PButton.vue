@@ -31,6 +31,8 @@ const props = defineProps({
     border-radius: 8px;
 }
 
+.btn.readonly { cursor: default; }
+
 .btn-icon-only {
     padding: 10px;
 }
@@ -67,18 +69,19 @@ const props = defineProps({
     outline: none;
 }
 
-.btn-filled-primary {
+.btn-filled-primary
+{
     background-color: var(--blue-ribbon-600);
     color: white;
 }
 
-.btn-filled-primary:hover,
-.btn-filled-primary:focus
+.btn-filled-primary:hover:not(.readonly),
+.btn-filled-primary:focus:not(.readonly)
 {
     background-color: var(--blue-ribbon-700);
 }
 
-.btn-filled-primary:active { background-color: var(--blue-ribbon-800); }
+.btn-filled-primary:active:not(.readonly) { background-color: var(--blue-ribbon-800); }
 
 
 .btn-filled-secondary {
@@ -102,8 +105,8 @@ const props = defineProps({
     color: var(--blue-ribbon-600);
 }
 
-.btn-outlined:hover,
-.btn-outlined:focus
+.btn-outlined:hover:not(.readonly),
+.btn-outlined:focus:not(.readonly)
 {
     background-color: var(--blue-ribbon-100);
 }
