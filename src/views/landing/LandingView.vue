@@ -1,10 +1,8 @@
 <template>
     <header></header>
-    <main>
+    <main class="landing-main">
         <LandingArticle>
-            <template #header>
-                Для чего Пропорцио?
-            </template>
+            <template #header>Для чего Пропорцио?</template>
             <template #default>
                 <section class="use-cases">
                     <header class="use-cases__header">
@@ -40,6 +38,18 @@
                 </section>
             </template>
         </LandingArticle>
+        <LandingArticle>
+            <template #header>Калькулятор для рецептов</template>
+            <template #default></template>
+        </LandingArticle>
+        <LandingArticle>
+            <template #header>Поддержите проект</template>
+            <template #default></template>
+        </LandingArticle>
+        <LandingArticle>
+            <template #header>Пропорцио в соцсетях</template>
+            <template #default></template>
+        </LandingArticle>
     </main>
     <footer></footer>
 </template>
@@ -50,10 +60,13 @@ import LandingArticle from './LandingArticle.vue'
 </script>
 
 <style>
-.use-cases__header
-{
-    text-align: center;
+.landing-main {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
 }
+
+.use-cases__header { text-align: center; }
 
 .use-cases__header {
     margin-bottom: 24px;
