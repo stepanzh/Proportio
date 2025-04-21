@@ -40,7 +40,23 @@
         </LandingArticle>
         <LandingArticle>
             <template #header>Калькулятор для рецептов</template>
-            <template #default></template>
+            <template #default>
+                <section class="feature">
+                    <p class="stxt feature__description">В Пропорцио вы можете пересчитать рецепт на ингредиент или число порций</p>
+                </section>
+                <section class="feature">
+                    <div class="feature__icon-list">
+                        <FolderOpenIcon />
+                        <ArrowDownTrayIcon />
+                        <ClipboardDocumentListIcon />
+                        <ShareIcon />
+                    </div>
+                    <p class="stxt feature__description">Рецепты можно сохранять и делиться ими</p>
+                </section>
+                <section class="feature">
+                    <p class="stxt feature__description">Пройдите обучение, если пользуетесь Пропорцио в первый раз</p>
+                </section>
+            </template>
         </LandingArticle>
         <LandingArticle>
             <template #header>Поддержите проект</template>
@@ -57,6 +73,7 @@
 <script setup>
 import CulinaryUseCase from '@/components/CulinaryUseCase.vue'
 import LandingArticle from './LandingArticle.vue'
+import { ArrowDownTrayIcon, ClipboardDocumentIcon, ClipboardDocumentListIcon, FolderOpenIcon, ShareIcon } from '@heroicons/vue/24/outline';
 </script>
 
 <style>
@@ -76,5 +93,29 @@ import LandingArticle from './LandingArticle.vue'
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.feature__description {
+    font-weight: var(--weight-semibold);
+    text-align: center;
+}
+
+.feature__icon-list {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+}
+
+.feature__icon-list > svg {
+    padding: 6px;
+    width: 24px;
+    height: 24px;
+    color: var(--blue-ribbon-600);
 }
 </style>
