@@ -51,7 +51,8 @@ body {
 p,
 h1,
 h2,
-h3 {
+h3,
+h4 {
   margin: 0;
 }
 
@@ -73,6 +74,33 @@ h4, .txt-h4 { font-size: 16px; }
   font-weight: var(--weight-semibold);
   color: var(--shuttle-gray-400);
 }
+
+/* region site narrative styles */
+.sh1 {
+  font-size: 18px;
+  line-height: 1;
+  font-weight: var(--weight-semibold);
+  margin-bottom: 24px;
+}
+
+.sh2 {
+  font-size: 16px;
+  line-height: 1;
+  font-weight: var(--weight-medium);
+  margin-bottom: 24px;
+}
+
+.sh3 {
+    font-size: 14px;
+    line-height: 1;
+    font-weight: var(--weight-semibold);
+}
+
+.stxt {
+    font-size: 14px;
+    line-height: 19px;
+}
+/* endregion site narrative styles */
 
 a {
   color: var(--blue-ribbon-600);
