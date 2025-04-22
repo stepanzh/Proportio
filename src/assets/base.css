@@ -77,14 +77,14 @@ h4, .txt-h4 { font-size: 16px; }
 
 /* region site narrative styles */
 .sh1 {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1;
   font-weight: var(--weight-semibold);
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .sh2 {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1;
   font-weight: var(--weight-medium);
   margin-bottom: 24px;
