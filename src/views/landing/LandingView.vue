@@ -77,38 +77,56 @@
                             class="stxt-emph">без рекламы</span></p>
                     <p class="stxt support__description">Если вам нравится калькулятор, поддержите разработку</p>
                     <div class="support__donation-list">
-                        <DonationCard
-                            donate-url="https://www.tbank.ru/cf/ASVy6k1gw7z"
-                            donate-url-label="Перевести в Т-Банк"
-                            caption="Удобнее клиентам Т-Банка"
+                        <DonationCard donate-url="https://www.tbank.ru/cf/ASVy6k1gw7z"
+                            donate-url-label="Перевести в Т-Банк" caption="Удобнее клиентам Т-Банка"
                             :logo-src=TBankLogo />
-                        <DonationCard
-                            donate-url="https://pay.cloudtips.ru/p/01aa1961"
-                            donate-url-label="Оставить на чай"
-                            caption="Любой банк и СБП"
-                            :logo-src=CloudTipsLogo />
+                        <DonationCard donate-url="https://pay.cloudtips.ru/p/01aa1961"
+                            donate-url-label="Оставить на чай" caption="Любой банк и СБП" :logo-src=CloudTipsLogo />
                     </div>
                 </section>
             </template>
         </LandingArticle>
         <LandingArticle>
             <template #header>Пропорцио в соцсетях</template>
-            <template #default></template>
+            <template #default>
+                <section class="social">
+                    <p class="stxt social__description">Присоединяйтесь, чтобы не упустить обновления и выпуск
+                        мобильного приложения</p>
+                    <div class="social__list">
+                        <SocialCard
+                            :url=social.telegramChannel.href
+                            :label=social.telegramChannel.hostname.concat(social.telegramChannel.pathname)
+                            caption="Телеграмм"
+                            :logo-src=TelegramLogo />
+                        <SocialCard
+                            :url=social.vkChannel.href
+                            :label=social.vkChannel.hostname.concat(social.vkChannel.pathname)
+                            caption="вконтакте"
+                            :logo-src=VKLogo />
+                    </div>
+                </section>
+            </template>
         </LandingArticle>
     </main>
     <footer></footer>
 </template>
 
 <script setup>
-import CulinaryUseCase from '@/components/CulinaryUseCase.vue'
-import LandingArticle from './LandingArticle.vue'
 import { ArrowDownTrayIcon, ClipboardDocumentListIcon, FolderOpenIcon, ShareIcon } from '@heroicons/vue/24/outline';
-import DonationCard from './DonationCard.vue'
+import CulinaryUseCase from '@/components/CulinaryUseCase.vue'
 import CloudTipsLogo from '@/assets/logo/cloudtips.svg'
+import DonationCard from './DonationCard.vue'
+import LandingArticle from './LandingArticle.vue'
+import SocialCard from './SocialCard.vue'
 import TBankLogo from '@/assets/logo/tbank.svg'
+import TelegramLogo from '@/assets/logo/telegram.svg'
+import VKLogo from '@/assets/logo/vk.svg'
+import { useSocialStore } from '@/stores/socialStore'
+
+const social = useSocialStore()
 </script>
 
-<style>
+<style scoped>
 .landing-main {
     display: flex;
     flex-direction: column;
@@ -134,7 +152,8 @@ import TBankLogo from '@/assets/logo/tbank.svg'
 }
 
 .feature__description,
-.support__description
+.support__description,
+.social__description
 {
     font-weight: var(--weight-semibold);
     text-align: center;
@@ -168,7 +187,9 @@ import TBankLogo from '@/assets/logo/tbank.svg'
     color: var(--blue-ribbon-600);
 }
 
-.support {
+.support,
+.social
+{
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -178,5 +199,12 @@ import TBankLogo from '@/assets/logo/tbank.svg'
     display: grid;
     gap: 48px;
     margin-top: 16px;
+}
+
+.social__list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-self: center;
 }
 </style>

@@ -1,11 +1,11 @@
 <template>
-    <div class="landing-donation-card">
-        <div class="landing-donation-card__image">
+    <div class="dcard">
+        <div class="dcard__image">
             <img :src=logoSrc />
         </div>
-        <div class="landing-donation-card__action">
-            <a class="landing-donation-card__link btn btn-filled-primary" :href=donateUrl>{{ donateUrlLabel }}</a>
-            <div class="landing-donation-card__caption scaption">{{ caption }}</div>
+        <div class="dcard__action">
+            <a class="dcard__link btn btn-filled-primary" :href=donateUrl>{{ donateUrlLabel }}</a>
+            <div class="dcard__caption scaption">{{ caption }}</div>
         </div>
     </div>
 </template>
@@ -19,31 +19,31 @@ defineProps({
 })
 </script>
 
-<style>
-.landing-donation-card {
+<style scoped>
+.dcard {
     display: flex;
     flex-direction: column;
     gap: 16px;
     align-items: center;
 }
 
-.landing-donation-card__image img {
+.dcard__image img {
     height: 36px;
 }
 
-.landing-donation-card__action {
+.dcard__action {
     display: flex;
     flex-direction: column;
     gap: 8px;
     align-items: center;
 }
 
-.landing-donation-card__link {
+.dcard__link {
     display: block;
     padding: 10px 32px;
 }
 
-.landing-donation-card__link:hover {
+.dcard__link:hover {
     text-decoration: none;
 }
 </style>

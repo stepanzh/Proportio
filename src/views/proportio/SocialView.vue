@@ -39,6 +39,7 @@ import AppNavBar from '@/components/AppNavBar.vue'
 import AppScreen from '@/components/AppScreen.vue'
 
 const proportioNav = useProportioNavStore()
+// TODO: use social store
 </script>
 
 <style>
