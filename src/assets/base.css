@@ -100,6 +100,15 @@ h4, .txt-h4 { font-size: 16px; }
     font-size: 14px;
     line-height: 19px;
 }
+
+.stxt-emph { color: var(--cerise-600); }
+
+.scaption {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: var(--weight-medium);
+  color: var(--shuttle-gray-600);
+}
 /* endregion site narrative styles */
 
 a {

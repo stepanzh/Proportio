@@ -48,7 +48,8 @@
                                 <ListBulletIconMini />
                             </template>
                         </PButton>
-                        <PButton label="Пересчитать" class="feature-scale-btn mode-toggle__right btn-filled-primary readonly">
+                        <PButton label="Пересчитать"
+                            class="feature-scale-btn mode-toggle__right btn-filled-primary readonly">
                             <template #icon>
                                 <CalculatorIconMini />
                             </template>
@@ -70,7 +71,25 @@
         </LandingArticle>
         <LandingArticle>
             <template #header>Поддержите проект</template>
-            <template #default></template>
+            <template #default>
+                <section class="support">
+                    <p class="stxt support__description">Пропорцио <span class="stxt-emph">бесплатный</span> и <span
+                            class="stxt-emph">без рекламы</span></p>
+                    <p class="stxt support__description">Если вам нравится калькулятор, поддержите разработку</p>
+                    <div class="support__donation-list">
+                        <DonationCard
+                            donate-url="https://www.tbank.ru/cf/ASVy6k1gw7z"
+                            donate-url-label="Перевести в Т-Банк"
+                            caption="Удобнее клиентам Т-Банка"
+                            :logo-src=TBankLogo />
+                        <DonationCard
+                            donate-url="https://pay.cloudtips.ru/p/01aa1961"
+                            donate-url-label="Оставить на чай"
+                            caption="Любой банк и СБП"
+                            :logo-src=CloudTipsLogo />
+                    </div>
+                </section>
+            </template>
         </LandingArticle>
         <LandingArticle>
             <template #header>Пропорцио в соцсетях</template>
@@ -84,6 +103,9 @@
 import CulinaryUseCase from '@/components/CulinaryUseCase.vue'
 import LandingArticle from './LandingArticle.vue'
 import { ArrowDownTrayIcon, ClipboardDocumentListIcon, FolderOpenIcon, ShareIcon } from '@heroicons/vue/24/outline';
+import DonationCard from './DonationCard.vue'
+import CloudTipsLogo from '@/assets/logo/cloudtips.svg'
+import TBankLogo from '@/assets/logo/tbank.svg'
 </script>
 
 <style>
@@ -111,7 +133,9 @@ import { ArrowDownTrayIcon, ClipboardDocumentListIcon, FolderOpenIcon, ShareIcon
     gap: 24px;
 }
 
-.feature__description {
+.feature__description,
+.support__description
+{
     font-weight: var(--weight-semibold);
     text-align: center;
 }
@@ -142,5 +166,17 @@ import { ArrowDownTrayIcon, ClipboardDocumentListIcon, FolderOpenIcon, ShareIcon
     width: 24px;
     height: 24px;
     color: var(--blue-ribbon-600);
+}
+
+.support {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.support__donation-list {
+    display: grid;
+    gap: 48px;
+    margin-top: 16px;
 }
 </style>
