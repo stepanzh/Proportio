@@ -16,14 +16,14 @@
                     Новости, советы и рецепты. Присоединяйтесь, не упустите выпуск мобильного приложения.
                 </section>
                 <section class="social-list">
-                    <a class="social-card" href="https://t.me/proportioapp">
+                    <a class="social-card" :href=social.telegramChannel.href>
                         <img class="social-card__logo" src=@/assets/logo/telegram.svg />
-                        <span class="social-card__address">t.me/proportioapp</span>
+                        <span class="social-card__address">{{ social.telegramChannel.hostname.concat(social.telegramChannel.pathname) }}</span>
                         <span class="social-card__caption">Телеграмм</span>
                     </a>
-                    <a class="social-card" href="https://vk.com/proportioapp">
+                    <a class="social-card" :href=social.vkChannel.href>
                         <img class="social-card__logo" src=@/assets/logo/vk.svg />
-                        <span class="social-card__address">vk.com/proportioapp</span>
+                        <span class="social-card__address">{{ social.vkChannel.hostname.concat(social.vkChannel.pathname) }}</span>
                         <span class="social-card__caption">вконтакте</span>
                     </a>
                 </section>
@@ -37,9 +37,10 @@ import { useProportioNavStore } from '@/stores/proportioNav'
 
 import AppNavBar from '@/components/AppNavBar.vue'
 import AppScreen from '@/components/AppScreen.vue'
+import { useSocialStore } from '@/stores/socialStore'
 
 const proportioNav = useProportioNavStore()
-// TODO: use social store
+const social = useSocialStore()
 </script>
 
 <style>
