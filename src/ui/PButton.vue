@@ -83,6 +83,15 @@ const props = defineProps({
 
 .btn-filled-primary:active:not(.readonly) { background-color: var(--blue-ribbon-800); }
 
+.btn-filled-primary-cerise {
+    background-color: var(--cerise-600);
+}
+
+.btn-filled-primary-cerise:hover:not(.readonly),
+.btn-filled-primary-cerise:focus:not(.readonly)
+{
+    background-color: var(--cerise-800);
+}
 
 .btn-filled-secondary {
     background-color: var(--blue-ribbon-100);

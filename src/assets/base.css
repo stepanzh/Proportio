@@ -14,11 +14,13 @@
   --cerise-400: #ff5fc8;
   --cerise-500: #ff30ae;
   --cerise-600: #f50d8c;
+  --cerise-800: #e70078;
   --elevation-1: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
   --elevation-2: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
   --elevation-3: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
   --elevation-4: 0 10px 24px 0 rgba(0, 0, 0, 0.2);
   --elevation-5: 0 15px 35px 0 rgba(0, 0, 0, 0.2);
+  --demotion-1: inset 0 4px 12px 2px rgba(0, 0, 0, 0.2);
   --gorse-500: #e7c60b;
   --malachite-700: #078e07;
   --red-orange-100: #ffe2e0;
@@ -78,7 +80,7 @@ h4, .txt-h4 { font-size: 16px; }
 /* region site narrative styles */
 .sh1 {
   font-size: 20px;
-  line-height: 1;
+  line-height: 27px;
   font-weight: var(--weight-semibold);
   margin-bottom: 32px;
 }

@@ -1,6 +1,36 @@
 <template>
     <header></header>
     <main class="landing-main">
+        <Card class="author">
+            <img class="author-img" :src=AuthorImageUrl />
+            <h2 class="sh1 author__h">
+                Привет 👋<br>
+                Я Степан, создатель Пропорцио
+            </h2>
+            <section class="author__story">
+                <p class="stxt">Несколько лет назад я учился готовить по роликам <a href="https://borsch-company.ru/"
+                        ref="nofollow">Borsch</a>-а и <a href="https://vk.com/atpiska" rel="nofollow">Обломова</a>,
+                    пробовал рецепты из Интернета.
+                    Часто в них были слишком большие порции или у меня было не то количество чего-нибудь, поэтому
+                    рецепты приходилось пересчитывать. Так и появился Пропорцио.</p>
+                <p class="stxt">Я поддерживаю калькулятор в одиночку и в свободное время. Я вижу, что Пропорцио
+                    нравится многим, поэтому в моих планах разработать Android приложение с новыми функциями, а
+                    веб-версию сохранить бесплатной и без рекламы.</p>
+                <p class="stxt">Вы можете помочь мне сохранить и улучшить Пропорцио. Я буду рад <a
+                        href="#support-proportio">финансовой помощи</a> и просто <a href="#proportio-social">обратной
+                        связи</a>.</p>
+                <p class="stxt">Пользуйтесь Пропорцио с удовольствием!</p>
+            </section>
+            <PLinkButton class="author__action btn btn-filled-primary btn-filled-primary-cerise"
+                href="#support-proportio">
+                <template #icon>
+                    <HeartIconSolid />
+                </template>
+                <template #default>
+                    Поддержать Пропорцио
+                </template>
+            </PLinkButton>
+        </Card>
         <LandingArticle>
             <template #header>Для чего Пропорцио?</template>
             <template #default>
@@ -69,7 +99,7 @@
                 </section>
             </template>
         </LandingArticle>
-        <LandingArticle>
+        <LandingArticle id="support-proportio">
             <template #header>Поддержите проект</template>
             <template #default>
                 <section class="support">
@@ -86,22 +116,18 @@
                 </section>
             </template>
         </LandingArticle>
-        <LandingArticle>
+        <LandingArticle id="proportio-social">
             <template #header>Пропорцио в соцсетях</template>
             <template #default>
                 <section class="social">
                     <p class="stxt social__description">Присоединяйтесь, чтобы не упустить обновления и выпуск
                         мобильного приложения</p>
                     <div class="social__list">
-                        <SocialCard
-                            :url=social.telegramChannel.href
+                        <SocialCard :url=social.telegramChannel.href
                             :label=social.telegramChannel.hostname.concat(social.telegramChannel.pathname)
-                            caption="Телеграмм"
-                            :logo-src=TelegramLogo />
-                        <SocialCard
-                            :url=social.vkChannel.href
-                            :label=social.vkChannel.hostname.concat(social.vkChannel.pathname)
-                            caption="вконтакте"
+                            caption="Телеграмм" :logo-src=TelegramLogo />
+                        <SocialCard :url=social.vkChannel.href
+                            :label=social.vkChannel.hostname.concat(social.vkChannel.pathname) caption="вконтакте"
                             :logo-src=VKLogo />
                     </div>
                 </section>
@@ -113,10 +139,13 @@
 
 <script setup>
 import { ArrowDownTrayIcon, ClipboardDocumentListIcon, FolderOpenIcon, ShareIcon } from '@heroicons/vue/24/outline';
+import AuthorImageUrl from '@/assets/img/stepan-zakharov.jpg'
+import Card from '@/components/Card.vue'
 import CulinaryUseCase from '@/components/CulinaryUseCase.vue'
 import CloudTipsLogo from '@/assets/logo/cloudtips.svg'
 import DonationCard from './DonationCard.vue'
 import LandingArticle from './LandingArticle.vue'
+import PLinkButton from '@/ui/PLinkButton.vue'
 import SocialCard from './SocialCard.vue'
 import TBankLogo from '@/assets/logo/tbank.svg'
 import TelegramLogo from '@/assets/logo/telegram.svg'
@@ -131,6 +160,34 @@ const social = useSocialStore()
     display: flex;
     flex-direction: column;
     gap: 64px;
+}
+
+.author { gap: 16px; }
+
+.author-img {
+    display: inline-block;
+    align-self: center;
+    width: min(320px, 100%);
+    aspect-ratio: 1/1;
+    box-shadow: var(--demotion-1);
+    border-radius: 16px;
+}
+
+.author__h {
+    margin: 0;
+}
+
+.author__story {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.author__action {
+    display: inline-block;
+    text-decoration: none;
+    align-self: center;
+    margin-top: 16px;
 }
 
 .use-cases__header { text-align: center; }
