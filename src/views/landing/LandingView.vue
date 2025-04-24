@@ -1,5 +1,14 @@
 <template>
     <header></header>
+    <div class="nav-wrapper">
+        <nav class="landing-nav">
+            <a class="nav-logo" href="#">
+                <img :src=ProportioLogo class="nav-logo__img" />
+                <span class="nav-logo__txt">Пропорцио</span>
+            </a>
+            <RouterLink class="nav-link-primary" to="app"><span>В калькулятор</span></RouterLink>
+        </nav>
+    </div>
     <main class="landing-main">
         <Card class="author">
             <img class="author-img" :src=AuthorImageUrl />
@@ -146,6 +155,7 @@ import CloudTipsLogo from '@/assets/logo/cloudtips.svg'
 import DonationCard from './DonationCard.vue'
 import LandingArticle from './LandingArticle.vue'
 import PLinkButton from '@/ui/PLinkButton.vue'
+import ProportioLogo from '@/assets/logo/proportio.svg'
 import SocialCard from './SocialCard.vue'
 import TBankLogo from '@/assets/logo/tbank.svg'
 import TelegramLogo from '@/assets/logo/telegram.svg'
@@ -158,8 +168,57 @@ const social = useSocialStore()
 <style scoped>
 .landing-main {
     display: flex;
+    margin-top: 48px;
     flex-direction: column;
     gap: 64px;
+}
+
+.nav-wrapper {
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    background: white;
+    box-shadow: var(--elevation-1);
+    padding: 8px 16px;
+    box-sizing: border-box;
+}
+
+.landing-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: var(--weight-semibold);
+    color: var(--shuttle-gray-900);
+}
+
+.nav-logo__img {
+    width: 36px;
+    height: 36px;
+}
+
+.nav-link-primary {
+    background: var(--blue-ribbon-600);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: white;
+    font-weight: var(--weight-semibold);
+    line-height: 16px;
+    text-decoration: none;
+}
+
+.nav-link-primary:hover {
+    background-color: var(--blue-ribbon-700);
 }
 
 .author { gap: 16px; }
