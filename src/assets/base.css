@@ -105,9 +105,14 @@ h4, .txt-h4 { font-size: 16px; }
 
 .stxt-emph { color: var(--cerise-600); }
 
-.scaption {
+.scaption,
+small
+{
   font-size: 12px;
   line-height: 16px;
+}
+
+.scaption {
   font-weight: var(--weight-medium);
   color: var(--shuttle-gray-600);
 }

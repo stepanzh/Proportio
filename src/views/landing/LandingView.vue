@@ -143,7 +143,12 @@
             </template>
         </LandingArticle>
     </main>
-    <footer></footer>
+    <footer class="landing-footer">
+        <div class="footer__content">
+            <small>&copy; Степан Захаров, 2022-2025</small>
+            <small><a :href=social.stepanzhBlog.href>{{ social.stepanzhBlog.hostname }}</a></small>
+        </div>
+    </footer>
 </template>
 
 <script setup>
@@ -322,5 +327,28 @@ const social = useSocialStore()
     flex-direction: column;
     gap: 32px;
     align-self: center;
+}
+
+.landing-footer {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    margin-top: 64px;
+    padding: 32px 16px;
+    box-sizing: border-box;
+    background: var(--shuttle-gray-100);
+    box-shadow: inset 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+.footer__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer__content a {
+    color: inherit;
+    text-decoration: underline;
 }
 </style>
