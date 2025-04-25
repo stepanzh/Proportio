@@ -1,5 +1,26 @@
 <template>
-    <header></header>
+    <header class="landing-header">
+        <div class="header__content">
+            <div class="header-welcome">
+                <img class="header-logo" :src=ProportioLogo />
+                <h1 class="header-title">Привет 👋<br>это <span class="header-app-name">Пропорцио</span></h1>
+                <p class="header-subtitle">Здесь можно пересчитать рецепт</p>
+            </div>
+            <div class="header-actions">
+                <a href="#support-proportio" class="sbtn sbtn-outlined">
+                    <IconWithLabel label="Поддержать">
+                        <HeartIconSolid class="txt-cerise-600" />
+                    </IconWithLabel>
+                </a>
+                <RouterLink to="/app" class="sbtn sbtn-primary">
+                    <IconWithLabel label="Пересчитать рецепт">
+                        <CalculatorIconSolid />
+                    </IconWithLabel>
+                    
+                </RouterLink>
+            </div>
+        </div>
+    </header>
     <div class="nav-wrapper">
         <nav class="landing-nav">
             <a class="nav-logo" href="#">
@@ -158,6 +179,7 @@ import Card from '@/components/Card.vue'
 import CulinaryUseCase from '@/components/CulinaryUseCase.vue'
 import CloudTipsLogo from '@/assets/logo/cloudtips.svg'
 import DonationCard from './DonationCard.vue'
+import IconWithLabel from './IconWithLabel.vue'
 import LandingArticle from './LandingArticle.vue'
 import PLinkButton from '@/ui/PLinkButton.vue'
 import ProportioLogo from '@/assets/logo/proportio.svg'
@@ -171,6 +193,79 @@ const social = useSocialStore()
 </script>
 
 <style scoped>
+.landing-header {
+    height: 100vh;
+    width: 100vw;
+    padding: 32px 16px;
+    box-sizing: border-box;
+    background: white;
+}
+
+.header__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    font-weight: var(--weight-semibold);
+}
+
+.header-logo {
+    width: 100px;
+    height: 100px;
+}
+
+.header-title {
+    font-size: 24px;
+    /* 40px = 24px + 16px */
+    line-height: 40px;
+    text-align: center;
+    font-weight: var(--weight-semibold);
+}
+
+.header-app-name { color: var(--blue-ribbon-600); }
+
+.header-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    /* Safer margin for mobile */
+    margin-bottom: 16px;
+}
+
+.sbtn {
+    display: flex;
+    justify-content: center;
+    padding: 8px 32px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: var(--weight-semibold);
+    border-radius: 8px;
+    border: 1px solid var(--blue-ribbon-600);
+}
+
+.sbtn:hover { text-decoration: none; }
+
+.sbtn-primary {
+    background: var(--blue-ribbon-600);
+    color: white;
+}
+.sbtn-primary:hover { background: var(--blue-ribbon-700); }
+.sbtn-primary:active { background: var(--blue-ribbon-800);}
+
+.sbtn-outlined {
+    background: white;
+}
+.sbtn-outlined:hover { background: var(--blue-ribbon-100); }
+.sbtn-outlined:active { background: var(--blue-ribbon-200); }
+
 .landing-main {
     display: flex;
     margin-top: 48px;
