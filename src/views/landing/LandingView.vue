@@ -265,7 +265,7 @@ const social = useSocialStore()
     flex-direction: column;
     gap: 16px;
     /* Safer margin for mobile */
-    margin-bottom: 16px;
+    margin-bottom: 32px;
 }
 
 @media only screen and (min-width: 640px) {
