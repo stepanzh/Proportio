@@ -6,7 +6,7 @@
                 <img :src=ProportioLogo class="nav-logo__img" />
                 <span class="nav-logo__txt">Пропорцио</span>
             </a>
-            <RouterLink class="nav-link-primary" to="app"><span>В калькулятор</span></RouterLink>
+            <RouterLink class="nav-link-primary" to="/app"><span>В калькулятор</span></RouterLink>
         </nav>
     </div>
     <main class="landing-main">
