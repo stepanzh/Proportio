@@ -10,6 +10,7 @@ import { useProportioCalculatorStore } from './stores/proportioCalculator'
 
 // Routes
 import ProportioView from './views/proportio/ProportioView.vue'
+import LandingView from './views/landing/LandingView.vue'
 
 
 const pinia = createPinia()
@@ -22,7 +23,8 @@ directives.forEach((x) => { app.directive(x.__name, x) })
 const router = createRouter({
     history: createWebHistory('/Proportio/'),
     routes: [
-        { path: '/', component: ProportioView },
+        { path: '/', component: LandingView },
+        { path: '/app', component: ProportioView },
     ],
 })
 

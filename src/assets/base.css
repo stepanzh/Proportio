@@ -14,11 +14,13 @@
   --cerise-400: #ff5fc8;
   --cerise-500: #ff30ae;
   --cerise-600: #f50d8c;
+  --cerise-800: #e70078;
   --elevation-1: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
   --elevation-2: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
   --elevation-3: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
   --elevation-4: 0 10px 24px 0 rgba(0, 0, 0, 0.2);
   --elevation-5: 0 15px 35px 0 rgba(0, 0, 0, 0.2);
+  --demotion-1: inset 0 4px 12px 2px rgba(0, 0, 0, 0.2);
   --gorse-500: #e7c60b;
   --malachite-700: #078e07;
   --red-orange-100: #ffe2e0;
@@ -51,7 +53,8 @@ body {
 p,
 h1,
 h2,
-h3 {
+h3,
+h4 {
   margin: 0;
 }
 
@@ -73,6 +76,57 @@ h4, .txt-h4 { font-size: 16px; }
   font-weight: var(--weight-semibold);
   color: var(--shuttle-gray-400);
 }
+
+/* region site narrative styles */
+.sh1 {
+  font-size: 20px;
+  line-height: 27px;
+  font-weight: var(--weight-semibold);
+  margin-bottom: 32px;
+}
+
+.sh2 {
+  font-size: 18px;
+  line-height: 1;
+  font-weight: var(--weight-medium);
+  margin-bottom: 24px;
+}
+
+.sh3 {
+    font-size: 14px;
+    line-height: 1;
+    font-weight: var(--weight-semibold);
+}
+
+.stxt {
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.stxt-emph { color: var(--cerise-600); }
+
+.scaption,
+small
+{
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.scaption {
+  font-weight: var(--weight-medium);
+  color: var(--shuttle-gray-600);
+}
+
+@media only screen and (min-width: 640px) {
+  .sh1 {
+    font-size: 30px;
+    line-height: 41px;
+  }
+  .sh2 { font-size: 24px; }
+  .sh3 { font-size: 18px; }
+  .stxt { font-size: 16px; line-height: 22px;}
+}
+/* endregion site narrative styles */
 
 a {
   color: var(--blue-ribbon-600);

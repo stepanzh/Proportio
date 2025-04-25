@@ -5,7 +5,7 @@
         </div>
         <h3 class="donate-card__title">{{ title }}</h3>
         <p class="donate-card__body">{{ body }}</p>
-        <a :href=donateUrl target="_blank" class="btn-donate btn-filled-primary">
+        <a :href=donateUrl class="btn-donate btn-filled-primary">
             {{ actionCaption }}
         </a>
     </section>
