@@ -16,6 +16,6 @@
 import Card from '@/components/Card.vue'
 </script>
 
-<style>
+<style scoped>
 .landing-article__header { text-align: center; }
 </style>

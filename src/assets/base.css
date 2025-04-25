@@ -116,6 +116,16 @@ small
   font-weight: var(--weight-medium);
   color: var(--shuttle-gray-600);
 }
+
+@media only screen and (min-width: 640px) {
+  .sh1 {
+    font-size: 30px;
+    line-height: 41px;
+  }
+  .sh2 { font-size: 24px; }
+  .sh3 { font-size: 18px; }
+  .stxt { font-size: 16px; line-height: 22px;}
+}
 /* endregion site narrative styles */
 
 a {
