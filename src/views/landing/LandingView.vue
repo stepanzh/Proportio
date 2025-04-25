@@ -224,7 +224,7 @@ const social = useSocialStore()
 .landing-header {
     height: 100vh;
     width: 100vw;
-    padding: 32px 16px calc(32px + env(safe-area-inset-bottom)) 16px;
+    padding: 32px 16px 64px 16px;
     box-sizing: border-box;
     background: white;
 }
