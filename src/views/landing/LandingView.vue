@@ -128,10 +128,10 @@
                     <p class="stxt support__description">Если вам нравится калькулятор, поддержите разработку</p>
                     <div class="support__donation-list">
                         <DonationCard donate-url="https://www.tbank.ru/cf/ASVy6k1gw7z"
-                            donate-url-label="Перевести в Т-Банк" caption="Удобнее клиентам Т-Банка"
+                            donate-url-label="Перевести по карте" caption="из любого банка РФ"
                             :logo-src=TBankLogo />
                         <DonationCard donate-url="https://pay.cloudtips.ru/p/01aa1961"
-                            donate-url-label="Оставить на чай" caption="Любой банк и СБП" :logo-src=CloudTipsLogo />
+                            donate-url-label="Поддержать донатом" caption="из любого банка РФ, можно по СБП" :logo-src=CloudTipsLogo />
                     </div>
                 </section>
             </template>
