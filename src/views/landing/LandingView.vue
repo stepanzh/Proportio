@@ -9,14 +9,13 @@
             <div class="header-actions">
                 <a href="#support-proportio" class="sbtn sbtn-outlined">
                     <IconWithLabel label="Поддержать">
-                        <HeartIconSolid class="txt-cerise-600" />
+                        <HeartIconSolid class="txt-cerise-600 icon-20" />
                     </IconWithLabel>
                 </a>
                 <RouterLink to="/app" class="sbtn sbtn-primary">
                     <IconWithLabel label="Пересчитать рецепт">
-                        <CalculatorIconSolid />
+                        <CalculatorIconSolid class="icon-20"/>
                     </IconWithLabel>
-                    
                 </RouterLink>
             </div>
         </div>
@@ -352,7 +351,7 @@ const social = useSocialStore()
     display: inline-block;
     align-self: center;
     width: min(320px, 100%);
-    aspect-ratio: 1/1;
+    max-height: 320px;
     box-shadow: var(--demotion-1);
     border-radius: 16px;
 }

@@ -19,6 +19,7 @@ defineProps({
 .icon-and-label {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     gap: 4px;
 }
 
@@ -26,7 +27,5 @@ defineProps({
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
 }
 </style>
