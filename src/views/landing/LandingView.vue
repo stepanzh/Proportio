@@ -9,12 +9,12 @@
             <div class="header-actions">
                 <a href="#support-proportio" class="sbtn sbtn-outlined">
                     <IconWithLabel label="Поддержать">
-                        <HeartIconSolid class="txt-cerise-600" />
+                        <HeartIconSolid class="txt-cerise-600 icon-20" />
                     </IconWithLabel>
                 </a>
                 <RouterLink to="/app" class="sbtn sbtn-primary">
                     <IconWithLabel label="Пересчитать рецепт">
-                        <CalculatorIconSolid />
+                        <CalculatorIconSolid class="icon-20"/>
                     </IconWithLabel>
                 </RouterLink>
             </div>
