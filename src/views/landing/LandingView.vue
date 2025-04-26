@@ -325,10 +325,10 @@ const social = useSocialStore()
     background: var(--blue-ribbon-600);
     padding: 6px 12px;
     border-radius: 6px;
-    font-size: 12px;
+    font-size: 14px;
     color: white;
     font-weight: var(--weight-semibold);
-    line-height: 16px;
+    line-height: 1;
     text-decoration: none;
 }
 
@@ -336,6 +336,17 @@ const social = useSocialStore()
     background-color: var(--blue-ribbon-700);
 }
 
+@media only screen and (min-width: 640px) {
+    .nav-logo {
+        font-size: 18px;
+    }
+
+    .nav-link-primary {
+        font-size: 16px;
+        padding: 10px 16px;
+        border-radius: 8px;
+    }
+}
 .author { gap: 16px; }
 
 .author-img {
