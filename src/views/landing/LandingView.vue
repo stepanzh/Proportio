@@ -16,7 +16,6 @@
                     <IconWithLabel label="Пересчитать рецепт">
                         <CalculatorIconSolid />
                     </IconWithLabel>
-                    
                 </RouterLink>
             </div>
         </div>
@@ -352,7 +351,7 @@ const social = useSocialStore()
     display: inline-block;
     align-self: center;
     width: min(320px, 100%);
-    aspect-ratio: 1/1;
+    max-height: 320px;
     box-shadow: var(--demotion-1);
     border-radius: 16px;
 }
