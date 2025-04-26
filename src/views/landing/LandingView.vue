@@ -323,7 +323,7 @@ const social = useSocialStore()
 
 .nav-link-primary {
     background: var(--blue-ribbon-600);
-    padding: 6px 12px;
+    padding: 8px 12px;
     border-radius: 6px;
     font-size: 14px;
     color: white;
