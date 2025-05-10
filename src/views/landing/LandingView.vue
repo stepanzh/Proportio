@@ -153,6 +153,26 @@
                 </section>
             </template>
         </LandingArticle>
+        <LandingArticle id="proportio-feedback">
+            <template #header>Обратная связь</template>
+            <template #default>
+                <section class="feedback">
+                    <p class="stxt feedback__description">Пройдите опрос по улучшению Пропорцио или сообщите о чём-нибудь</p>
+                    <div class="feedback__list">
+                        <SocialCard
+                            :url=social.feedbackSurvey.href
+                            label="Опрос по улучшению"
+                            caption="Яндекс.Формы"
+                            :logo-src=YandexFormsLogo />
+                        <SocialCard
+                            :url=social.feedbackFreeForm.href
+                            label="Форма обратной связи"
+                            caption="Яндекс.Формы"
+                            :logo-src=YandexFormsLogo />
+                    </div>
+                </section>
+            </template>
+        </LandingArticle>
     </main>
     <footer class="landing-footer">
         <div class="footer__content">
@@ -177,6 +197,7 @@ import SocialCard from './SocialCard.vue'
 import TBankLogo from '@/assets/logo/tbank.svg'
 import TelegramLogo from '@/assets/logo/telegram.svg'
 import VKLogo from '@/assets/logo/vk.svg'
+import YandexFormsLogo from '@/assets/logo/yandex-forms.svg'
 import { useSocialStore } from '@/stores/socialStore'
 
 const social = useSocialStore()
@@ -413,7 +434,8 @@ const social = useSocialStore()
 
 .feature__description,
 .support__description,
-.social__description
+.social__description,
+.feedback__description
 {
     font-weight: var(--weight-semibold);
     text-align: center;
@@ -448,7 +470,8 @@ const social = useSocialStore()
 }
 
 .support,
-.social
+.social,
+.feedback
 {
     display: flex;
     flex-direction: column;
@@ -461,7 +484,9 @@ const social = useSocialStore()
     margin-top: 16px;
 }
 
-.social__list {
+.social__list,
+.feedback__list
+{
     display: flex;
     flex-direction: column;
     gap: 32px;
