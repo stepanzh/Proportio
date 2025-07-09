@@ -14,9 +14,15 @@
                 </a>
                 <RouterLink to="/app" class="sbtn sbtn-primary">
                     <IconWithLabel label="Пересчитать рецепт">
-                        <CalculatorIconSolid class="icon-20"/>
+                        <CalculatorIconSolid class="icon-20" />
                     </IconWithLabel>
                 </RouterLink>
+            </div>
+            <div class="scroll-tip">
+                <div class="txt-h-caption">Подробнее</div>
+                <div>
+                    <ChevronDoubleDownIconOutline class="icon-24" />
+                </div>
             </div>
         </div>
     </header>
@@ -275,6 +281,14 @@ const social = useSocialStore()
     display: flex;
     flex-direction: column;
     gap: 16px;
+}
+
+.scroll-tip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    color: var(--shuttle-gray-400);
 }
 
 @media only screen and (min-width: 640px) {

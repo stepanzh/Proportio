@@ -33,6 +33,9 @@ CircleStackIconMini.__name = getVariableName({ CircleStackIconMini })
 import { CheckCircleIcon as CheckCircleIconMini } from '@heroicons/vue/16/solid'
 CheckCircleIconMini.__name = getVariableName({ CheckCircleIconMini })
 
+import { ChevronDoubleDownIcon as ChevronDoubleDownIconOutline } from '@heroicons/vue/24/outline'
+ChevronDoubleDownIconOutline.__name = getVariableName({ ChevronDoubleDownIconOutline })
+
 import { ClipboardDocumentListIcon as ClipboardDocumentListIconOutline } from '@heroicons/vue/24/outline'
 ClipboardDocumentListIconOutline.__name = getVariableName({ ClipboardDocumentListIconOutline })
 
@@ -85,6 +88,7 @@ export default [
     CalculatorIconSolid,
     CircleStackIconMini,
     CheckCircleIconMini,
+    ChevronDoubleDownIconOutline,
     ClipboardDocumentListIconOutline,
     ExclamationTriangleIconMini,
     ExclamationCircleIconMini,
