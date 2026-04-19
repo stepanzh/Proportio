@@ -182,6 +182,7 @@
     </main>
     <footer class="landing-footer">
         <div class="footer__content">
+            <PRuStoreButton/>
             <small>&copy; Степан Захаров, 2022-2026</small>
             <small><a :href=social.stepanzhBlog.href>{{ social.stepanzhBlog.hostname }}</a></small>
         </div>
@@ -198,6 +199,7 @@ import DonationCard from './DonationCard.vue'
 import IconWithLabel from './IconWithLabel.vue'
 import LandingArticle from './LandingArticle.vue'
 import PLinkButton from '@/ui/PLinkButton.vue'
+import PRuStoreButton from '@/ui/PRuStoreButton.vue'
 import ProportioLogo from '@/assets/logo/proportio.svg'
 import SocialCard from './SocialCard.vue'
 import TBankLogo from '@/assets/logo/tbank.svg'
