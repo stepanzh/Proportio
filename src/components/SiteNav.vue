@@ -5,11 +5,7 @@
                 <img class="site-nav__logo" src="@/assets/logo/proportio.svg">
                 <span class="site-nav__title">Пропорцио</span>
             </RouterLink>
-            <PButton @click="proportioNav.navToSupport()" label="Поддержать" class="btn-outlined">
-                <template #icon>
-                    <HeartIconSolid class='txt-cerise-600' />
-                </template>
-            </PButton>
+            <PRuStoreButton />
         </nav>
     </div>
 </template>
@@ -17,6 +13,7 @@
 
 <script setup>
 import { useProportioNavStore } from '@/stores/proportioNav'
+import PRuStoreButton from '@/ui/PRuStoreButton.vue';
 
 const proportioNav = useProportioNavStore()
 </script>

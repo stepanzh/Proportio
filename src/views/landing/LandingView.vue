@@ -4,19 +4,27 @@
             <div class="header-welcome">
                 <img class="header-logo" :src=ProportioLogo />
                 <h1 class="header-title">Привет 👋<br>это <span class="header-app-name">Пропорцио</span></h1>
-                <p class="header-subtitle">Здесь можно пересчитать рецепт</p>
+                <p class="header-subtitle">Пересчитайте любой рецепт за минуту</p>
             </div>
             <div class="header-actions">
+                <PLinkButton class="sbtn btn-filled-primary" :href="social.rustoreApp">
+                    <template #icon>
+                        <DevicePhoneMobileIcon />
+                    </template>
+                    <template #default>
+                        Скачать в RuStore
+                    </template>
+                </PLinkButton>
+                <RouterLink to="/app" class="sbtn sbtn-outlined">
+                    <IconWithLabel label="Пересчитать онлайн">
+                        <GlobeAltIconOutline class="icon-20" />
+                    </IconWithLabel>
+                </RouterLink>
                 <a href="#support-proportio" class="sbtn sbtn-outlined">
                     <IconWithLabel label="Поддержать">
                         <HeartIconSolid class="txt-cerise-600 icon-20" />
                     </IconWithLabel>
                 </a>
-                <RouterLink to="/app" class="sbtn sbtn-primary">
-                    <IconWithLabel label="Пересчитать рецепт">
-                        <CalculatorIconSolid class="icon-20" />
-                    </IconWithLabel>
-                </RouterLink>
             </div>
             <div class="scroll-tip">
                 <div class="txt-h-caption">Подробнее</div>
@@ -32,7 +40,7 @@
                 <img :src=ProportioLogo class="nav-logo__img" />
                 <span class="nav-logo__txt">Пропорцио</span>
             </a>
-            <RouterLink class="nav-link-primary" to="/app"><span>В калькулятор</span></RouterLink>
+            <PRuStoreButton />
         </nav>
     </div>
     <main class="landing-main">
@@ -44,10 +52,20 @@
             </h2>
             <section class="author__story">
                 <p class="stxt">Несколько лет назад я учился готовить по&nbsp;роликам <a href="https://borsch-company.ru/" ref="nofollow">Borsch</a>-а и&nbsp;<a href="https://vk.com/atpiska" rel="nofollow">Обломова</a>, пробовал рецепты из&nbsp;Интернета. Часто в&nbsp;них были слишком большие порции или у&nbsp;меня было не то количество чего&#8209;нибудь, поэтому рецепты приходилось пересчитывать. Так&nbsp;и&nbsp;появился Пропорцио.</p>
-                <p class="stxt">Я поддерживаю калькулятор в&nbsp;одиночку и&nbsp;в&nbsp;свободное время. Пропорцио нравится многим, поэтому в&nbsp;моих планах разработать Android приложение с&nbsp;новыми функциями, а&nbsp;веб&#8209;версию сохранить бесплатной и&nbsp;без&nbsp;рекламы.</p>
+                <p class="stxt">Я поддерживаю калькулятор в&nbsp;одиночку и&nbsp;в&nbsp;свободное время. Веб-версию выпустил в 2022-ом году, она остаётся бесплатной и без рекламы.</p>
+                <p class="stxt">В 2026-ом выпустил <a :href="social.rustoreApp">Пропорцио на Андроид</a>. В мобильной версии больше функций, и она просто удобнее.</p>
                 <p class="stxt">Вы можете помочь мне сохранить и улучшить Пропорцио. Я буду рад <a href="#support-proportio">финансовой помощи</a> и&nbsp;просто <a href="#proportio-social">обратной связи</a>.</p>
                 <p class="stxt">Пользуйтесь Пропорцио с удовольствием!</p>
             </section>
+            <PLinkButton class="author__action btn btn-filled-primary"
+                :href="social.rustoreApp">
+                <template #icon>
+                    <DevicePhoneMobileIcon />
+                </template>
+                <template #default>
+                    Скачать в RuStore
+                </template>
+            </PLinkButton>
             <PLinkButton class="author__action btn btn-filled-primary btn-filled-primary-cerise"
                 href="#support-proportio">
                 <template #icon>
@@ -182,7 +200,8 @@
     </main>
     <footer class="landing-footer">
         <div class="footer__content">
-            <small>&copy; Степан Захаров, 2022-2025</small>
+            <PRuStoreButton />
+            <small>&copy; Степан Захаров, 2022-2026</small>
             <small><a :href=social.stepanzhBlog.href>{{ social.stepanzhBlog.hostname }}</a></small>
         </div>
     </footer>
@@ -198,6 +217,7 @@ import DonationCard from './DonationCard.vue'
 import IconWithLabel from './IconWithLabel.vue'
 import LandingArticle from './LandingArticle.vue'
 import PLinkButton from '@/ui/PLinkButton.vue'
+import PRuStoreButton from '@/ui/PRuStoreButton.vue'
 import ProportioLogo from '@/assets/logo/proportio.svg'
 import SocialCard from './SocialCard.vue'
 import TBankLogo from '@/assets/logo/tbank.svg'
@@ -205,6 +225,7 @@ import TelegramLogo from '@/assets/logo/telegram.svg'
 import VKLogo from '@/assets/logo/vk.svg'
 import YandexFormsLogo from '@/assets/logo/yandex-forms.svg'
 import { useSocialStore } from '@/stores/socialStore'
+import { DevicePhoneMobileIcon, GlobeAltIcon } from '@heroicons/vue/16/solid';
 
 const social = useSocialStore()
 </script>

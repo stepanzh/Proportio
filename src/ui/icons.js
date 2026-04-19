@@ -39,6 +39,9 @@ ChevronDoubleDownIconOutline.__name = getVariableName({ ChevronDoubleDownIconOut
 import { ClipboardDocumentListIcon as ClipboardDocumentListIconOutline } from '@heroicons/vue/24/outline'
 ClipboardDocumentListIconOutline.__name = getVariableName({ ClipboardDocumentListIconOutline })
 
+import { DevicePhoneMobileIcon as DevicePhoneMobileIconSolid } from '@heroicons/vue/24/solid'
+DevicePhoneMobileIconSolid.__name = getVariableName({ DevicePhoneMobileIconSolid })
+
 import { ExclamationCircleIcon as ExclamationCircleIconMini } from '@heroicons/vue/16/solid'
 ExclamationCircleIconMini.__name = getVariableName({ ExclamationCircleIconMini })
 
@@ -47,6 +50,9 @@ ExclamationTriangleIconMini.__name = getVariableName({ ExclamationTriangleIconMi
 
 import { FolderOpenIcon as FolderOpenIconOutline } from '@heroicons/vue/24/outline'
 FolderOpenIconOutline.__name = getVariableName({ FolderOpenIconOutline })
+
+import { GlobeAltIcon as GlobeAltIconOutline } from '@heroicons/vue/24/outline'
+GlobeAltIconOutline.__name = getVariableName({ GlobeAltIconOutline })
 
 import { HeartIcon as HeartIconMini } from '@heroicons/vue/16/solid'
 HeartIconMini.__name = getVariableName({ HeartIconMini })
@@ -90,9 +96,11 @@ export default [
     CheckCircleIconMini,
     ChevronDoubleDownIconOutline,
     ClipboardDocumentListIconOutline,
+    DevicePhoneMobileIconSolid,
     ExclamationTriangleIconMini,
     ExclamationCircleIconMini,
     FolderOpenIconOutline,
+    GlobeAltIconOutline,
     HeartIconMini,
     HeartIconSolid,
     ListBulletIconMini,

@@ -1,5 +1,5 @@
 <template>
-    <a class="p-link-btn">
+    <a :href="href" class="p-link-btn">
         <div class="p-link-btn__content">
             <span class="p-link-btn__icon">
                 <slot name="icon" />
@@ -14,6 +14,13 @@
 
 <script setup>
 const __name = 'PLinkButton'
+
+defineProps({
+  href: {
+    type: String,
+    default: '#'
+  }
+})
 </script>
 
 
