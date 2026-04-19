@@ -182,7 +182,7 @@
     </main>
     <footer class="landing-footer">
         <div class="footer__content">
-            <small>&copy; Степан Захаров, 2022-2025</small>
+            <small>&copy; Степан Захаров, 2022-2026</small>
             <small><a :href=social.stepanzhBlog.href>{{ social.stepanzhBlog.hostname }}</a></small>
         </div>
     </footer>
