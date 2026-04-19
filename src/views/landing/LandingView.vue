@@ -44,10 +44,20 @@
             </h2>
             <section class="author__story">
                 <p class="stxt">Несколько лет назад я учился готовить по&nbsp;роликам <a href="https://borsch-company.ru/" ref="nofollow">Borsch</a>-а и&nbsp;<a href="https://vk.com/atpiska" rel="nofollow">Обломова</a>, пробовал рецепты из&nbsp;Интернета. Часто в&nbsp;них были слишком большие порции или у&nbsp;меня было не то количество чего&#8209;нибудь, поэтому рецепты приходилось пересчитывать. Так&nbsp;и&nbsp;появился Пропорцио.</p>
-                <p class="stxt">Я поддерживаю калькулятор в&nbsp;одиночку и&nbsp;в&nbsp;свободное время. Пропорцио нравится многим, поэтому в&nbsp;моих планах разработать Android приложение с&nbsp;новыми функциями, а&nbsp;веб&#8209;версию сохранить бесплатной и&nbsp;без&nbsp;рекламы.</p>
+                <p class="stxt">Я поддерживаю калькулятор в&nbsp;одиночку и&nbsp;в&nbsp;свободное время. Веб-версию выпустил в 2022-ом году, она остаётся бесплатной и без рекламы.</p>
+                <p class="stxt">В 2026-ом выпустил <a :href="social.rustoreApp">Пропорцио на Андроид</a>. В мобильной версии больше функций, и она просто удобнее.</p>
                 <p class="stxt">Вы можете помочь мне сохранить и улучшить Пропорцио. Я буду рад <a href="#support-proportio">финансовой помощи</a> и&nbsp;просто <a href="#proportio-social">обратной связи</a>.</p>
                 <p class="stxt">Пользуйтесь Пропорцио с удовольствием!</p>
             </section>
+            <PLinkButton class="author__action btn btn-filled-primary"
+                :href="social.rustoreApp">
+                <template #icon>
+                    <DevicePhoneMobileIcon />
+                </template>
+                <template #default>
+                    Скачать в RuStore
+                </template>
+            </PLinkButton>
             <PLinkButton class="author__action btn btn-filled-primary btn-filled-primary-cerise"
                 href="#support-proportio">
                 <template #icon>
@@ -207,6 +217,7 @@ import TelegramLogo from '@/assets/logo/telegram.svg'
 import VKLogo from '@/assets/logo/vk.svg'
 import YandexFormsLogo from '@/assets/logo/yandex-forms.svg'
 import { useSocialStore } from '@/stores/socialStore'
+import { DevicePhoneMobileIcon } from '@heroicons/vue/16/solid';
 
 const social = useSocialStore()
 </script>
