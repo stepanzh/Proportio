@@ -51,6 +51,9 @@ ExclamationTriangleIconMini.__name = getVariableName({ ExclamationTriangleIconMi
 import { FolderOpenIcon as FolderOpenIconOutline } from '@heroicons/vue/24/outline'
 FolderOpenIconOutline.__name = getVariableName({ FolderOpenIconOutline })
 
+import { GlobeAltIcon as GlobeAltIconOutline } from '@heroicons/vue/24/outline'
+GlobeAltIconOutline.__name = getVariableName({ GlobeAltIconOutline })
+
 import { HeartIcon as HeartIconMini } from '@heroicons/vue/16/solid'
 HeartIconMini.__name = getVariableName({ HeartIconMini })
 
@@ -97,6 +100,7 @@ export default [
     ExclamationTriangleIconMini,
     ExclamationCircleIconMini,
     FolderOpenIconOutline,
+    GlobeAltIconOutline,
     HeartIconMini,
     HeartIconSolid,
     ListBulletIconMini,

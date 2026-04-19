@@ -7,16 +7,24 @@
                 <p class="header-subtitle">Здесь можно пересчитать рецепт</p>
             </div>
             <div class="header-actions">
+                <PLinkButton class="sbtn btn-filled-primary" :href="social.rustoreApp">
+                    <template #icon>
+                        <DevicePhoneMobileIcon />
+                    </template>
+                    <template #default>
+                        Скачать в RuStore
+                    </template>
+                </PLinkButton>
+                <RouterLink to="/app" class="sbtn sbtn-outlined">
+                    <IconWithLabel label="Пересчитать онлайн">
+                        <GlobeAltIconOutline class="icon-20" />
+                    </IconWithLabel>
+                </RouterLink>
                 <a href="#support-proportio" class="sbtn sbtn-outlined">
                     <IconWithLabel label="Поддержать">
                         <HeartIconSolid class="txt-cerise-600 icon-20" />
                     </IconWithLabel>
                 </a>
-                <RouterLink to="/app" class="sbtn sbtn-primary">
-                    <IconWithLabel label="Пересчитать рецепт">
-                        <CalculatorIconSolid class="icon-20" />
-                    </IconWithLabel>
-                </RouterLink>
             </div>
             <div class="scroll-tip">
                 <div class="txt-h-caption">Подробнее</div>
@@ -192,7 +200,7 @@
     </main>
     <footer class="landing-footer">
         <div class="footer__content">
-            <PRuStoreButton/>
+            <PRuStoreButton />
             <small>&copy; Степан Захаров, 2022-2026</small>
             <small><a :href=social.stepanzhBlog.href>{{ social.stepanzhBlog.hostname }}</a></small>
         </div>
@@ -217,7 +225,7 @@ import TelegramLogo from '@/assets/logo/telegram.svg'
 import VKLogo from '@/assets/logo/vk.svg'
 import YandexFormsLogo from '@/assets/logo/yandex-forms.svg'
 import { useSocialStore } from '@/stores/socialStore'
-import { DevicePhoneMobileIcon } from '@heroicons/vue/16/solid';
+import { DevicePhoneMobileIcon, GlobeAltIcon } from '@heroicons/vue/16/solid';
 
 const social = useSocialStore()
 </script>
