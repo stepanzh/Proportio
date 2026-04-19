@@ -4,7 +4,7 @@
             <div class="header-welcome">
                 <img class="header-logo" :src=ProportioLogo />
                 <h1 class="header-title">Привет 👋<br>это <span class="header-app-name">Пропорцио</span></h1>
-                <p class="header-subtitle">Здесь можно пересчитать рецепт</p>
+                <p class="header-subtitle">Пересчитайте любой рецепт за минуту</p>
             </div>
             <div class="header-actions">
                 <PLinkButton class="sbtn btn-filled-primary" :href="social.rustoreApp">
