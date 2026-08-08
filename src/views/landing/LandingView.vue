@@ -7,7 +7,13 @@
                 <p class="header-subtitle">Пересчитайте любой рецепт за минуту</p>
             </div>
             <div class="header-actions">
-                <PLinkButton class="sbtn btn-filled-primary" :href="social.rustoreApp">
+                <RouterLink to="/app" class="sbtn btn-filled-primary">
+                    <IconWithLabel label="Пересчитать онлайн">
+                        <GlobeAltIconOutline class="icon-20" />
+                    </IconWithLabel>
+                </RouterLink>
+                <p class="txt-h-caption" style="text-align: center;">или</p>
+                <PLinkButton class="sbtn sbtn-outlined" :href="social.rustoreApp">
                     <template #icon>
                         <DevicePhoneMobileIcon />
                     </template>
@@ -15,11 +21,6 @@
                         Скачать в RuStore
                     </template>
                 </PLinkButton>
-                <RouterLink to="/app" class="sbtn sbtn-outlined">
-                    <IconWithLabel label="Пересчитать онлайн">
-                        <GlobeAltIconOutline class="icon-20" />
-                    </IconWithLabel>
-                </RouterLink>
             </div>
             <div class="scroll-tip">
                 <div class="txt-h-caption">Подробнее</div>
