@@ -3,8 +3,8 @@
         <div class="header__content">
             <div class="header-welcome">
                 <img class="header-logo" :src=ProportioLogo />
-                <h1 class="header-title">Привет 👋<br>это <span class="header-app-name">Пропорцио</span></h1>
-                <p class="header-subtitle">Пересчитайте любой рецепт за минуту</p>
+                <h2 class="header-subtitle">Привет 👋<br>это&nbsp;<span class="header-app-name">Пропорцио</span></h2>
+                <h1 class="header-title">Пересчитайте любой рецепт за&nbsp;минуту</h1>
             </div>
             <div class="header-actions">
                 <RouterLink to="/app" class="sbtn btn-filled-primary">
@@ -156,23 +156,18 @@
 
 <script setup>
 import { ArrowDownTrayIcon, ClipboardDocumentListIcon, FolderOpenIcon, ShareIcon } from '@heroicons/vue/24/outline';
-import AuthorImageUrl from '@/assets/img/stepan-zakharov.jpg'
-import Card from '@/components/Card.vue'
 import CulinaryUseCase from '@/components/CulinaryUseCase.vue'
-import CloudTipsLogo from '@/assets/logo/cloudtips.svg'
-import DonationCard from './DonationCard.vue'
 import IconWithLabel from './IconWithLabel.vue'
 import LandingArticle from './LandingArticle.vue'
 import PLinkButton from '@/ui/PLinkButton.vue'
 import PRuStoreButton from '@/ui/PRuStoreButton.vue'
 import ProportioLogo from '@/assets/logo/proportio.svg'
 import SocialCard from './SocialCard.vue'
-import TBankLogo from '@/assets/logo/tbank.svg'
 import TelegramLogo from '@/assets/logo/telegram.svg'
 import VKLogo from '@/assets/logo/vk.svg'
 import YandexFormsLogo from '@/assets/logo/yandex-forms.svg'
 import { useSocialStore } from '@/stores/socialStore'
-import { DevicePhoneMobileIcon, GlobeAltIcon } from '@heroicons/vue/16/solid';
+import { DevicePhoneMobileIcon } from '@heroicons/vue/16/solid';
 
 const social = useSocialStore()
 </script>
@@ -237,10 +232,14 @@ const social = useSocialStore()
 
 .header-title {
     font-size: 24px;
-    /* 40px = 24px + 16px */
-    line-height: 40px;
     text-align: center;
     font-weight: var(--weight-semibold);
+}
+
+.header-subtitle {
+    font-size: 24px;
+    font-weight: var(--weight-semibold);
+    text-align: center;
 }
 
 .header-app-name { color: var(--blue-ribbon-600); }
@@ -268,7 +267,6 @@ const social = useSocialStore()
         font-size: 30px;
         line-height: 48px;
     }
-    .header-subtitle { font-size: 20px; }
 }
 
 .landing-main {
