@@ -29,12 +29,6 @@
                                 </template>
                                 Скопировать
                             </PMenuButton>
-                            <PMenuButton @click="proportio.navToSupport()">
-                                <template #icon>
-                                    <HeartIconSolid class="txt-cerise-600" />
-                                </template>
-                                Поддержать проект
-                            </PMenuButton>
                             <PMenuButton @click="proportio.navToHelp()">
                                 <template #icon>
                                     <QuestionMarkCircleIcon />

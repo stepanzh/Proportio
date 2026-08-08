@@ -3,11 +3,17 @@
         <div class="header__content">
             <div class="header-welcome">
                 <img class="header-logo" :src=ProportioLogo />
-                <h1 class="header-title">Привет 👋<br>это <span class="header-app-name">Пропорцио</span></h1>
-                <p class="header-subtitle">Пересчитайте любой рецепт за минуту</p>
+                <h2 class="header-subtitle">Привет 👋<br>это&nbsp;<span class="header-app-name">Пропорцио</span></h2>
+                <h1 class="header-title">Пересчитайте любой рецепт за&nbsp;минуту</h1>
             </div>
             <div class="header-actions">
-                <PLinkButton class="sbtn btn-filled-primary" :href="social.rustoreApp">
+                <RouterLink to="/app" class="sbtn btn-filled-primary">
+                    <IconWithLabel label="Пересчитать онлайн">
+                        <GlobeAltIconOutline class="icon-20" />
+                    </IconWithLabel>
+                </RouterLink>
+                <p class="txt-h-caption" style="text-align: center;">или</p>
+                <PLinkButton class="sbtn sbtn-outlined" :href="social.rustoreApp">
                     <template #icon>
                         <DevicePhoneMobileIcon />
                     </template>
@@ -15,16 +21,6 @@
                         Скачать в RuStore
                     </template>
                 </PLinkButton>
-                <RouterLink to="/app" class="sbtn sbtn-outlined">
-                    <IconWithLabel label="Пересчитать онлайн">
-                        <GlobeAltIconOutline class="icon-20" />
-                    </IconWithLabel>
-                </RouterLink>
-                <a href="#support-proportio" class="sbtn sbtn-outlined">
-                    <IconWithLabel label="Поддержать">
-                        <HeartIconSolid class="txt-cerise-600 icon-20" />
-                    </IconWithLabel>
-                </a>
             </div>
             <div class="scroll-tip">
                 <div class="txt-h-caption">Подробнее</div>
@@ -44,38 +40,6 @@
         </nav>
     </div>
     <main class="landing-main">
-        <Card class="author">
-            <img class="author-img" :src=AuthorImageUrl />
-            <h2 class="sh1 author__h">
-                Привет 👋<br>
-                Я Степан, создатель Пропорцио
-            </h2>
-            <section class="author__story">
-                <p class="stxt">Несколько лет назад я учился готовить по&nbsp;роликам <a href="https://borsch-company.ru/" ref="nofollow">Borsch</a>-а и&nbsp;<a href="https://vk.com/atpiska" rel="nofollow">Обломова</a>, пробовал рецепты из&nbsp;Интернета. Часто в&nbsp;них были слишком большие порции или у&nbsp;меня было не то количество чего&#8209;нибудь, поэтому рецепты приходилось пересчитывать. Так&nbsp;и&nbsp;появился Пропорцио.</p>
-                <p class="stxt">Я поддерживаю калькулятор в&nbsp;одиночку и&nbsp;в&nbsp;свободное время. Веб-версию выпустил в 2022-ом году, она остаётся бесплатной и без рекламы.</p>
-                <p class="stxt">В 2026-ом выпустил <a :href="social.rustoreApp">Пропорцио на Андроид</a>. В мобильной версии больше функций, и она просто удобнее.</p>
-                <p class="stxt">Вы можете помочь мне сохранить и улучшить Пропорцио. Я буду рад <a href="#support-proportio">финансовой помощи</a> и&nbsp;просто <a href="#proportio-social">обратной связи</a>.</p>
-                <p class="stxt">Пользуйтесь Пропорцио с удовольствием!</p>
-            </section>
-            <PLinkButton class="author__action btn btn-filled-primary"
-                :href="social.rustoreApp">
-                <template #icon>
-                    <DevicePhoneMobileIcon />
-                </template>
-                <template #default>
-                    Скачать в RuStore
-                </template>
-            </PLinkButton>
-            <PLinkButton class="author__action btn btn-filled-primary btn-filled-primary-cerise"
-                href="#support-proportio">
-                <template #icon>
-                    <HeartIconSolid />
-                </template>
-                <template #default>
-                    Поддержать Пропорцио
-                </template>
-            </PLinkButton>
-        </Card>
         <LandingArticle>
             <template #header>Для чего Пропорцио?</template>
             <template #default>
@@ -143,23 +107,6 @@
                 </section>
             </template>
         </LandingArticle>
-        <LandingArticle id="support-proportio">
-            <template #header>Поддержите проект</template>
-            <template #default>
-                <section class="support">
-                    <p class="stxt support__description">Пропорцио <span class="stxt-emph">бесплатный</span> и&nbsp;<span
-                            class="stxt-emph">без рекламы</span></p>
-                    <p class="stxt support__description">Если вам нравится калькулятор, поддержите разработку</p>
-                    <div class="support__donation-list">
-                        <DonationCard donate-url="https://www.tbank.ru/cf/ASVy6k1gw7z"
-                            donate-url-label="Перевести по карте" caption="из любого банка РФ"
-                            :logo-src=TBankLogo />
-                        <DonationCard donate-url="https://pay.cloudtips.ru/p/01aa1961"
-                            donate-url-label="Поддержать донатом" caption="из любого банка РФ, можно по СБП" :logo-src=CloudTipsLogo />
-                    </div>
-                </section>
-            </template>
-        </LandingArticle>
         <LandingArticle id="proportio-social">
             <template #header>Пропорцио в соцсетях</template>
             <template #default>
@@ -209,23 +156,18 @@
 
 <script setup>
 import { ArrowDownTrayIcon, ClipboardDocumentListIcon, FolderOpenIcon, ShareIcon } from '@heroicons/vue/24/outline';
-import AuthorImageUrl from '@/assets/img/stepan-zakharov.jpg'
-import Card from '@/components/Card.vue'
 import CulinaryUseCase from '@/components/CulinaryUseCase.vue'
-import CloudTipsLogo from '@/assets/logo/cloudtips.svg'
-import DonationCard from './DonationCard.vue'
 import IconWithLabel from './IconWithLabel.vue'
 import LandingArticle from './LandingArticle.vue'
 import PLinkButton from '@/ui/PLinkButton.vue'
 import PRuStoreButton from '@/ui/PRuStoreButton.vue'
 import ProportioLogo from '@/assets/logo/proportio.svg'
 import SocialCard from './SocialCard.vue'
-import TBankLogo from '@/assets/logo/tbank.svg'
 import TelegramLogo from '@/assets/logo/telegram.svg'
 import VKLogo from '@/assets/logo/vk.svg'
 import YandexFormsLogo from '@/assets/logo/yandex-forms.svg'
 import { useSocialStore } from '@/stores/socialStore'
-import { DevicePhoneMobileIcon, GlobeAltIcon } from '@heroicons/vue/16/solid';
+import { DevicePhoneMobileIcon } from '@heroicons/vue/16/solid';
 
 const social = useSocialStore()
 </script>
@@ -290,10 +232,14 @@ const social = useSocialStore()
 
 .header-title {
     font-size: 24px;
-    /* 40px = 24px + 16px */
-    line-height: 40px;
     text-align: center;
     font-weight: var(--weight-semibold);
+}
+
+.header-subtitle {
+    font-size: 24px;
+    font-weight: var(--weight-semibold);
+    text-align: center;
 }
 
 .header-app-name { color: var(--blue-ribbon-600); }
@@ -321,7 +267,6 @@ const social = useSocialStore()
         font-size: 30px;
         line-height: 48px;
     }
-    .header-subtitle { font-size: 20px; }
 }
 
 .landing-main {
