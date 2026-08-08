@@ -1,13 +1,67 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Страница не найдена — 404</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      color: #3a3a3f;
+      margin: 0;
+      background-color: #f5f5f6;
+    }
+
+    p,
+    h1 {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    a {
+      color: #0d51fd;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .layout {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      gap: 40px;
+      margin: 0 24px;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>404</h1>
-  <p>Упс! Страница, которую вы ищете, не существует</p>
-  <a href="/Proportio/">Вернуться на главную</a>
+  <div class="layout">
+    <h1>404</h1>
+    <p>Упс! Такой страницы не существует</p>
+    <div><a href="/Proportio/">Вернуться в Пропорцио</a></div>
+  </div>
 </body>
+
 </html>
