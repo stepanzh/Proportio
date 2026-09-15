@@ -1,8 +1,14 @@
 const YM_COUNTER_ID = 95640747;
 
+export const YmActionStatus = Object.freeze({
+  error: 'error',
+  success: 'success'
+})
+
 export const YmGoal = Object.freeze({
   app_calc_scale_recipe: 'app_calc_recipe_scaled',
-  app_recipe_action: 'app_recipe_action',  // params: {recipe_action: 'export' | 'import' | 'clipboard', status: 'success', 'fail' }
+  app_recipe_action: 'app_recipe_action',  // params: {recipe_action: 'export' | 'import' | 'clipboard', status: YmActionStatus }
+  goto_rustore: 'goto_rustore', // params: { goto_rustore_via: 'landing_first_screen_btn' | 'landing_navbar_btn' | 'landing_footer' | 'app_navbar_btn' }
 });
 
 export function ymReachGoal(target, params = undefined, callback = undefined, ctx = undefined) {

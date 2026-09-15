@@ -13,7 +13,7 @@
                     </IconWithLabel>
                 </RouterLink>
                 <p class="txt-h-caption" style="text-align: center;">или</p>
-                <PLinkButton class="sbtn sbtn-outlined" :href="social.rustoreApp">
+                <PLinkButton class="sbtn sbtn-outlined" :href="social.rustoreApp" @click="handleGotoRustoreFromFirstScreen">
                     <template #icon>
                         <DevicePhoneMobileIcon />
                     </template>
@@ -36,7 +36,7 @@
                 <img :src=ProportioLogo class="nav-logo__img" />
                 <span class="nav-logo__txt">Пропорцио</span>
             </a>
-            <PRuStoreButton />
+            <PRuStoreButton ymGotoRustoreVia="landing_navbar_btn" />
         </nav>
     </div>
     <main class="landing-main">
@@ -147,7 +147,7 @@
     </main>
     <footer class="landing-footer">
         <div class="footer__content">
-            <PRuStoreButton />
+            <PRuStoreButton ymGotoRustoreVia="landing_footer" />
             <small>&copy; Степан Захаров, 2022-2026</small>
             <small><a :href=social.stepanzhBlog.href>{{ social.stepanzhBlog.hostname }}</a></small>
         </div>
@@ -168,8 +168,23 @@ import VKLogo from '@/assets/logo/vk.svg'
 import YandexFormsLogo from '@/assets/logo/yandex-forms.svg'
 import { useSocialStore } from '@/stores/socialStore'
 import { DevicePhoneMobileIcon } from '@heroicons/vue/16/solid';
+import { YmGoal, ymReachGoal } from '@/lib/metrika.js';
 
 const social = useSocialStore()
+
+// DRY
+function handleGotoRustoreFromFirstScreen(event) {
+    event.preventDefault()
+    ymReachGoal(
+        YmGoal.goto_rustore,
+        { goto_rustore_via: 'landing_first_screen_btn' },
+        () => {
+            // For debug
+            // setTimeout(() => {window.location.href = social.rustoreApp }, 5000)
+            window.location.href = social.rustoreApp
+        }
+    )
+}
 </script>
 
 <style scoped>
