@@ -5,7 +5,7 @@
                 <img class="site-nav__logo" src="@/assets/logo/proportio.svg">
                 <span class="site-nav__title">Пропорцио</span>
             </RouterLink>
-            <PRuStoreButton />
+            <PRuStoreButton ymGotoRustoreVia="app_navbar_btn" />
         </nav>
     </div>
 </template>

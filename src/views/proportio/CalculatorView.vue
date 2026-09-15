@@ -100,6 +100,7 @@ import { downloadJson } from '@/lib/download'
 import { RecipeImporter } from '@/lib/recipeImporter'
 import PMenuButton from '@/ui/PMenuButton.vue'
 import { QuestionMarkCircleIcon } from '@heroicons/vue/24/outline'
+import { YmActionStatus, YmGoal, ymReachGoal } from '@/lib/metrika'
 
 const proportio = useProportioNavStore()
 const store = useProportioCalculatorStore()
@@ -153,8 +154,14 @@ function copyRecipeToClipboard() {
 
     copyToClipboard({
         string: recipeAsString,
-        onFailure: (e) => toastStore.showError('Не удалось скопировать рецепт'),
-        onSuccess: () => toastStore.showSuccess('Рецепт скопирован в буфер обмена'),
+        onFailure: (e) => {
+            toastStore.showError('Не удалось скопировать рецепт')
+            ymReachGoal(YmGoal.app_recipe_action, {'recipe_action': 'clipboard', 'status': YmActionStatus.error})
+        },
+        onSuccess: () => {
+            toastStore.showSuccess('Рецепт скопирован в буфер обмена')
+            ymReachGoal(YmGoal.app_recipe_action, {'recipe_action': 'clipboard', 'status': YmActionStatus.success})
+        },
     })
 }
 
