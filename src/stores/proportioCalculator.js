@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 
 import { prettifyNumber } from '@/lib/prettifyNumber'
 import { useProportioOnboardingStore } from '@/stores/proportioOnboarding'
+import { YmGoal, ymReachGoal } from '@/lib/metrika'
 
 
 export const useProportioCalculatorStore = defineStore('proportio-calculator', () => {
@@ -104,7 +105,7 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
     }
 
     function onScaleAmountChanged(forId) {
-        console.log(`SAmount changed for ${forId}`)
+        // console.log(`SAmount changed for ${forId}`)
 
         onboardingStore.isOnboardingForScaledModeEnabled = false
 
@@ -115,12 +116,22 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
         updateScaleAmounts(forId, scaleFactor.value)
     }
 
+    let scaleTimeoutId = null
     function updateScaleAmounts(excludeId, scaleBy) {
         ingredients.value
             .filter((ingr) => ingr.id !== excludeId)
             .forEach((ingr) => {
                 updateScaleAmount(ingr, scaleBy)
             })
+        
+        // Trigger ym goal once per second
+        if (scaleTimeoutId) {
+            clearTimeout(scaleTimeoutId)
+        }
+        scaleTimeoutId = setTimeout(() => {
+            ymReachGoal(YmGoal.app_calc_scale_recipe);
+            scaleTimeoutId = null; // Очищаем ссылку после успешного выполнения
+        }, 1000)
     }
 
     function updateScaleAmount(ingr, scaleBy) {
