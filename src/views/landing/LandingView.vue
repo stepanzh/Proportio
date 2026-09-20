@@ -7,7 +7,7 @@
                 <h1 class="header-title">Пересчитайте любой рецепт за&nbsp;минуту</h1>
             </div>
             <div class="header-actions">
-                <RouterLink to="/app" class="sbtn btn-filled-primary">
+                <RouterLink to="/app" class="sbtn btn-filled-primary" @click="handleGotoAppFromFirstScreen">
                     <IconWithLabel label="Пересчитать онлайн">
                         <GlobeAltIconOutline class="icon-20" />
                     </IconWithLabel>
@@ -172,6 +172,10 @@ import { YmGoal, ymReachGoal } from '@/lib/metrika.js';
 
 const social = useSocialStore()
 
+function handleGotoAppFromFirstScreen(event) {
+    ymReachGoal(YmGoal.landing_goto_app);
+}
+
 // DRY
 function handleGotoRustoreFromFirstScreen(event) {
     event.preventDefault()
@@ -185,6 +189,7 @@ function handleGotoRustoreFromFirstScreen(event) {
         }
     )
 }
+
 </script>
 
 <style scoped>
