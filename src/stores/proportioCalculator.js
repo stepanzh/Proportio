@@ -57,6 +57,8 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
         }
 
         ingredients.value.push(ingr)
+
+        ymReachGoal(YmGoal.app_recipe_add_ingredient);
     }
 
     function remove(id) {

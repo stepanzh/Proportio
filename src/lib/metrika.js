@@ -8,6 +8,7 @@ export const YmActionStatus = Object.freeze({
 export const YmGoal = Object.freeze({
   app_calc_scale_recipe: 'app_calc_recipe_scaled',
   app_recipe_action: 'app_recipe_action',  // params: {recipe_action: 'export' | 'import' | 'clipboard', status: YmActionStatus }
+  app_recipe_add_ingredient: 'app_recipe_add_ingredient',
   goto_rustore: 'goto_rustore', // params: { goto_rustore_via: 'landing_first_screen_btn' | 'landing_navbar_btn' | 'landing_footer' | 'app_navbar_btn' }
   landing_goto_app: 'landing_goto_app'
 });
