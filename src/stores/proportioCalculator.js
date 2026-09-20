@@ -117,6 +117,7 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
     }
 
     let scaleTimeoutId = null
+    let scaleMetrikaSentOnce = false
     function updateScaleAmounts(excludeId, scaleBy) {
         ingredients.value
             .filter((ingr) => ingr.id !== excludeId)
@@ -128,10 +129,13 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
         if (scaleTimeoutId) {
             clearTimeout(scaleTimeoutId)
         }
-        scaleTimeoutId = setTimeout(() => {
-            ymReachGoal(YmGoal.app_calc_scale_recipe);
-            scaleTimeoutId = null; // Очищаем ссылку после успешного выполнения
-        }, 1000)
+        if (!scaleMetrikaSentOnce) {
+            scaleTimeoutId = setTimeout(() => {
+                ymReachGoal(YmGoal.app_calc_scale_recipe);
+                scaleTimeoutId = null; // Очищаем ссылку после успешного выполнения
+                scaleMetrikaSentOnce = true; // Send once
+            }, 1000)
+        }
     }
 
     function updateScaleAmount(ingr, scaleBy) {
