@@ -127,6 +127,8 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
                 updateScaleAmount(ingr, scaleBy)
             })
         
+        onRecipeScaled()
+        
         // Trigger ym goal once per second
         if (scaleTimeoutId) {
             clearTimeout(scaleTimeoutId)
@@ -174,6 +176,37 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
         return text
     }
 
+    /* region: banner for android user */
+    function checkIsAndroid() {
+        // Modern way
+        if (navigator.userAgentData && navigator.userAgentData.platform) {
+            return navigator.userAgentData.platform.toLowerCase() === 'android'
+        }
+        // Old way
+        return /Android/i.test(navigator.userAgent)
+    }
+
+    let isAndroid = checkIsAndroid()
+    let androidBannerWasShownOnce = false
+    const isAndroidBannerVisible = ref(false)
+
+    function hideAndroidBanner() {
+        isAndroidBannerVisible.value = false
+        androidBannerWasShownOnce = true
+    }
+
+    function onRecipeScaled() {
+        if (androidBannerWasShownOnce) {
+            isAndroidBannerVisible.value = false
+        }
+        if (!androidBannerWasShownOnce && isAndroid) {
+            setTimeout(() => {
+                isAndroidBannerVisible.value = true
+            }, 1000)
+        }
+    }
+    /* endregion: banner for android user */
+
     return {
         ingredients,
         numberOfIngredients,
@@ -183,5 +216,7 @@ export const useProportioCalculatorStore = defineStore('proportio-calculator', (
         moveTowardsFirstOnce,
         moveTowardsLastOnce,
         getRecipeAsPlainTextTabular,
+        isAndroidBannerVisible,
+        hideAndroidBanner,
     }
 })

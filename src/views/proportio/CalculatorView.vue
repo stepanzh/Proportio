@@ -80,6 +80,7 @@
                 <OriginalTable v-if="mode === Modes.original" />
                 <ScaledTable v-if="mode === Modes.scale" />
             </div>
+            <BannerForAndroidUser />
         </template>
     </AppScreen>
 </template>
@@ -101,6 +102,7 @@ import { RecipeImporter } from '@/lib/recipeImporter'
 import PMenuButton from '@/ui/PMenuButton.vue'
 import { QuestionMarkCircleIcon } from '@heroicons/vue/24/outline'
 import { YmActionStatus, YmGoal, ymReachGoal } from '@/lib/metrika'
+import BannerForAndroidUser from '@/components/BannerForAndroidUser.vue'
 
 const proportio = useProportioNavStore()
 const store = useProportioCalculatorStore()
