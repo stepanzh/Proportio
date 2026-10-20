@@ -6,9 +6,7 @@
                     <img class="android-banner__header__logo" src="@/assets/logo/proportio.svg">
                     <h6 class="android-banner__header__h">Пропорцио на Андройд</h6>
                 </div>
-                <p class="android-banner__body">Пересчёт на общую массу и форму, рецепт из скриншота и подсветка на
-                    время
-                    готовки. Всё удобнее и всегда под рукой</p>
+                <p class="android-banner__body">Пересчёт на общую массу и форму, рецепт из скриншота и подсветка на время готовки. Удобнее и всегда под рукой</p>
                 <div class="android-banner__actions">
                     <PButton label="В другой раз" @click="store.hideAndroidBanner" class="btn-label-banner" />
                     <PLinkButton :href="rustoreHref" @click="handleDownloadClick" class="p-link-btn-banner">
