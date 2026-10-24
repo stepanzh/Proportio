@@ -128,13 +128,8 @@
             <template #header>Обратная связь</template>
             <template #default>
                 <section class="feedback">
-                    <p class="stxt feedback__description">Пройдите опрос по улучшению Пропорцио или сообщите о чём-нибудь</p>
+                    <p class="stxt feedback__description">Сообщите о чём-нибудь, используя форму</p>
                     <div class="feedback__list">
-                        <SocialCard
-                            :url=social.feedbackSurvey.href
-                            label="Опрос по улучшению"
-                            caption="Яндекс.Формы"
-                            :logo-src=YandexFormsLogo />
                         <SocialCard
                             :url=social.feedbackFreeForm.href
                             label="Форма обратной связи"
