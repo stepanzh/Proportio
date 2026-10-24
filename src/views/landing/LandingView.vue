@@ -83,9 +83,11 @@
         <LandingArticle>
             <template #header>Калькулятор для рецептов</template>
             <template #default>
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
+                <section class="feature">
+                    <FreeAndroidFeatureCard />
+                    <PremiumAndroidFeatureCard />
+                    <BrowserFeatureCard />
+                </section>
             </template>
         </LandingArticle>
         <LandingArticle id="proportio-feedback">
@@ -133,6 +135,9 @@ import { useSocialStore } from '@/stores/socialStore'
 import { DevicePhoneMobileIcon } from '@heroicons/vue/16/solid';
 import { YmGoal, ymReachGoal } from '@/lib/metrika.js';
 import Card from '@/components/Card.vue';
+import FreeAndroidFeatureCard from './feature/FreeAndroidFeatureCard.vue'
+import PremiumAndroidFeatureCard from './feature/PremiumAndroidFeatureCard.vue'
+import BrowserFeatureCard from './feature/BrowserFeatureCard.vue'
 
 const social = useSocialStore()
 
@@ -156,8 +161,7 @@ function handleGotoRustoreFromFirstScreen(event) {
 
 </script>
 
-<style scoped>
-/* region common */
+<style>
 .sbtn {
     display: flex;
     justify-content: center;
@@ -183,8 +187,9 @@ function handleGotoRustoreFromFirstScreen(event) {
 }
 .sbtn-outlined:hover { background: var(--blue-ribbon-100); }
 .sbtn-outlined:active { background: var(--blue-ribbon-200); }
-/* endregion common */
+</style>
 
+<style scoped>
 .landing-header {
     height: 100vh;
     width: 100vw;
@@ -332,45 +337,6 @@ function handleGotoRustoreFromFirstScreen(event) {
         border-radius: 8px;
     }
 }
-.author { gap: 16px; }
-
-.author-img {
-    display: inline-block;
-    align-self: center;
-    width: min(320px, 100%);
-    max-height: 320px;
-    box-shadow: var(--demotion-1);
-    border-radius: 16px;
-}
-
-.author__h {
-    margin: 0;
-}
-
-.author__story {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.author__action {
-    display: inline-block;
-    text-decoration: none;
-    align-self: center;
-    margin-top: 16px;
-}
-
-@media only screen and (min-width: 640px) {
-    .author__h {
-        font-size: 24px;
-        line-height: 33px;
-        text-align: center;
-    }
-    
-    .author__story {
-        gap: 32px;
-    }
-}
 
 .use-cases__header {
     text-align: center;
@@ -388,6 +354,12 @@ function handleGotoRustoreFromFirstScreen(event) {
         gap: 24px;
     }
     .use-cases__header { margin-bottom: 32px; }
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
 
 .support__description,
