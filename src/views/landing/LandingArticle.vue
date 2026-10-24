@@ -5,9 +5,9 @@
                 <slot name="header" />
             </h2>
         </header>
-        <Card>
+        <div>
             <slot />
-        </Card>
+        </div>
     </article>
 </template>
 
