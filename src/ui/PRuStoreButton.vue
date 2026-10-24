@@ -6,7 +6,7 @@
 
 <script setup>
 import RustoreDownloadLight from '@/assets/logo/rustore-download-light.svg'
-import { YmGoal, ymReachGoal } from '@/lib/metrika'
+import { createGotoRustoreViaClick, YmGoal, ymReachGoal } from '@/lib/metrika'
 import { useSocialStore } from '@/stores/socialStore'
 
 const props = defineProps({
@@ -18,22 +18,24 @@ const props = defineProps({
 
 const rustoreHref = (useSocialStore()).rustoreApp
 
-// DRY with landing
-function handleClick(event) {
-    if (props.ymGotoRustoreVia) {
-        event.preventDefault()
+const handleClick = createGotoRustoreViaClick(rustoreHref, props.ymGotoRustoreVia ? props.ymGotoRustoreVia : 'unknown')
 
-        ymReachGoal(
-            YmGoal.goto_rustore,
-            { goto_rustore_via: props.ymGotoRustoreVia },
-            () => {
-                // For debug
-                // setTimeout(() => {window.location.href = rustoreHref }, 5000)
-                window.location.href = rustoreHref
-            }
-        )
-    }
-}
+// // DRY with landing
+// function handleClick(event) {
+//     if (props.ymGotoRustoreVia) {
+//         event.preventDefault()
+
+//         ymReachGoal(
+//             YmGoal.goto_rustore,
+//             { goto_rustore_via: props.ymGotoRustoreVia },
+//             () => {
+//                 // For debug
+//                 // setTimeout(() => {window.location.href = rustoreHref }, 5000)
+//                 window.location.href = rustoreHref
+//             }
+//         )
+//     }
+// }
 </script>
 
 <style>

@@ -43,105 +43,71 @@
         <LandingArticle>
             <template #header>Для чего Пропорцио?</template>
             <template #default>
-                <section class="use-cases">
-                    <header class="use-cases__header">
-                        <h3 class="sh2">🧑‍🍳 Кулинария</h3>
-                    </header>
-                    <div class="use-cases__list">
-                        <CulinaryUseCase emoji="🍰" title="Кондитерские изделия"
-                            description="Торты, конфеты, пирожные, печенье, мороженое" />
-                        <CulinaryUseCase emoji="🥖" title="Тесто и выпечка" description="Хлеб, пироги, куличи, пицца" />
-                        <CulinaryUseCase emoji="🥗" title="Салаты"
-                            description="Для баланса вкусов и правильной текстуры" />
-                        <CulinaryUseCase emoji="🍝" title="Соусы, заправки и масла"
-                            description="Для баланса вкусов и правильной текстуры" />
-                        <CulinaryUseCase emoji="🍖" title="Маринады" description="Шашлыки, стейки и барбекю" />
-                        <CulinaryUseCase emoji="🥫️" title="Консервация"
-                            description="Варенье, маринованые огурцы и помидоры, заготовки на&nbsp;зиму" />
-                        <CulinaryUseCase emoji="🥤" title="Напитки"
-                            description="Лимонады, соки, компоты, коктейли, настойки, домашнее вино" />
-                        <CulinaryUseCase emoji="🥳" title="Меню на большую компанию"
-                            description="Для расчёта покупок и блюд к столу, когда гостей много" />
-                        <CulinaryUseCase emoji="❤️" title="Здоровое и спортивное питание"
-                            description="Для правильного размера порции и состава" />
-                    </div>
-                </section>
-                <section class="use-cases">
-                    <header class="use-cases__header">
-                        <h3 class="sh2">🧑‍🎨 Творчество и хобби</h3>
-                    </header>
-                    <section>
-                        <p class="stxt">Изделия из гипса, домашнее мыло и ароматы. Пропорцио подходит для точного
-                            расчёта смесей и&nbsp;растворов.</p>
+                <Card>
+                    <section class="use-cases">
+                        <header class="use-cases__header">
+                            <h3 class="sh2">🧑‍🍳 Кулинария</h3>
+                        </header>
+                        <div class="use-cases__list">
+                            <CulinaryUseCase emoji="🍰" title="Кондитерские изделия"
+                                description="Торты, конфеты, пирожные, печенье, мороженое" />
+                            <CulinaryUseCase emoji="🥖" title="Тесто и выпечка"
+                                description="Хлеб, пироги, куличи, пицца" />
+                            <CulinaryUseCase emoji="🥗" title="Салаты"
+                                description="Для баланса вкусов и правильной текстуры" />
+                            <CulinaryUseCase emoji="🍝" title="Соусы, заправки и масла"
+                                description="Для баланса вкусов и правильной текстуры" />
+                            <CulinaryUseCase emoji="🍖" title="Маринады" description="Шашлыки, стейки и барбекю" />
+                            <CulinaryUseCase emoji="🥫️" title="Консервация"
+                                description="Варенье, маринованые огурцы и помидоры, заготовки на&nbsp;зиму" />
+                            <CulinaryUseCase emoji="🥤" title="Напитки"
+                                description="Лимонады, соки, компоты, коктейли, настойки, домашнее вино" />
+                            <CulinaryUseCase emoji="🥳" title="Меню на большую компанию"
+                                description="Для расчёта покупок и блюд к столу, когда гостей много" />
+                            <CulinaryUseCase emoji="❤️" title="Здоровое и спортивное питание"
+                                description="Для правильного размера порции и состава" />
+                        </div>
                     </section>
-                </section>
+                    <section class="use-cases">
+                        <header class="use-cases__header">
+                            <h3 class="sh2">🧑‍🎨 Творчество и хобби</h3>
+                        </header>
+                        <section>
+                            <p class="stxt">Изделия из гипса, домашнее мыло и ароматы. Пропорцио подходит для точного
+                                расчёта смесей и&nbsp;растворов.</p>
+                        </section>
+                    </section>
+                </Card>
             </template>
         </LandingArticle>
         <LandingArticle>
             <template #header>Калькулятор для рецептов</template>
             <template #default>
                 <section class="feature">
-                    <div class="feature-mode-toggle">
-                        <PButton label="Как в рецепте" class="feature-orig-btn mode-toggle__left btn-outlined readonly">
-                            <template #icon>
-                                <ListBulletIconMini />
-                            </template>
-                        </PButton>
-                        <PButton label="Пересчитать"
-                            class="feature-scale-btn mode-toggle__right btn-filled-primary readonly">
-                            <template #icon>
-                                <CalculatorIconMini />
-                            </template>
-                        </PButton>
-                    </div>
-                    <p class="stxt feature__description">В Пропорцио вы можете пересчитать рецепт на&nbsp;ингредиент или&nbsp;число порций</p>
-                </section>
-                <section class="feature">
-                    <div class="feature__icon-list">
-                        <FolderOpenIcon />
-                        <ArrowDownTrayIcon />
-                        <ClipboardDocumentListIcon />
-                        <ShareIcon />
-                    </div>
-                    <p class="stxt feature__description">Рецепты можно сохранять и делиться ими</p>
-                </section>
-            </template>
-        </LandingArticle>
-        <LandingArticle id="proportio-social">
-            <template #header>Пропорцио в соцсетях</template>
-            <template #default>
-                <section class="social">
-                    <p class="stxt social__description">Присоединяйтесь, чтобы не упустить обновления и&nbsp;выпуск
-                        мобильного приложения</p>
-                    <div class="social__list">
-                        <SocialCard :url=social.telegramChannel.href
-                            :label=social.telegramChannel.hostname.concat(social.telegramChannel.pathname)
-                            caption="Телеграмм" :logo-src=TelegramLogo />
-                        <SocialCard :url=social.vkChannel.href
-                            :label=social.vkChannel.hostname.concat(social.vkChannel.pathname) caption="вконтакте"
-                            :logo-src=VKLogo />
-                    </div>
+                    <FreeAndroidFeatureCard />
+                    <PremiumAndroidFeatureCard />
+                    <BrowserFeatureCard />
                 </section>
             </template>
         </LandingArticle>
         <LandingArticle id="proportio-feedback">
             <template #header>Обратная связь</template>
             <template #default>
-                <section class="feedback">
-                    <p class="stxt feedback__description">Пройдите опрос по улучшению Пропорцио или сообщите о чём-нибудь</p>
-                    <div class="feedback__list">
-                        <SocialCard
-                            :url=social.feedbackSurvey.href
-                            label="Опрос по улучшению"
-                            caption="Яндекс.Формы"
-                            :logo-src=YandexFormsLogo />
-                        <SocialCard
-                            :url=social.feedbackFreeForm.href
-                            label="Форма обратной связи"
-                            caption="Яндекс.Формы"
-                            :logo-src=YandexFormsLogo />
-                    </div>
-                </section>
+                <Card>
+                    <section class="feedback">
+                        <p class="stxt feedback__description">Свяжитесь с нами через соцсеть или форму обратной связи</p>
+                        <div class="feedback__list">
+                            <SocialCard :url=social.vkChannel.href
+                                :label=social.vkChannel.hostname.concat(social.vkChannel.pathname) caption="вконтакте"
+                                :logo-src=VKLogo />
+                            <SocialCard :url=social.telegramChannel.href
+                                :label=social.telegramChannel.hostname.concat(social.telegramChannel.pathname)
+                                caption="Телеграмм" :logo-src=TelegramLogo />
+                            <SocialCard :url=social.feedbackFreeForm.href label="Форма обратной связи"
+                                caption="Яндекс.Формы" :logo-src=YandexFormsLogo />
+                        </div>
+                    </section>
+                </Card>
             </template>
         </LandingArticle>
     </main>
@@ -155,7 +121,6 @@
 </template>
 
 <script setup>
-import { ArrowDownTrayIcon, ClipboardDocumentListIcon, FolderOpenIcon, ShareIcon } from '@heroicons/vue/24/outline';
 import CulinaryUseCase from '@/components/CulinaryUseCase.vue'
 import IconWithLabel from './IconWithLabel.vue'
 import LandingArticle from './LandingArticle.vue'
@@ -169,6 +134,10 @@ import YandexFormsLogo from '@/assets/logo/yandex-forms.svg'
 import { useSocialStore } from '@/stores/socialStore'
 import { DevicePhoneMobileIcon } from '@heroicons/vue/16/solid';
 import { YmGoal, ymReachGoal } from '@/lib/metrika.js';
+import Card from '@/components/Card.vue';
+import FreeAndroidFeatureCard from './feature/FreeAndroidFeatureCard.vue'
+import PremiumAndroidFeatureCard from './feature/PremiumAndroidFeatureCard.vue'
+import BrowserFeatureCard from './feature/BrowserFeatureCard.vue'
 
 const social = useSocialStore()
 
@@ -192,8 +161,7 @@ function handleGotoRustoreFromFirstScreen(event) {
 
 </script>
 
-<style scoped>
-/* region common */
+<style>
 .sbtn {
     display: flex;
     justify-content: center;
@@ -219,8 +187,9 @@ function handleGotoRustoreFromFirstScreen(event) {
 }
 .sbtn-outlined:hover { background: var(--blue-ribbon-100); }
 .sbtn-outlined:active { background: var(--blue-ribbon-200); }
-/* endregion common */
+</style>
 
+<style scoped>
 .landing-header {
     height: 100vh;
     width: 100vw;
@@ -368,45 +337,6 @@ function handleGotoRustoreFromFirstScreen(event) {
         border-radius: 8px;
     }
 }
-.author { gap: 16px; }
-
-.author-img {
-    display: inline-block;
-    align-self: center;
-    width: min(320px, 100%);
-    max-height: 320px;
-    box-shadow: var(--demotion-1);
-    border-radius: 16px;
-}
-
-.author__h {
-    margin: 0;
-}
-
-.author__story {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.author__action {
-    display: inline-block;
-    text-decoration: none;
-    align-self: center;
-    margin-top: 16px;
-}
-
-@media only screen and (min-width: 640px) {
-    .author__h {
-        font-size: 24px;
-        line-height: 33px;
-        text-align: center;
-    }
-    
-    .author__story {
-        gap: 32px;
-    }
-}
 
 .use-cases__header {
     text-align: center;
@@ -429,48 +359,17 @@ function handleGotoRustoreFromFirstScreen(event) {
 .feature {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 32px;
 }
 
-.feature__description,
 .support__description,
-.social__description,
 .feedback__description
 {
     font-weight: var(--weight-semibold);
     text-align: center;
 }
 
-.feature-mode-toggle {
-    display: grid;
-    grid-template-columns: 1fr repeat(3, 80px) 1fr;
-    grid-template-areas: 
-        ". orig orig . ."
-        ". . scale scale .";
-}
-
-.feature-orig-btn { grid-area: orig; }
-.feature-scale-btn { grid-area: scale; }
-
-.feature-mode-toggle .btn {
-    display: block;
-}
-
-.feature__icon-list {
-    display: flex;
-    gap: 24px;
-    justify-content: center;
-}
-
-.feature__icon-list > svg {
-    padding: 6px;
-    width: 24px;
-    height: 24px;
-    color: var(--blue-ribbon-600);
-}
-
 .support,
-.social,
 .feedback
 {
     display: flex;
@@ -484,7 +383,6 @@ function handleGotoRustoreFromFirstScreen(event) {
     margin-top: 16px;
 }
 
-.social__list,
 .feedback__list
 {
     display: flex;
